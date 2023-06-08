@@ -1,4 +1,4 @@
-# Welcome to Tweetopia
+# Welcome to My Social Media application
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
