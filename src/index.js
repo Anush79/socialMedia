@@ -1,16 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router } from 'react-router-dom'
+
 import './index.css';
+import 'react-toastify/dist/ReactToastify.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { makeServer } from "./server";
 
+import { useAuth, AuthProvider } from './context/authContext';
+import { usePost, PostProvider } from './context/postContext'
+export { useAuth ,usePost}
 // Call make Server
 makeServer();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <AuthProvider>
+        <PostProvider>
+          <App />
+        </PostProvider>
+      </AuthProvider>
+
+    </Router>
+
   </React.StrictMode>
 );
 

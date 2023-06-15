@@ -16,4 +16,14 @@ export const users = [
     updatedAt: formatDate(),
     bookmarks: [],
   },
+  {
+    _id: uuid(),
+    firstName: "Anushka",
+    lastName: "Jaiswal",
+    username: "anushka",
+    password: "a1n2u3s4h5k6a7",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    bookmarks: [],
+  },
 ];
