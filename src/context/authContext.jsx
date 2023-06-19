@@ -6,9 +6,10 @@ import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
 
+const localStorageData = JSON.parse(localStorage.getItem("loginDetails"));
 export function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState();
-  const [token, setToken] = useState();
+  const [currentUser, setCurrentUser] = useState(localStorageData.user);
+  const [token, setToken] = useState(localStorageData.token);
 
   const navigate = useNavigate();
 
@@ -19,8 +20,10 @@ export function AuthProvider({ children }) {
         data: { encodedToken, foundUser, error },
         status,
       } = response;
+
       setToken(encodedToken);
       setCurrentUser(() => foundUser);
+      localStorage.setItem("loginDetails", JSON.stringify({ user: foundUser, token: encodedToken }))
       if (status === 200) {
         toast.success(`Welcome back ${foundUser.firstName}`);
         navigate("/home");
@@ -39,6 +42,8 @@ export function AuthProvider({ children }) {
       } = response;
       setToken(encodedToken);
       setCurrentUser(() => createdUser);
+      localStorage.setItem("loginDetails", JSON.stringify({ user: createdUser, token: encodedToken }))
+
       if (status === 201) {
         toast.success(`Hello ${createdUser.firstName}! Welcome to Tweetopia`);
         navigate("/home");
@@ -48,8 +53,15 @@ export function AuthProvider({ children }) {
     }
   };
 
+  const logOutFunction = async () => {
+    setToken(() => null);
+    setCurrentUser(() => null);
+    toast.success("logged out successfully");
+    localStorage.removeItem("loginDetails");
+    navigate("/");
+  };
   return (
-    <AuthContext.Provider value={{ loginFunction, signUpFunction,token ,currentUser}}>
+    <AuthContext.Provider value={{ loginFunction, signUpFunction,logOutFunction, token, currentUser }}>
       {children}
     </AuthContext.Provider>
   );
