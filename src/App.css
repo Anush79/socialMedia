@@ -1,8 +1,15 @@
 .App {
   text-align: center;
   font-family:cursive;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
-
+.main{
+  width: 100%;
+}
 form{
   display: flex;
   flex-direction: column;
@@ -27,4 +34,20 @@ button{
 }
 button:hover{
   background:rgb(6, 138, 6)
+}
+.homePage{
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  align-items: start;
+  justify-items: center;
+  min-height: 80vh;
+}
+.tweetCard{
+  border-radius: 10px;
+  border: 2px dashed rgb(102, 102, 255);
+  margin: 3px ;
+}
+.suggestedProfile{
+  border: 1px solid blue;
+  margin: 2px;
 }
