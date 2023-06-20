@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import './App.css';
 
+import {useAuth} from './'
 
 import Notification from './components/Notification';
 import Login from './pages/landing/login';
@@ -10,8 +11,10 @@ import Footer from './components/Footer';
 import Profile from './pages/profile/index'
 import TweetsSection from './components/TweetsSection';
 import Search from './components/Search';
+import RequiresAuth from './components/RequiresAuth';
 
 function App() {
+  const {token} = useAuth()
   return (
     <div className="App">
       <Header />
@@ -19,7 +22,7 @@ function App() {
         <Notification />
         <Routes>
           <Route path='/' element={<Login />} />
-          <Route path='/home' element={<Home />}>
+          <Route path='/home' element={<RequiresAuth token={token}><Home /></RequiresAuth>}>
             <Route path='' element={<TweetsSection />} />
             <Route path='search' element={<Search />} />
             

@@ -8,6 +8,7 @@ export default function TweetCard({item}){
         <p>{content}</p>
         <p>likes:{likeCount}</p>
         <button>Like</button> 
+        <button >share</button>
        </div>
   </div>
 }

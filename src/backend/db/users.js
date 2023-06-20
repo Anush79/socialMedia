@@ -25,7 +25,7 @@ export const users = [
     username: "anushka",
     password: "a1n2u3s4h5k6a7",
     bio: "Someone with knows the value of friendship",
-    website: "https://tomHolland.com",
+    website: "https://ajaisportfolio.netlify.app",
     profileAvatar:
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686847139/tweetopia/download_pzswom.jpg",
     backgroundImage:
