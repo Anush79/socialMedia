@@ -40,5 +40,6 @@ export const likePostHandlerService = async(postId, authorization)=>{
 }
 export const dislikePostService = async(postId, authorization)=>await axios.post(`/api/posts/dislike/${postId}`, {}, {headers: {authorization}})    
 
-export const deletePostHandlerService = async(postId)=>await axios.post(`/api/user/posts/${postId}`)
+export const deletePostHandlerService =  (postId, authorization) =>
+axios.delete(`/api/posts/${postId}`, { headers: { authorization } });
 

@@ -1,7 +1,6 @@
 import {
   createContext,
   useContext,
-  useState,
   useEffect,
   useReducer,
 } from "react";
@@ -14,7 +13,7 @@ import {
   getEveryPostService,
   getPostByIdService,
   getAllUserPostsHandlerService,
-  likePostHandlerService,dislikePostService,
+  likePostHandlerService,dislikePostService,deletePostHandlerService
 } from "../services/postService";
 
 const PostContext = createContext();
@@ -24,8 +23,9 @@ export function PostProvider({ children }) {
     postReducerfunction,
     initialstate
   );
+ 
 
-  const { token } = useAuth();
+  const { token, currentUser } = useAuth();
   const { GET_EVERY_POSTS, GET_SINGLE_POST, GET_ALL_POSTS_OF_USER} =
     actionTypes;
 
@@ -80,7 +80,20 @@ export function PostProvider({ children }) {
       toast.error(error.response.data.errors[0]);
     }
   };
- 
+ const deletePostFunction=async(postId, token) =>{
+
+  try{
+    const response = await deletePostHandlerService(postId, token)
+    getAllUserPostsHandlerFunction(currentUser.username)
+    postDispatch({ type: GET_EVERY_POSTS, payload: response.data.posts });
+  }catch(error){
+    console.error(error)
+  }
+    toast.success("delete")
+ }
+ useEffect(()=>{
+  getAllUserPostsHandlerFunction(currentUser.username)
+ },[])
   return (
     <PostContext.Provider
       value={{
@@ -89,6 +102,7 @@ export function PostProvider({ children }) {
         getPostByIdFunction,
         getAllUserPostsHandlerFunction,
         dislikePostHandlerfunction,
+        deletePostFunction
       }}
     >
       {children}

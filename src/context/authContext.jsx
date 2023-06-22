@@ -17,7 +17,7 @@ export function AuthProvider({ children }) {
     try {
       const response = await loginService(username, password);
       const {
-        data: { encodedToken, foundUser, error },
+        data: { encodedToken, foundUser },
         status,
       } = response;
 

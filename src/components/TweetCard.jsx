@@ -1,12 +1,17 @@
 import { useAuth, usePost, useUser } from "../";
 import { useNavigate } from "react-router-dom";
-export default function TweetCard({ item }) {
+export default function TweetCard({ item, inBookmark }) {
   const {
     getPostByIdFunction,
     likePostHandlerfunction,
     dislikePostHandlerfunction,
+    deletePostFunction,
   } = usePost();
-  const { bookMarKPostFunction, removeFromBookmarkFunction } = useUser();
+  const {
+    bookMarKPostFunction,
+    removeFromBookmarkFunction,
+    isAlreadyBookMarked,
+  } = useUser();
   const { token, currentUser } = useAuth();
   const navigate = useNavigate();
   const {
@@ -15,15 +20,15 @@ export default function TweetCard({ item }) {
     mediaURL,
     mediaAlt,
     createdAt,
-    likes: { likeCount, likedBy, dislikedBy },
+    likes: { likeCount, likedBy },
     username,
-    comments,
+    
   } = item;
-
+  
   const isLikedByUser = likedBy.find((item) => {
     return item.username === currentUser.username;
   });
-
+ const isBookMarked= isAlreadyBookMarked(item)
   return (
     <div key={_id} className="tweetCard">
       <div
@@ -65,23 +70,34 @@ export default function TweetCard({ item }) {
         >
           share
         </button>
-        <button
-          onClick={(e) => {
-            bookMarKPostFunction(_id, token);
+        { isBookMarked?  (
+          <button
+            onClick={(e) => {
+              removeFromBookmarkFunction(_id, token);
+
+              e.stopPropagation();
+            }}
+          >
+            remove bookmark
+          </button>
+        ):(
+          <button
+            onClick={(e) => {
+              bookMarKPostFunction(_id, token);
+
+              e.stopPropagation();
+            }}
+          >
+            BookMark
+          </button>
+        ) }
+        {
+          (username===currentUser.username)&&
+          <button onClick={(e)=>{
             
             e.stopPropagation();
-           
-          }}
-        >
-          BookMark
-        </button>
-        <button onClick = {(e)=>{
-          removeFromBookmarkFunction(_id, token)
-      
-          e.stopPropagation();
-        }}>
-          remove bookmark
-        </button>
+            deletePostFunction(_id, token)}}> Delete this post</button>
+        }
         {<div className="comments">{}</div>}
       </div>
     </div>

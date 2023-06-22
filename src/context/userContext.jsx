@@ -2,7 +2,6 @@ import { createContext, useContext, useReducer, useEffect } from "react";
 import {
   getAllUsersService,
   bookMarKPostService,
-  getAllBookmarksService,
   getUserByIdService,
   removeBookmarkService,
 } from "../services/userService";
@@ -90,9 +89,15 @@ export function UserProvider({ children }) {
       console.error(error)
     }
   }
+  
+ const isAlreadyBookMarked = (post)=>{
+  
+     const indexofBookMark =users?.booksMarks.find(item=> item._id === post._id)
+     return indexofBookMark ? true : false
+ }
 
   useEffect(() => {
-    // getBookMarksFunction(token);
+
     getAllUsersFunction();
   }, [token]);
 
@@ -102,8 +107,8 @@ export function UserProvider({ children }) {
         users,
         bookMarKPostFunction,
         getUserByIdFunction,
-        // getBookMarksFunction,
         removeFromBookmarkFunction,
+        isAlreadyBookMarked
       }}
     >
       {children}

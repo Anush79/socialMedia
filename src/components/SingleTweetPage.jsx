@@ -4,10 +4,10 @@ import { usePost } from "..";
 import TweetCard from "./TweetCard";
 import UsersCard from "./UsersCard";
 export default function SingleTweet() {
-  const [displayLikeDislike, setDisplayLikeDislike] = useState({display:false, displayWhat: "likes"});
+  // const [displayLikeDislike, setDisplayLikeDislike] = useState({display:false, displayWhat: "likes"});
 
   const { allPosts } = usePost();
-  console.log(allPosts?.singlePost);
+  
   return (
     <div className="Tweet">
       {allPosts?.singlePost && <TweetCard item={allPosts?.singlePost} />}
