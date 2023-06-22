@@ -1,32 +1,119 @@
-import { createContext, useContext,useReducer, useEffect } from "react";
-import { getAllUsersService } from '../services/userService'
-import {userReducerFunction,userInitialState} from '../reducers/userReducers'
+import { createContext, useContext, useReducer, useEffect } from "react";
+import {
+  getAllUsersService,
+  bookMarKPostService,
+  getUserByIdService,
+  removeBookmarkService,
+} from "../services/userService";
+import {
+  userReducerFunction,
+  userInitialState,
+} from "../reducers/userReducers";
 import { actionTypes } from "../utils/constants";
-
-
-const UserContext = createContext()
+import { toast } from "react-toastify";
+import { useAuth } from "../";
+const UserContext = createContext();
 
 export function UserProvider({ children }) {
-  const [users, usersDispatch] = useReducer(userReducerFunction,userInitialState)
+  const [users, usersDispatch] = useReducer(
+    userReducerFunction,
+    userInitialState
+  );
+  const { token } = useAuth();
+  const { GET_ALL_USERS, GET_USER,
+    GET_BOOKMARKS } = actionTypes
+
+
 
   const getAllUsersFunction = async () => {
-    const {GET_ALL_USERS} = actionTypes
+ 
     try {
-      const response = await getAllUsersService()
-      usersDispatch({type:GET_ALL_USERS, payload: response.data.users})
+      const response = await getAllUsersService();
+      usersDispatch({ type: GET_ALL_USERS, payload: response.data.users });
+    } catch (error) {
+      toast.error(error.response.data.errors[0]);
     }
-    catch (error) {
-      console.log(error)
+  };
+
+  const getUserByIdFunction = async (userId) => {
+   
+    try {
+      const response = await getUserByIdService(userId);
+      usersDispatch({ type: GET_USER, payload: response.data.user });
+     
+    } catch (error) {
+      toast.error(error.response.data.errors[0]);
+    }
+  };
+
+  const bookMarKPostFunction = async (id, encodedToken) => {
+  
+    try {
+      const response = await bookMarKPostService(id, encodedToken);
+      if (response.status === 200) {
+        toast.success("Added BookMark");
+        usersDispatch({ type: GET_BOOKMARKS, payload: response.data.bookmarks });
+      }
+      getAllUsersFunction();
+    } catch (error) {
+      toast.error(error.response.data.errors[0]);
+    }
+  };
+
+  // const getBookMarksFunction = async (encodedToken) => {
+  //   try {
+  //     console.log(encodedToken);
+
+  //     const response = await getAllBookmarksService(encodedToken);
+  //     console.log(response);
+  //     // usersDispatch({ type: GET_BOOKMARKS, payload: response.data.bookmarks });
+  //   } catch (error) {
+  //     if (error?.response?.status === 500) {
+  //       toast.error(error.response.data.error);
+  //     } else {
+  //       console.log(error);
+  //       // toast.error(error?.response?.data?.errors[0]);
+  //     }
+  //   }
+  // };
+
+  const removeFromBookmarkFunction = async (postId, encodedToken) => {
+    try {
+      const response = await removeBookmarkService(postId, encodedToken)
+      usersDispatch({ type: GET_BOOKMARKS, payload: response.data.bookmarks });
+      if(response.status===200){
+        toast.success("Post removed from Bookmarks")
+      }
+    } catch (error) {
+      toast.error("something went wrong")
+      console.error(error)
     }
   }
-  useEffect(() => {
-    getAllUsersFunction()
-  }, [])
-console.log(users)
+  
+ const isAlreadyBookMarked = (post)=>{
+  
+     const indexofBookMark =users?.booksMarks.find(item=> item._id === post._id)
+     return indexofBookMark ? true : false
+ }
 
-  return <UserContext.Provider value={{users}}>
-    {children}
-  </UserContext.Provider>
+  useEffect(() => {
+
+    getAllUsersFunction();
+  }, [token]);
+
+  return (
+    <UserContext.Provider
+      value={{
+        users,
+        bookMarKPostFunction,
+        getUserByIdFunction,
+        removeFromBookmarkFunction,
+        isAlreadyBookMarked
+      }}
+    >
+      {children}
+    </UserContext.Provider>
+  );
 }
 
-export const useUser = () => useContext(UserContext)
+export const useUser = () => useContext(UserContext);

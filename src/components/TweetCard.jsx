@@ -1,13 +1,107 @@
-export default function TweetCard({item}){
-  const {id, content, mediaURL, mediaAlt, createdAt, likes:{likeCount, likedBy, dislikedBy}, username, comments}= item
-  return <div key={id} className="tweetCard">
-       <div className="heading">
+import { useAuth, usePost, useUser } from "../";
+import { useNavigate } from "react-router-dom";
+import {copyLinkToShare} from '../utils/utilityFunctions'
+export default function TweetCard({ item, inBookmark }) {
+  const {
+    getPostByIdFunction,
+    likePostHandlerfunction,
+    dislikePostHandlerfunction,
+    deletePostFunction,
+  } = usePost();
+  const {
+    bookMarKPostFunction,
+    removeFromBookmarkFunction,
+    isAlreadyBookMarked,
+  } = useUser();
+  const { token, currentUser } = useAuth();
+  const navigate = useNavigate();
+  const {
+    _id,
+    content,
+    mediaURL,
+    mediaAlt,
+    createdAt,
+    likes: { likeCount, likedBy },
+    username,
+    
+  } = item;
+  
+  const isLikedByUser = likedBy.find((item) => {
+    return item.username === currentUser.username;
+  });
+ const isBookMarked= isAlreadyBookMarked(item)
+  return (
+    <div key={_id} className="tweetCard">
+      <div
+        onClick={(e) => {
+          e.stopPropagation();
+          getPostByIdFunction(_id);
+          navigate(`/home/post/${_id}`);
+        }}
+        className="heading"
+      >
         <h3>{username}</h3>
         <p>{createdAt}</p>
         <img src={mediaURL} alt={mediaAlt} width="300px" />
         <p>{content}</p>
         <p>likes:{likeCount}</p>
-        <button>Like</button> 
-       </div>
-  </div>
+        {isLikedByUser ? (
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              dislikePostHandlerfunction(_id, token);
+            }}
+          >
+            Dislike
+          </button>
+        ) : (
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              likePostHandlerfunction(_id, token);
+            }}
+          >
+            Like
+          </button>
+        )}
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            copyLinkToShare(`https://tweetopiaa.netlify.app/home/post/${_id}`)
+          }}
+        >
+          share
+        </button>
+        { isBookMarked?  (
+          <button
+            onClick={(e) => {
+              removeFromBookmarkFunction(_id, token);
+
+              e.stopPropagation();
+            }}
+          >
+            remove bookmark
+          </button>
+        ):(
+          <button
+            onClick={(e) => {
+              bookMarKPostFunction(_id, token);
+
+              e.stopPropagation();
+            }}
+          >
+            BookMark
+          </button>
+        ) }
+        {
+          (username===currentUser.username)&&
+          <button onClick={(e)=>{
+            
+            e.stopPropagation();
+            deletePostFunction(_id, token)}}> Delete this post</button>
+        }
+        {<div className="comments">{}</div>}
+      </div>
+    </div>
+  );
 }

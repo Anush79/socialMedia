@@ -8,8 +8,8 @@ const AuthContext = createContext();
 
 const localStorageData = JSON.parse(localStorage.getItem("loginDetails"));
 export function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState(localStorageData.user);
-  const [token, setToken] = useState(localStorageData.token);
+  const [currentUser, setCurrentUser] = useState(localStorageData?.user);
+  const [token, setToken] = useState(localStorageData?.token);
 
   const navigate = useNavigate();
 
@@ -17,7 +17,7 @@ export function AuthProvider({ children }) {
     try {
       const response = await loginService(username, password);
       const {
-        data: { encodedToken, foundUser, error },
+        data: { encodedToken, foundUser },
         status,
       } = response;
 
@@ -25,7 +25,7 @@ export function AuthProvider({ children }) {
       setCurrentUser(() => foundUser);
       localStorage.setItem("loginDetails", JSON.stringify({ user: foundUser, token: encodedToken }))
       if (status === 200) {
-        toast.success(`Welcome back ${foundUser.firstName}`);
+        toast.success(`Welcome back ${foundUser?.firstName}`);
         navigate("/home");
       }
     } catch (error) {
@@ -45,7 +45,7 @@ export function AuthProvider({ children }) {
       localStorage.setItem("loginDetails", JSON.stringify({ user: createdUser, token: encodedToken }))
 
       if (status === 201) {
-        toast.success(`Hello ${createdUser.firstName}! Welcome to Tweetopia`);
+        toast.success(`Hello ${createdUser?.firstName}! Welcome to Tweetopia`);
         navigate("/home");
       }
     } catch (error) {
@@ -61,7 +61,7 @@ export function AuthProvider({ children }) {
     navigate("/");
   };
   return (
-    <AuthContext.Provider value={{ loginFunction, signUpFunction,logOutFunction, token, currentUser }}>
+    <AuthContext.Provider value={{ loginFunction, signUpFunction,logOutFunction, token,setCurrentUser, currentUser }}>
       {children}
     </AuthContext.Provider>
   );
