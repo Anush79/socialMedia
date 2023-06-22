@@ -67,7 +67,7 @@ export default function TweetCard({ item, inBookmark }) {
         <button
           onClick={(e) => {
             e.stopPropagation();
-            copyLinkToShare(`https://tweetopiaa.netlify.app/home/${_id}`)
+            copyLinkToShare(`https://tweetopiaa.netlify.app/home/post/${_id}`)
           }}
         >
           share
