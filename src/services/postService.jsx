@@ -8,7 +8,6 @@ export const getEveryPostService = async ()=>{
   catch(err){
     toast.error(err.message)
   }
-
 }
 
 export const getPostByIdService = async (id)=>{

@@ -64,14 +64,23 @@ export default function Login() {
               onChange={handleInput}
             />
             <button type="submit">Login</button>
-            <button
+            {/* <button
               onClick={(e) => {
                 e.preventDefault();
                 setLoginData(dummyLoginData);
               }}
             >
               Input Guest data
-            </button>
+            </button> */}
+            <button
+      onClick={(e) => {
+        e.preventDefault();
+        loginFunction("anushka","a1n2u3s4h5k6a7" )
+        // setSignUpData(() => testSignUpData);
+      }}
+    >
+      Guest login
+    </button>
             <small>New here ?👇</small> <button onClick={()=>{setSignedUpalready(false)}}>Sign Up Now</button>
           </form>
         </div>
@@ -133,10 +142,11 @@ export default function Login() {
     <button
       onClick={(e) => {
         e.preventDefault();
-        setSignUpData(() => testSignUpData);
+        loginFunction("anushka","a1n2u3s4h5k6a7" )
+        // setSignUpData(() => testSignUpData);
       }}
     >
-      Fill with Test data
+      Guest login
     </button>
     <small>Already registered ?👇</small> <button onClick={()=>{setSignedUpalready(true)}}>Login here</button>
 

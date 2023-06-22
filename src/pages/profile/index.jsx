@@ -1,10 +1,15 @@
 import { NavLink } from "react-router-dom"
-import { useAuth, usePost } from "../../"
+import { useAuth, usePost, useUser } from "../../"
 
 import TweetCard from '../../components/TweetCard'
+import { useEffect } from "react"
 export default function Profile(){
   const {currentUser, token   } = useAuth()
+  const {users:{userWithId}}=useUser()
   const {allPosts} = usePost()
+
+console.log("from profile ", currentUser)
+
   return <div className="ProfileContainer">
     <h2>Profile page</h2>
     <div className="profileHeader">
@@ -12,6 +17,7 @@ export default function Profile(){
       <img src={currentUser?.profileAvatar} alt="" width={"100px"} />
       <h3>{currentUser?.firstName}</h3>
       <h4>{currentUser?.bio}</h4>
+      <p>Following: {currentUser?.following.length} Followers: {currentUser.followers.length}</p>
       <h5><NavLink to={currentUser?.website}target="_blank">{currentUser?.website}</NavLink></h5>
     </div>
     <div className="profileBody">

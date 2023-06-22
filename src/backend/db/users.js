@@ -1,4 +1,3 @@
-
 import { formatDate } from "../utils/authUtils";
 /**
  * User Database can be added here.
@@ -7,7 +6,7 @@ import { formatDate } from "../utils/authUtils";
 
 export const users = [
   {
-    _id:"9ee10020533513s",
+    _id: "9ee10020533513s",
     firstName: "Adarsh",
     lastName: "Balika",
     username: "adarshbalika",
@@ -16,23 +15,66 @@ export const users = [
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686991791/tweetopia/_94b128e0-7598-45b2-850b-51e3be41973b_npzhwx.jpg",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    bookmarks: ["DemiLovato", "deepikaRanveer","grandeariana"]
+    following: [],
+    followers: [],
+    bookmarks: [],
   },
   {
     _id: "11p1001362635su",
-    firstName: "Anushka",
+    firstName: "Anu",
     lastName: "Jaiswal",
     username: "anushka",
     password: "a1n2u3s4h5k6a7",
-    bio: "Someone with knows the value of friendship",
+    bio: "Someone who knows the value of friendship and loves her peace of mind",
     website: "https://ajaisportfolio.netlify.app",
     profileAvatar:
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686847139/tweetopia/download_pzswom.jpg",
     backgroundImage:
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686847189/tweetopia/15618018448867-IM_Tom_Holland_Spiderman_im0mw0.jpg",
     createdAt: formatDate(),
-    following:[],
-    followers:[],
+    following: [
+      {
+        _id: "09o10001862844l",
+        firstName: "Tom",
+        lastName: "Holland",
+        profileAvatar:
+          "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686847139/tweetopia/download_pzswom.jpg",
+        username: "TomHall44",
+      },
+      {
+        _id: "z6y10006633318h",
+        firstName: "Virat",
+        lastName: "Kohli",
+        username: "ViratKohli",
+        profileAvatar:
+          "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686848614/tweetopia/Virat_Kohli_during_the_India_vs_Aus_4th_Test_match_at_Narendra_Modi_Stadium_on_09_March_2023_fseb74.jpg",
+      },
+
+    ],
+    followers: [{
+      _id: "09o10001862844l",
+      firstName: "Tom",
+      lastName: "Holland",
+      profileAvatar:
+        "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686847139/tweetopia/download_pzswom.jpg",
+      username: "TomHall44",
+    },
+    {
+      _id: "z6y10006633318h",
+      firstName: "Virat",
+      lastName: "Kohli",
+      username: "ViratKohli",
+      profileAvatar:
+        "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686848614/tweetopia/Virat_Kohli_during_the_India_vs_Aus_4th_Test_match_at_Narendra_Modi_Stadium_on_09_March_2023_fseb74.jpg",
+    },
+    {
+      _id: "6v310012535541r",
+      firstName: "Ariana",
+      lastName: "Grande",
+      username: "grandeariana",
+      profileAvatar:
+        "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686852228/tweetopia/pjimage-1544144070_wpp7fc.jpg",
+    },],
     updatedAt: formatDate(),
     bookmarks: [],
   },
@@ -50,8 +92,8 @@ export const users = [
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686847189/tweetopia/15618018448867-IM_Tom_Holland_Spiderman_im0mw0.jpg",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    following: ["Billgates_99","Ipurpleyou","AkshayKumar", "barackobama321"],
-    followers: ["DemiLovato", "deepikaRanveer","grandeariana"],
+    following: ["Billgates_99", "Ipurpleyou", "AkshayKumar", "barackobama321"],
+    followers: ["DemiLovato", "deepikaRanveer", "grandeariana"],
     bookmarks: [],
   },
   {
@@ -68,8 +110,8 @@ export const users = [
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686847098/tweetopia/Ann_Dunham_with_father_and_children_wumra9.jpg",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    following: ["Billgates_99","Ipurpleyou","AkshayKumar","anushka"],
-    followers: ["DemiLovato", "deepikaRanveer","grandeariana"],
+    following: ["Billgates_99", "Ipurpleyou", "AkshayKumar", "anushka"],
+    followers: ["DemiLovato", "deepikaRanveer", "grandeariana"],
     bookmarks: [],
   },
   {
@@ -86,8 +128,8 @@ export const users = [
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686847528/tweetopia/download_uoh6ai.jpg",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    following: ["Billgates_99","Ipurpleyou","AkshayKumar","anushka"],
-    followers: ["DemiLovato", "deepikaRanveer","grandeariana"],
+    following: ["Billgates_99", "Ipurpleyou", "AkshayKumar", "anushka"],
+    followers: ["DemiLovato", "deepikaRanveer", "grandeariana"],
     bookmarks: [],
   },
   {
@@ -104,8 +146,8 @@ export const users = [
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686848005/tweetopia/main-qimg-c423778894f61719e6e5344d6e2b3961_tw071o.webp",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    following: ["Billgates_99","Ipurpleyou","AkshayKumar","anushka"],
-    followers: ["DemiLovato", "deepikaRanveer","grandeariana"],
+    following: ["Billgates_99", "Ipurpleyou", "AkshayKumar", "anushka"],
+    followers: ["DemiLovato", "deepikaRanveer", "grandeariana"],
     bookmarks: [],
   },
   {
@@ -122,8 +164,8 @@ export const users = [
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686848197/tweetopia/Swift__Taylor__2007_oce2od.jpg",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    following: ["Billgates_99","Ipurpleyou","AkshayKumar","anushka"],
-    followers: ["DemiLovato", "deepikaRanveer","grandeariana"],
+    following: ["Billgates_99", "Ipurpleyou", "AkshayKumar", "anushka"],
+    followers: ["DemiLovato", "deepikaRanveer", "grandeariana"],
     bookmarks: [],
   },
   {
@@ -139,8 +181,8 @@ export const users = [
     backgroundImage: "",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    following: ["Billgates_99","Ipurpleyou","AkshayKumar","anushka"],
-    followers: ["DemiLovato", "deepikaRanveer","grandeariana"],
+    following: ["Billgates_99", "Ipurpleyou", "AkshayKumar", "anushka"],
+    followers: ["DemiLovato", "deepikaRanveer", "grandeariana"],
     bookmarks: [],
   },
   {
@@ -157,8 +199,8 @@ export const users = [
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686849578/tweetopia/images_l6jo6n.jpg",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    following: ["Ipurpleyou","AkshayKumar"],
-    followers: ["DemiLovato", "deepikaRanveer","grandeariana"],
+    following: ["Ipurpleyou", "AkshayKumar"],
+    followers: ["DemiLovato", "deepikaRanveer", "grandeariana"],
     bookmarks: [],
   },
   {
@@ -175,8 +217,8 @@ export const users = [
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686849784/tweetopia/BTS_during_a_White_House_press_conference_May_31__2022__cropped_fix7vb.jpg",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    following: ["Billgates_99","Ipurpleyou","AkshayKumar","anushka"],
-    followers: ["DemiLovato", "deepikaRanveer","grandeariana"],
+    following: ["Billgates_99", "Ipurpleyou", "AkshayKumar", "anushka"],
+    followers: ["DemiLovato", "deepikaRanveer", "grandeariana"],
     bookmarks: [],
   },
   {
@@ -193,8 +235,8 @@ export const users = [
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686850601/tweetopia/images_gbxcrn.jpg",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    following: ["Billgates_99","AkshayKumar","anushka"],
-    followers: ["DemiLovato", "deepikaRanveer","grandeariana"],
+    following: ["Billgates_99", "AkshayKumar", "anushka"],
+    followers: ["DemiLovato", "deepikaRanveer", "grandeariana"],
     bookmarks: [],
   },
   {
@@ -211,8 +253,8 @@ export const users = [
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686850781/tweetopia/download_kbhgnj.jpg",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    following: ["Billgates_99","Ipurpleyou","AkshayKumar","anushka"],
-    followers: [ "deepikaRanveer","grandeariana"],
+    following: ["Billgates_99", "Ipurpleyou", "AkshayKumar", "anushka"],
+    followers: ["deepikaRanveer", "grandeariana"],
     bookmarks: [],
   },
   {
@@ -229,8 +271,8 @@ export const users = [
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686851909/tweetopia/deepika-padukone-ranveer-singh_coeoge.jpg",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    following: ["Billgates_99","Ipurpleyou","AkshayKumar","anushka"],
-    followers: ["DemiLovato","grandeariana"],
+    following: ["Billgates_99", "Ipurpleyou", "AkshayKumar", "anushka"],
+    followers: ["DemiLovato", "grandeariana"],
     bookmarks: [],
   },
   {
@@ -247,7 +289,7 @@ export const users = [
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686852186/tweetopia/Ariana-Grande-ay_d_k8vinv.webp",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    following: ["Ipurpleyou","AkshayKumar","anushka"],
+    following: ["Ipurpleyou", "AkshayKumar", "anushka"],
     followers: ["DemiLovato", "deepikaRanveer"],
     bookmarks: [],
   },

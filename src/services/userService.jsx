@@ -35,11 +35,22 @@ export const getAllBookmarksService = async( authorization)=>{
     console.error(error)
   }
 }
-export const removeBookmarkService = (postId, authorization) =>
+export const removeBookmarkService = async(postId, authorization) => await
   axios.post(
     `/api/users/remove-bookmark/${postId}`,
     {},
     {
       headers: { authorization },
     }
+  );
+
+export const followUserService = async(followUserId, authorization) => await axios.post(
+    `/api/users/follow/${followUserId}`,
+    {},
+    { headers: { authorization } }
+  );
+  export const unfollowUserService =async (followUserId, authorization) =>await axios.post(
+    `/api/users/unfollow/${followUserId}`,
+    {},
+    { headers: { authorization } }
   );

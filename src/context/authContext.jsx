@@ -23,7 +23,10 @@ export function AuthProvider({ children }) {
 
       setToken(encodedToken);
       setCurrentUser(() => foundUser);
-      localStorage.setItem("loginDetails", JSON.stringify({ user: foundUser, token: encodedToken }))
+      localStorage.setItem(
+        "loginDetails",
+        JSON.stringify({ user: foundUser, token: encodedToken })
+      );
       if (status === 200) {
         toast.success(`Welcome back ${foundUser?.firstName}`);
         navigate("/home");
@@ -42,7 +45,10 @@ export function AuthProvider({ children }) {
       } = response;
       setToken(encodedToken);
       setCurrentUser(() => createdUser);
-      localStorage.setItem("loginDetails", JSON.stringify({ user: createdUser, token: encodedToken }))
+      localStorage.setItem(
+        "loginDetails",
+        JSON.stringify({ user: createdUser, token: encodedToken })
+      );
 
       if (status === 201) {
         toast.success(`Hello ${createdUser?.firstName}! Welcome to Tweetopia`);
@@ -61,7 +67,16 @@ export function AuthProvider({ children }) {
     navigate("/");
   };
   return (
-    <AuthContext.Provider value={{ loginFunction, signUpFunction,logOutFunction, token,setCurrentUser, currentUser }}>
+    <AuthContext.Provider
+      value={{
+        loginFunction,
+        signUpFunction,
+        logOutFunction,
+        token,
+        setCurrentUser,
+        currentUser,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

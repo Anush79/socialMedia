@@ -89,9 +89,10 @@ export function PostProvider({ children }) {
   }catch(error){
     console.error(error)
   }
-    toast.success("delete")
+    toast.info("Post deleted Successfully")
  }
  useEffect(()=>{
+  if(currentUser)
   getAllUserPostsHandlerFunction(currentUser.username)
  },[])
   return (

@@ -4,6 +4,8 @@ import {
   bookMarKPostService,
   getUserByIdService,
   removeBookmarkService,
+  followUserService,
+  unfollowUserService,
 } from "../services/userService";
 import {
   userReducerFunction,
@@ -19,14 +21,10 @@ export function UserProvider({ children }) {
     userReducerFunction,
     userInitialState
   );
-  const { token } = useAuth();
-  const { GET_ALL_USERS, GET_USER,
-    GET_BOOKMARKS } = actionTypes
-
-
+  const { token, currentUser, setCurrentUser } = useAuth();
+  const { GET_ALL_USERS, GET_USER, GET_BOOKMARKS } = actionTypes;
 
   const getAllUsersFunction = async () => {
- 
     try {
       const response = await getAllUsersService();
       usersDispatch({ type: GET_ALL_USERS, payload: response.data.users });
@@ -36,23 +34,23 @@ export function UserProvider({ children }) {
   };
 
   const getUserByIdFunction = async (userId) => {
-   
     try {
       const response = await getUserByIdService(userId);
       usersDispatch({ type: GET_USER, payload: response.data.user });
-     
     } catch (error) {
       toast.error(error.response.data.errors[0]);
     }
   };
 
   const bookMarKPostFunction = async (id, encodedToken) => {
-  
     try {
       const response = await bookMarKPostService(id, encodedToken);
       if (response.status === 200) {
         toast.success("Added BookMark");
-        usersDispatch({ type: GET_BOOKMARKS, payload: response.data.bookmarks });
+        usersDispatch({
+          type: GET_BOOKMARKS,
+          payload: response.data.bookmarks,
+        });
       }
       getAllUsersFunction();
     } catch (error) {
@@ -79,25 +77,59 @@ export function UserProvider({ children }) {
 
   const removeFromBookmarkFunction = async (postId, encodedToken) => {
     try {
-      const response = await removeBookmarkService(postId, encodedToken)
+      const response = await removeBookmarkService(postId, encodedToken);
       usersDispatch({ type: GET_BOOKMARKS, payload: response.data.bookmarks });
-      if(response.status===200){
-        toast.success("Post removed from Bookmarks")
+      if (response.status === 200) {
+        toast.info("Post removed from Bookmarks");
       }
     } catch (error) {
-      toast.error("something went wrong")
-      console.error(error)
+      toast.error("something went wrong");
+      console.error(error);
     }
-  }
-  
- const isAlreadyBookMarked = (post)=>{
-  
-     const indexofBookMark =users?.booksMarks.find(item=> item._id === post._id)
-     return indexofBookMark ? true : false
- }
+  };
+
+  const followUserFunction = async (followUserId) => {
+    try {
+      const response = await followUserService(followUserId, token);
+      if (response.status === 200) {
+        toast.success(
+          `Started following ${response?.data.followUser.firstName}`
+        );
+        setCurrentUser(response.data.user);
+        console.log(response.data.user);
+      }
+    } catch (error) {
+      toast.error(error.response.data.errors[0]);
+      console.error(error);
+    }
+  };
+  const unFollowUserFunction = async (followUserId) => {
+    try {
+      const response = await unfollowUserService(followUserId, token);
+      if (response.status === 200) {
+        toast.info(`Unfollowed ${response?.data.followUser.firstName}`);
+        setCurrentUser(response.data.user);
+
+      }
+    } catch (error) {
+      toast.error(error.response.data.errors[0]);
+      console.error(error);
+    }
+  };
+  const isAlreadyBookMarked = (post) => {
+    const indexofBookMark = users?.booksMarks.find(
+      (item) => item._id === post._id
+    );
+    return indexofBookMark ? true : false;
+  };
+  const isAlreadyFollowing = (userId) => {
+    const checkFollowing = currentUser.following.find(
+      (item) => item._id === userId
+    );
+    return checkFollowing ? true : false;
+  };
 
   useEffect(() => {
-
     getAllUsersFunction();
   }, [token]);
 
@@ -108,7 +140,10 @@ export function UserProvider({ children }) {
         bookMarKPostFunction,
         getUserByIdFunction,
         removeFromBookmarkFunction,
-        isAlreadyBookMarked
+        isAlreadyBookMarked,
+        followUserFunction,
+        unFollowUserFunction,
+        isAlreadyFollowing,
       }}
     >
       {children}
