@@ -13,5 +13,8 @@ export const testSignUpData = {
 
 export const actionTypes = {
   GET_EVERY_POSTS: "GET_EVERY_POSTS",
-  GET_ALL_USERS: "GET_ALL_USERS"
+  GET_ALL_USERS: "GET_ALL_USERS",
+  GET_SINGLE_POST:"GET_SINGLE_POST",
+  GET_USER: "GET_USER_WITH_ID"
+  
 };

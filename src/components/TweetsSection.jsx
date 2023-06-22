@@ -1,14 +1,14 @@
-import {usePost} from '../'
+import { usePost } from '../'
 import TweetCard from './TweetCard'
 import WhatsNew from './WriteNewTweet'
-export default function TweetsSection(){
-  const {allPosts}  = usePost()
+export default function TweetsSection() {
+  const { allPosts } = usePost()
   return <div className="tweetsSection">
-    <WhatsNew/>
+    <WhatsNew />
     {
-      allPosts.length>0?
-      allPosts.map(item=><TweetCard key={item.id} item={item}/>):
-      "No post available"
+      allPosts?.allPostsInDB.length > 0 ?
+        allPosts?.allPostsInDB?.map(item => <TweetCard key={item.id} item={item} />) :
+        "No post available"
 
     }
   </div>

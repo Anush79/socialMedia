@@ -1,4 +1,4 @@
-import { v4 as uuid } from "uuid";
+
 import { formatDate } from "../utils/authUtils";
 
 
@@ -10,7 +10,7 @@ import { formatDate } from "../utils/authUtils";
 export const posts = [
   {
     _id: "xhzTkUi2Nt",
-    content: "Nice Weather Today!!",
+    content: "Just discovered a hidden gem of a coffee shop in my neighborhood. The smell of freshly brewed beans is pure bliss! ☕ #CoffeeLover",
     mediaURL: "",
     likes: {
       likeCount: 5,
@@ -28,30 +28,29 @@ export const posts = [
         },
       },
     ],
-    username: "romabulani",
+    username: "grandeariana",
     createdAt: "2022-01-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
     _id: "siFFxfYI1s",
-    content: "Started my Baking journey! Look what I made.",
+    content: "Nothing beats a good book on a rainy day. Escaping into different worlds is the ultimate adventure. 📚 #Bookworm",
     mediaURL:
-      "https://res.cloudinary.com/dtrjdcrme/video/upload/v1652188886/upload-socialmedia/oikev6eomsgahnvxcijd.mp4",
+      "",
     likes: {
       likeCount: 0,
       likedBy: [],
       dislikedBy: [],
     },
     comments: [],
-    username: "carlsmith",
+    username: "deepikaRanveer",
     createdAt: "2022-05-21T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
     _id: "3XHvLP1fg",
-    content: "I made this cake for my friend's birthday. Check it out",
-    mediaURL:
-      "https://res.cloudinary.com/dtrjdcrme/image/upload/v1652188492/upload-socialmedia/cakegif_q11mfm.webp",
+    content: "Spontaneous road trips are the best kind of therapy. Windows down, music up, and endless possibilities ahead! 🚗 #Wanderlust",
+    mediaURL:"https://res.cloudinary.com/dt1leq0nd/image/upload/v1686818135/samples/bike.jpg",
     likes: {
       likeCount: 1,
       likedBy: [],
@@ -68,14 +67,14 @@ export const posts = [
         },
       },
     ],
-    username: "janedoe",
+    username: "DemiLovato",
     createdAt: "2022-02-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
     _id: "MTYtVhecCj",
     content:
-      "You are never too old to set another goal or to dream a new dream.",
+    "Finally finished that challenging puzzle I've been working on for days. I feel like a genius! 🧩 #PuzzleAddict",
     mediaURL: "",
     likes: {
       likeCount: 5,
@@ -89,9 +88,9 @@ export const posts = [
   },
   {
     _id: "3XHvLP9kC",
-    content: "Yayy! Its my Birthday Today. Made this cake for myself!",
+    content: "Just had the most delicious homemade pizza. Toppings galore and ooey-gooey cheese. My taste buds are in heaven! 🍕 #Foodie",
     mediaURL:
-      "https://res.cloudinary.com/dtrjdcrme/image/upload/v1647014336/ecommerce/chocolatecake4.webp",
+      "https://res.cloudinary.com/dt1leq0nd/image/upload/v1687320585/tweetopia/Homemade_pizza_egtrvd.jpg",
     likes: {
       likeCount: 2,
       likedBy: [],
@@ -117,14 +116,14 @@ export const posts = [
         },
       },
     ],
-    username: "adarshbalika",
+    username: "anushka",
     createdAt: "2022-03-15T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
     _id: "tHaThLyFQh",
     content:
-      "Life has got all those twists and turns. You’ve got to hold on tight and off you go.",
+    "Went for a hike today and stumbled upon a breathtaking waterfall. Mother Nature's beauty never ceases to amaze me. 🌿 #NatureLover",
     mediaURL: "",
     likes: {
       likeCount: 2,
@@ -138,7 +137,7 @@ export const posts = [
   },
   {
     _id: "G-Gi3lSZP9",
-    content: "When you have a dream, you’ve got to grab it and never let go.",
+    content: "Started learning a new musical instrument today. It's frustrating, but I'm determined to become a maestro! 🎶 #MusicEnthusiast",
     mediaURL: "",
     likes: {
       likeCount: 2,
@@ -146,28 +145,28 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "adarshbalika",
+    username: "TomHall44",
     createdAt: "2022-05-06T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
     _id: "GeMUAdi9mh",
     content:
-      "No matter what people tell you, words and ideas can change the world.",
-    mediaURL: "",
+    "Movie night with friends is always a blast. Laughter, popcorn, and a good film—perfect ingredients for a fun evening! 🍿 #MovieMarathon",
+    mediaURL: "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686818140/samples/imagecon-group.jpg",
     likes: {
       likeCount: 2,
       likedBy: [],
       dislikedBy: [],
     },
     comments: [],
-    username: "adarshbalika",
+    username: "barackObama321",
     createdAt: "2022-03-06T12:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
     _id: "IyUlYXTrzZ",
-    content: "Who's up for Pineapple Pastry?",
+    content: "Just witnessed a stunning sunset. The sky was painted in hues of orange and pink. Moments like these make life magical. 🌅 #SunsetLover",
     mediaURL:
       "https://res.cloudinary.com/dtrjdcrme/image/upload/v1647014828/ecommerce/pineapplemuffin1.webp",
     likes: {
@@ -178,7 +177,7 @@ export const posts = [
     comments: [
       {
         _id: "6nIffvImxo",
-        username: "sophiajones",
+        username: "SwiftTaylor",
         text: "Oh! That looks Delicious!",
         votes: {
           upvotedBy: [],
@@ -186,14 +185,13 @@ export const posts = [
         },
       },
     ],
-    username: "romabulani",
+    username: "anushka",
     createdAt: "2022-04-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
     _id: "Ie92xOSVeU",
-    content:
-      "Check out this amazing video from BakinZone https://bakinzone.netlify.app/videos/qtlhdIfojmc",
+    content:"Tried a new workout routine today, and I can barely move. But hey, no pain, no gain, right? 💪 #FitnessJourney",
     mediaURL: "",
     likes: {
       likeCount: 1,
@@ -203,7 +201,7 @@ export const posts = [
     comments: [
       {
         _id: "6fgd534s",
-        username: "janedoe",
+        username: "SwiftTaylor",
         text: "Yes! I am also learning from there!",
         votes: {
           upvotedBy: [],
@@ -211,13 +209,13 @@ export const posts = [
         },
       },
     ],
-    username: "alexmaxwell",
+    username: "ElonMusk",
     createdAt: "2022-04-12T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
     _id: "xhzTkUyfNt",
-    content: "Believe in yourself! Rest all will fall in place.",
+    content:"Spent the day exploring new hiking trails and connecting with nature. Feeling refreshed and inspired. 🌳🏞️ #NatureLover",
     mediaURL: "",
     likes: {
       likeCount: 2,
@@ -227,7 +225,7 @@ export const posts = [
     comments: [
       {
         _id: "unImWvIzbf",
-        username: "romabulani",
+        username: "SwiftTaylor",
         text: "So True!!",
         votes: {
           upvotedBy: [],
@@ -235,14 +233,14 @@ export const posts = [
         },
       },
     ],
-    username: "sophiajones",
+    username: "RonaldoCristiano",
     createdAt: "2022-05-15T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
     _id: "CCmJpDnnQQ",
     content:
-      "You can get everything in life you want if you will just help enough other people get what they want.",
+    "Life's too short to stress over the small stuff. Take a deep breath and enjoy the journey. #PositiveVibes",
     mediaURL: "",
     likes: {
       likeCount: 5,
@@ -250,7 +248,7 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "romabulani",
+    username: "SwiftTaylor",
     createdAt: "2022-02-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -266,14 +264,14 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "johndoe",
+    username: "ViratKohli",
     createdAt: "2022-01-12T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
   {
     _id: "e-knMEsoLq",
-    content: "More is lost by indecision than wrong decision.",
+    content: "Remember, your dreams are worth pursuing. Don't let anyone or anything hold you back. #DreamBig",
     mediaURL: "",
     likes: {
       likeCount: 5,
@@ -281,7 +279,7 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "alexmaxwell",
+    username: "Billgates_99",
     createdAt: "2022-01-26T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -289,7 +287,7 @@ export const posts = [
   {
     _id: "VY14RsXC7G",
     content:
-      "The reason we struggle with insecurity is because we compare our behind-the-scenes with everyone else’s highlight reel.",
+    "It's amazing how a simple act of kindness can brighten someone's day. Let's make kindness the norm. #BeKind",
     mediaURL: "",
     likes: {
       likeCount: 7,
@@ -297,7 +295,7 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "carlsmith",
+    username: "Ipurpleyou",
     createdAt: "2022-03-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -312,7 +310,7 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "sophiajones",
+    username: "AkshayKumar",
     createdAt: "2022-04-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -327,7 +325,7 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "romabulani",
+    username: "anushka",
     createdAt: "2022-04-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -343,7 +341,7 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "carlsmith",
+    username: "DemiLovato",
     createdAt: "2022-01-14T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -359,7 +357,7 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "janedoe",
+    username: "deepikaRanveer",
     createdAt: "2022-05-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -375,7 +373,7 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "alexmaxwell",
+    username: "grandeariana",
     createdAt: "2022-02-14T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -384,14 +382,14 @@ export const posts = [
     _id: "lF8cnfPAe9",
     content:
       "Life is like riding a bicycle. To keep your balance you must keep moving.",
-    mediaURL: "",
+    mediaURL: "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686818135/samples/bike.jpg",
     likes: {
       likeCount: 5,
       likedBy: [],
       dislikedBy: [],
     },
     comments: [],
-    username: "romabulani",
+    username: "anushka",
     createdAt: "2022-01-15T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -399,7 +397,7 @@ export const posts = [
   {
     _id: "stfTkUi2Nt",
     content:
-      "“Do not wait for the perfect time and place to enter, for you are already onstage.",
+    "Remember, setbacks are just stepping stones to success. Keep pushing forward and never give up! 💪 #MotivationMonday",
     mediaURL: "",
     likes: {
       likeCount: 25,
@@ -407,14 +405,14 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "sophiajones",
+    username: "anushka",
     createdAt: "2022-05-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
   {
     _id: "quiTkUi2Nt",
-    content: "It is a rough road that leads to the heights of greatness.",
+    content: "Smile often, laugh loudly, and spread happiness wherever you go. The world needs more joy! 😄✨",
     mediaURL: "",
     likes: {
       likeCount: 8,
@@ -422,7 +420,7 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "janedoe",
+    username: "grandeariana",
     createdAt: "2022-02-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },

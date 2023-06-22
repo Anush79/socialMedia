@@ -8,3 +8,14 @@ export const getAllUsersService=async ()=>{
 toast.error(error)
   }
 }
+
+export const getUserByIdService = async(userId)=>await axios.get(`/api/users/${userId}`)
+
+export const bookMarKPostService = async (postId, authorization) =>
+axios.post(
+  `/api/users/bookmark/${postId}`,
+  {},
+  {
+    headers: { authorization },
+  }
+);

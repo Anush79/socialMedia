@@ -49,7 +49,7 @@ button:hover{
   margin: 3px ;
 }
 .suggestedProfile{
-  border: 1px solid blue;
+  border: 1px solid rgb(247, 106, 197);
   margin: 2px;
   padding: 5px;
   display: flex;
