@@ -1,5 +1,6 @@
 import { useAuth, usePost, useUser } from "../";
 import { useNavigate } from "react-router-dom";
+import {copyLinkToShare} from '../utils/utilityFunctions'
 export default function TweetCard({ item, inBookmark }) {
   const {
     getPostByIdFunction,
@@ -66,6 +67,7 @@ export default function TweetCard({ item, inBookmark }) {
         <button
           onClick={(e) => {
             e.stopPropagation();
+            copyLinkToShare(`https://tweetopiaa.netlify.app/home/${_id}`)
           }}
         >
           share
