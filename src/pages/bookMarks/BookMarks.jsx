@@ -3,14 +3,14 @@ import { useAuth, useUser, usePost } from "../../";
 import TweetCard from "../../components/TweetCard";
 
 export default function BookMarks() {
-  const { currentUser } = useAuth();
+  const { currentUser ,token} = useAuth();
   const { getUserByIdFunction, users } = useUser();
-  const bookMarks = users.userWithId.bookmarks;
+  const bookMarks = users?.userWithId?.bookmarks;
 
   useEffect(() => {
-    getUserByIdFunction(currentUser._id);
-  }, []);
-  
+    getUserByIdFunction(currentUser._id)
+  }, [users]);
+
   return (
     <div className="bookMarksContainer">
       <h3>BookMarks</h3>

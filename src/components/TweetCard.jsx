@@ -5,9 +5,8 @@ export default function TweetCard({ item }) {
     getPostByIdFunction,
     likePostHandlerfunction,
     dislikePostHandlerfunction,
-    
   } = usePost();
-const {bookMarKPostFunction} = useUser()
+  const { bookMarKPostFunction, removeFromBookmarkFunction } = useUser();
   const { token, currentUser } = useAuth();
   const navigate = useNavigate();
   const {
@@ -20,11 +19,11 @@ const {bookMarKPostFunction} = useUser()
     username,
     comments,
   } = item;
- 
 
   const isLikedByUser = likedBy.find((item) => {
-    return item.username === currentUser.username});
-  
+    return item.username === currentUser.username;
+  });
+
   return (
     <div key={_id} className="tweetCard">
       <div
@@ -66,7 +65,23 @@ const {bookMarKPostFunction} = useUser()
         >
           share
         </button>
-        <button onClick={(e)=>{    e.stopPropagation();bookMarKPostFunction(_id, token)}}>BookMark</button>
+        <button
+          onClick={(e) => {
+            bookMarKPostFunction(_id, token);
+            
+            e.stopPropagation();
+           
+          }}
+        >
+          BookMark
+        </button>
+        <button onClick = {(e)=>{
+          removeFromBookmarkFunction(_id, token)
+      
+          e.stopPropagation();
+        }}>
+          remove bookmark
+        </button>
         {<div className="comments">{}</div>}
       </div>
     </div>
