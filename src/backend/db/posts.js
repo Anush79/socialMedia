@@ -168,7 +168,7 @@ export const posts = [
     _id: "IyUlYXTrzZ",
     content: "Just witnessed a stunning sunset. The sky was painted in hues of orange and pink. Moments like these make life magical. 🌅 #SunsetLover",
     mediaURL:
-      "https://res.cloudinary.com/dtrjdcrme/image/upload/v1647014828/ecommerce/pineapplemuffin1.webp",
+      "https://res.cloudinary.com/dt1leq0nd/image/upload/v1687487589/tweetopia/tropical-1641925_oq4eqi.jpg",
     likes: {
       likeCount: 10,
       likedBy: [],
@@ -317,8 +317,8 @@ export const posts = [
 
   {
     _id: "lbW4dlCpNC",
-    content: "If it makes you nervous, you’re doing it right.",
-    mediaURL: "",
+    content: "Finally finished reading that book I've been hooked on. It's amazing how a good story can transport you to another world! 📚 #Bookworm #EscapeReality",
+    mediaURL: "https://res.cloudinary.com/dt1leq0nd/image/upload/v1687488276/istockphoto-914810750-612x612_ivtyjj.jpg",
     likes: {
       likeCount: 12,
       likedBy: [],
@@ -398,7 +398,7 @@ export const posts = [
     _id: "stfTkUi2Nt",
     content:
     "Remember, setbacks are just stepping stones to success. Keep pushing forward and never give up! 💪 #MotivationMonday",
-    mediaURL: "",
+    mediaURL: "https://res.cloudinary.com/dt1leq0nd/image/upload/v1687488477/istockphoto-1129498241-612x612_loej3k.jpg",
     likes: {
       likeCount: 25,
       likedBy: [],

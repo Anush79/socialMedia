@@ -21,6 +21,7 @@ export function UserProvider({ children }) {
     userReducerFunction,
     userInitialState
   );
+
   const { token, currentUser, setCurrentUser } = useAuth();
   const { GET_ALL_USERS, GET_USER, GET_BOOKMARKS } = actionTypes;
 
