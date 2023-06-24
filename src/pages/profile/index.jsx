@@ -37,15 +37,25 @@ export default function Profile() {
             {currentUser?.website}
           </NavLink>
         </h5>
-        <div
-          className="editProfile"
-         
-        >
+        <div className="editProfile">
           <Modal
             status={modalOpen}
             setCloseModal={setModalOpen}
             modalText={"Edit Profile"}
-          ></Modal>
+          >
+            <form action="">
+              <input type="text" name="" id="" placeholder="update username" />
+              <input type="text" placeholder="update website link" />
+              <textarea
+                name="bio"
+                id="bio"
+                cols="30"
+                rows="10"
+                className="tweetArea"
+                placeholder="update Bio"
+              ></textarea>
+            </form>
+          </Modal>
         </div>
       </div>
       <div className="profileBody">

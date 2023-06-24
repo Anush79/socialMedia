@@ -13,7 +13,7 @@ import {
   getEveryPostService,
   getPostByIdService,
   getAllUserPostsHandlerService,
-  likePostHandlerService,dislikePostService,deletePostHandlerService
+  likePostHandlerService,dislikePostService,deletePostHandlerService,createPostService
 } from "../services/postService";
 
 const PostContext = createContext();
@@ -91,6 +91,20 @@ export function PostProvider({ children }) {
   }
     toast.info("Post deleted Successfully")
  }
+
+ const createPostFunction =async(content)=>{
+try{
+const response = await createPostService (content, token)
+console.log(response)
+if(response.status===201){
+  toast.success("New Post Created");
+  postDispatch({ type: GET_EVERY_POSTS, payload: response.data.posts });
+}
+
+}catch(error){
+console.log(error)
+}
+ }
  useEffect(()=>{
   if(currentUser)
   getAllUserPostsHandlerFunction(currentUser.username)
@@ -103,7 +117,9 @@ export function PostProvider({ children }) {
         getPostByIdFunction,
         getAllUserPostsHandlerFunction,
         dislikePostHandlerfunction,
-        deletePostFunction
+        deletePostFunction,
+        createPostFunction,
+        postDispatch
       }}
     >
       {children}

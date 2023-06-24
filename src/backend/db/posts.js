@@ -29,7 +29,7 @@ export const posts = [
       },
     ],
     username: "grandeariana",
-    createdAt: "2022-01-10T10:55:06+05:30",
+    createdAt: "2023-01-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -44,13 +44,13 @@ export const posts = [
     },
     comments: [],
     username: "deepikaRanveer",
-    createdAt: "2022-05-21T10:55:06+05:30",
+    createdAt: "2023-05-21T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
     _id: "3XHvLP1fg",
     content: "Spontaneous road trips are the best kind of therapy. Windows down, music up, and endless possibilities ahead! 🚗 #Wanderlust",
-    mediaURL:"https://res.cloudinary.com/dt1leq0nd/image/upload/v1686818135/samples/bike.jpg",
+    mediaURL: "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686818135/samples/bike.jpg",
     likes: {
       likeCount: 1,
       likedBy: [],
@@ -68,13 +68,13 @@ export const posts = [
       },
     ],
     username: "DemiLovato",
-    createdAt: "2022-02-10T10:55:06+05:30",
+    createdAt: "2023-02-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
     _id: "MTYtVhecCj",
     content:
-    "Finally finished that challenging puzzle I've been working on for days. I feel like a genius! 🧩 #PuzzleAddict",
+      "Finally finished that challenging puzzle I've been working on for days. I feel like a genius! 🧩 #PuzzleAddict",
     mediaURL: "",
     likes: {
       likeCount: 5,
@@ -83,7 +83,7 @@ export const posts = [
     },
     comments: [],
     username: "adarshbalika",
-    createdAt: "2022-03-06T10:55:06+05:30",
+    createdAt: "2023-03-06T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -117,13 +117,13 @@ export const posts = [
       },
     ],
     username: "anushka",
-    createdAt: "2022-03-15T10:55:06+05:30",
+    createdAt: "2023-03-15T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
     _id: "tHaThLyFQh",
     content:
-    "Went for a hike today and stumbled upon a breathtaking waterfall. Mother Nature's beauty never ceases to amaze me. 🌿 #NatureLover",
+      "Went for a hike today and stumbled upon a breathtaking waterfall. Mother Nature's beauty never ceases to amaze me. 🌿 #NatureLover",
     mediaURL: "",
     likes: {
       likeCount: 2,
@@ -132,7 +132,7 @@ export const posts = [
     },
     comments: [],
     username: "adarshbalika",
-    createdAt: "2022-04-06T10:55:06+05:30",
+    createdAt: "2023-04-06T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -146,13 +146,13 @@ export const posts = [
     },
     comments: [],
     username: "TomHall44",
-    createdAt: "2022-05-06T10:55:06+05:30",
+    createdAt: "2023-05-06T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
     _id: "GeMUAdi9mh",
     content:
-    "Movie night with friends is always a blast. Laughter, popcorn, and a good film—perfect ingredients for a fun evening! 🍿 #MovieMarathon",
+      "Movie night with friends is always a blast. Laughter, popcorn, and a good film—perfect ingredients for a fun evening! 🍿 #MovieMarathon",
     mediaURL: "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686818140/samples/imagecon-group.jpg",
     likes: {
       likeCount: 2,
@@ -161,7 +161,7 @@ export const posts = [
     },
     comments: [],
     username: "barackObama321",
-    createdAt: "2022-03-06T12:55:06+05:30",
+    createdAt: "2023-03-06T12:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
@@ -186,12 +186,12 @@ export const posts = [
       },
     ],
     username: "anushka",
-    createdAt: "2022-04-10T10:55:06+05:30",
+    createdAt: "2023-04-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
     _id: "Ie92xOSVeU",
-    content:"Tried a new workout routine today, and I can barely move. But hey, no pain, no gain, right? 💪 #FitnessJourney",
+    content: "Tried a new workout routine today, and I can barely move. But hey, no pain, no gain, right? 💪 #FitnessJourney",
     mediaURL: "",
     likes: {
       likeCount: 1,
@@ -210,12 +210,12 @@ export const posts = [
       },
     ],
     username: "ElonMusk",
-    createdAt: "2022-04-12T10:55:06+05:30",
+    createdAt: "2023-04-12T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
     _id: "xhzTkUyfNt",
-    content:"Spent the day exploring new hiking trails and connecting with nature. Feeling refreshed and inspired. 🌳🏞️ #NatureLover",
+    content: "Spent the day exploring new hiking trails and connecting with nature. Feeling refreshed and inspired. 🌳🏞️ #NatureLover",
     mediaURL: "",
     likes: {
       likeCount: 2,
@@ -234,13 +234,13 @@ export const posts = [
       },
     ],
     username: "RonaldoCristiano",
-    createdAt: "2022-05-15T10:55:06+05:30",
+    createdAt: "2023-05-15T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
     _id: "CCmJpDnnQQ",
     content:
-    "Life's too short to stress over the small stuff. Take a deep breath and enjoy the journey. #PositiveVibes",
+      "Life's too short to stress over the small stuff. Take a deep breath and enjoy the journey. #PositiveVibes",
     mediaURL: "",
     likes: {
       likeCount: 5,
@@ -249,7 +249,7 @@ export const posts = [
     },
     comments: [],
     username: "SwiftTaylor",
-    createdAt: "2022-02-10T10:55:06+05:30",
+    createdAt: "2023-02-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
@@ -265,7 +265,7 @@ export const posts = [
     },
     comments: [],
     username: "ViratKohli",
-    createdAt: "2022-01-12T10:55:06+05:30",
+    createdAt: "2023-01-12T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
@@ -280,14 +280,14 @@ export const posts = [
     },
     comments: [],
     username: "Billgates_99",
-    createdAt: "2022-01-26T10:55:06+05:30",
+    createdAt: "2023-01-26T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
   {
     _id: "VY14RsXC7G",
     content:
-    "It's amazing how a simple act of kindness can brighten someone's day. Let's make kindness the norm. #BeKind",
+      "It's amazing how a simple act of kindness can brighten someone's day. Let's make kindness the norm. #BeKind",
     mediaURL: "",
     likes: {
       likeCount: 7,
@@ -296,7 +296,7 @@ export const posts = [
     },
     comments: [],
     username: "Ipurpleyou",
-    createdAt: "2022-03-10T10:55:06+05:30",
+    createdAt: "2023-03-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
@@ -311,7 +311,7 @@ export const posts = [
     },
     comments: [],
     username: "AkshayKumar",
-    createdAt: "2022-04-10T10:55:06+05:30",
+    createdAt: "2023-04-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
@@ -326,7 +326,7 @@ export const posts = [
     },
     comments: [],
     username: "anushka",
-    createdAt: "2022-04-10T10:55:06+05:30",
+    createdAt: "2023-04-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
@@ -342,7 +342,7 @@ export const posts = [
     },
     comments: [],
     username: "DemiLovato",
-    createdAt: "2022-01-14T10:55:06+05:30",
+    createdAt: "2023-01-14T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
@@ -358,7 +358,7 @@ export const posts = [
     },
     comments: [],
     username: "deepikaRanveer",
-    createdAt: "2022-05-10T10:55:06+05:30",
+    createdAt: "2023-05-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
@@ -374,7 +374,7 @@ export const posts = [
     },
     comments: [],
     username: "grandeariana",
-    createdAt: "2022-02-14T10:55:06+05:30",
+    createdAt: "2023-02-14T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
@@ -390,14 +390,14 @@ export const posts = [
     },
     comments: [],
     username: "anushka",
-    createdAt: "2022-01-15T10:55:06+05:30",
+    createdAt: "2023-01-15T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
   {
     _id: "stfTkUi2Nt",
     content:
-    "Remember, setbacks are just stepping stones to success. Keep pushing forward and never give up! 💪 #MotivationMonday",
+      "Remember, setbacks are just stepping stones to success. Keep pushing forward and never give up! 💪 #MotivationMonday",
     mediaURL: "https://res.cloudinary.com/dt1leq0nd/image/upload/v1687488477/istockphoto-1129498241-612x612_loej3k.jpg",
     likes: {
       likeCount: 25,
@@ -406,7 +406,7 @@ export const posts = [
     },
     comments: [],
     username: "anushka",
-    createdAt: "2022-05-10T10:55:06+05:30",
+    createdAt: "2023-05-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 
@@ -421,7 +421,7 @@ export const posts = [
     },
     comments: [],
     username: "grandeariana",
-    createdAt: "2022-02-10T10:55:06+05:30",
+    createdAt: "2023-02-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
 ];

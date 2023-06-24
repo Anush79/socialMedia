@@ -10,8 +10,6 @@
 .main{
   width: 100%;
 }
-
-
 button:hover{
   background:rgb(6, 138, 6)
 }
@@ -34,9 +32,10 @@ button:hover{
   display: flex;
   gap: 5px;
   justify-content: space-between;
+  align-items: center;
 }
 .outer {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100%;

@@ -23,7 +23,7 @@ export function UserProvider({ children }) {
   );
 
   const { token, currentUser, setCurrentUser } = useAuth();
-  const { GET_ALL_USERS, GET_USER, GET_BOOKMARKS } = actionTypes;
+  const { GET_ALL_USERS, GET_USER, GET_BOOKMARKS,GET_SUGGESTED_USER } = actionTypes;
 
   const getAllUsersFunction = async () => {
     try {
@@ -97,7 +97,7 @@ export function UserProvider({ children }) {
           `Started following ${response?.data.followUser.firstName}`
         );
         setCurrentUser(response.data.user);
-        console.log(response.data.user);
+   
       }
     } catch (error) {
       toast.error(error.response.data.errors[0]);
@@ -129,7 +129,17 @@ export function UserProvider({ children }) {
     );
     return checkFollowing ? true : false;
   };
+  const getSuggestedUsersArray=() => {
+    
+    const suggestions = users?.allUsersInDB?.filter(
+    (item) =>
+      item.username !== currentUser.username &&
+      currentUser.following.every((person) => person.username !== item.username)
+  );
+  console.log("from sugg", suggestions)
+  usersDispatch({type:GET_SUGGESTED_USER, payload: suggestions})
 
+}
   useEffect(() => {
     getAllUsersFunction();
   }, [token]);
@@ -145,6 +155,7 @@ export function UserProvider({ children }) {
         followUserFunction,
         unFollowUserFunction,
         isAlreadyFollowing,
+        getSuggestedUsersArray,
       }}
     >
       {children}

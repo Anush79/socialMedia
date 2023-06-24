@@ -1,5 +1,5 @@
 export default function Modal({ children, setCloseModal, status ,modalText}) {
-  console.log(status)
+
   if (status){
   
     return (
@@ -16,10 +16,9 @@ export default function Modal({ children, setCloseModal, status ,modalText}) {
           }}
         >
           <div className="inner">
-            <h3>Your Modal</h3>
+            <h3>{modalText}</h3>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Consectetur quaerat doloremque reprehenderit officiis ad modi, odio
-            commodi totam ame.
+            
             <div> {children}</div>
             <button
               onClick={(e) => {
