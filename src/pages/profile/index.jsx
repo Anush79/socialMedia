@@ -4,7 +4,7 @@ import { useAuth, usePost, useUser } from "../../";
 import Modal from "../../utils/Modal";
 
 import TweetCard from "../../components/TweetCard";
-
+import EditProfile from "./EditProfile";
 export default function Profile() {
   const [modalOpen, setModalOpen] = useState(false);
   const { currentUser, token } = useAuth();
@@ -12,9 +12,6 @@ export default function Profile() {
     users: { userWithId },
   } = useUser();
   const { allPosts } = usePost();
-
-  console.log("from profile ", currentUser);
-  console.log(modalOpen, "from profile");
   return (
     <div className="ProfileContainer">
       <h2>Profile page</h2>
@@ -43,22 +40,13 @@ export default function Profile() {
             setCloseModal={setModalOpen}
             modalText={"Edit Profile"}
           >
-            <form action="">
-              <input type="text" name="" id="" placeholder="update username" />
-              <input type="text" placeholder="update website link" />
-              <textarea
-                name="bio"
-                id="bio"
-                cols="30"
-                rows="10"
-                className="tweetArea"
-                placeholder="update Bio"
-              ></textarea>
-            </form>
+            <EditProfile user={currentUser}/>
           </Modal>
         </div>
+        
       </div>
       <div className="profileBody">
+
         <div className="tweetsSection">
           {allPosts?.allPostOfUser.length > 0
             ? allPosts?.allPostOfUser?.map((item) => (

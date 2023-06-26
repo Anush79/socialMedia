@@ -17,7 +17,6 @@ export default function Modal({ children, setCloseModal, status ,modalText}) {
         >
           <div className="inner">
             <h3>{modalText}</h3>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
             
             <div> {children}</div>
             <button

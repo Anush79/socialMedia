@@ -1,7 +1,7 @@
 import { useAuth, usePost, useUser } from "../";
 import { useNavigate } from "react-router-dom";
-import {copyLinkToShare} from '../utils/utilityFunctions'
-export default function TweetCard({ item, inBookmark }) {
+import { copyLinkToShare } from '../utils/utilityFunctions'
+export default function TweetCard({ item, inBookmark, onPostDetails }) {
   const {
     getPostByIdFunction,
     likePostHandlerfunction,
@@ -23,13 +23,13 @@ export default function TweetCard({ item, inBookmark }) {
     createdAt,
     likes: { likeCount, likedBy },
     username,
-    
+
   } = item;
-  
+
   const isLikedByUser = likedBy.find((item) => {
     return item.username === currentUser.username;
   });
- const isBookMarked= isAlreadyBookMarked(item)
+  const isBookMarked = isAlreadyBookMarked(item)
   return (
     <div key={_id} className="tweetCard">
       <div
@@ -72,7 +72,7 @@ export default function TweetCard({ item, inBookmark }) {
         >
           share
         </button>
-        { isBookMarked?  (
+        {isBookMarked ? (
           <button
             onClick={(e) => {
               removeFromBookmarkFunction(_id, token);
@@ -82,7 +82,7 @@ export default function TweetCard({ item, inBookmark }) {
           >
             remove bookmark
           </button>
-        ):(
+        ) : (
           <button
             onClick={(e) => {
               bookMarKPostFunction(_id, token);
@@ -92,15 +92,19 @@ export default function TweetCard({ item, inBookmark }) {
           >
             BookMark
           </button>
-        ) }
+        )}
         {
-          (username===currentUser.username)&&
-          <button onClick={(e)=>{
-            
+          (username === currentUser.username) &&
+          <button onClick={(e) => {
+
             e.stopPropagation();
-            deletePostFunction(_id, token)}}> Delete this post</button>
+
+            deletePostFunction(_id, token)
+   
+       if(onPostDetails) navigate("/home")
+          }}> Delete this post</button>
         }
-        {<div className="comments">{}</div>}
+        {<div className="comments">{ }</div>}
       </div>
     </div>
   );

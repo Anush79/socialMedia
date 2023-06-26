@@ -48,6 +48,7 @@ export function UserProvider({ children }) {
       const response = await bookMarKPostService(id, encodedToken);
       if (response.status === 200) {
         toast.success("Added BookMark");
+        
         usersDispatch({
           type: GET_BOOKMARKS,
           payload: response.data.bookmarks,
@@ -136,13 +137,13 @@ export function UserProvider({ children }) {
       item.username !== currentUser.username &&
       currentUser.following.every((person) => person.username !== item.username)
   );
-  console.log("from sugg", suggestions)
   usersDispatch({type:GET_SUGGESTED_USER, payload: suggestions})
 
 }
   useEffect(() => {
     getAllUsersFunction();
-  }, [token]);
+    getSuggestedUsersArray()
+  }, []);
 
   return (
     <UserContext.Provider

@@ -42,14 +42,16 @@ export const postReducerfunction = (state, action) => {
       };
 
     case SORT_LATEST_POSTS:
-      console.log("posted")
+      
       const latestArr = state.allPostsInDB.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
       return { ...state, allPostOfUser: latestArr };
     case SORT_OLDEST_POSTS:
       const oldestArr = state.allPostsInDB.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
       return { ...state, allPostOfUser: oldestArr };
     case TRENDING_POSTS:
-      return { ...state, allPostOfUser: payload };
+      console.log("posted")
+      const trendingPosts = state.allPostsInDB.sort((a, b)=> b?.likes?.likeCount -  a?.likes?.likeCount) 
+      return { ...state, allPostOfUser: [...trendingPosts] };
     default:
       break;
   }

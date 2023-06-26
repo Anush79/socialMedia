@@ -66,7 +66,7 @@ e.preventDefault();
       <div className="search">
         <NavLink to="/home/search">Search</NavLink>
       </div>
-      <div className="explore">Explore</div>
+      <div className="explore">   <NavLink to="/home/explore">Explore</NavLink></div>
       <div className="bookMarks">
         <NavLink to="/home/bookmarks">Bookmarks</NavLink>
       </div>

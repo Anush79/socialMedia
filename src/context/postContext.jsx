@@ -81,15 +81,16 @@ export function PostProvider({ children }) {
     }
   };
  const deletePostFunction=async(postId, token) =>{
-
+   
   try{
     const response = await deletePostHandlerService(postId, token)
     getAllUserPostsHandlerFunction(currentUser.username)
     postDispatch({ type: GET_EVERY_POSTS, payload: response.data.posts });
+    toast.info("Post deleted Successfully")
+
   }catch(error){
     console.error(error)
   }
-    toast.info("Post deleted Successfully")
  }
 
  const createPostFunction =async(content)=>{

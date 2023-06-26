@@ -42,12 +42,39 @@ export const users = [
         username: "TomHall44",
       },
       {
+        _id: "6v310012535541r",
+        firstName: "Ariana",
+        lastName: "Grande",
+        username: "grandeariana",
+        profileAvatar:
+          "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686852228/tweetopia/pjimage-1544144070_wpp7fc.jpg",
+
+      },
+      {
         _id: "z6y10006633318h",
         firstName: "Virat",
         lastName: "Kohli",
         username: "ViratKohli",
         profileAvatar:
           "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686848614/tweetopia/Virat_Kohli_during_the_India_vs_Aus_4th_Test_match_at_Narendra_Modi_Stadium_on_09_March_2023_fseb74.jpg",
+      },
+      {
+        _id: "wyh1000557794tc",
+        firstName: "Taylor Alison",
+        lastName: "Swift",
+        password: "AlisonTaylor",
+        username: "SwiftTaylor",
+        bio: "American singer-songwriter, I do genre-spanning discography, songwriting, and artistic reinventions",
+        website: "taylorswift.com",
+        profileAvatar:
+          "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686848190/tweetopia/191125_Taylor_Swift_at_the_2019_American_Music_Awards__cropped_rlydsg.png",
+        backgroundImage:
+          "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686848197/tweetopia/Swift__Taylor__2007_oce2od.jpg",
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+        following: ["Billgates_99", "Ipurpleyou", "AkshayKumar", "anushka"],
+        followers: ["DemiLovato", "deepikaRanveer", "grandeariana"],
+        bookmarks: [],
       },
 
     ],
