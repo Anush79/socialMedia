@@ -1,13 +1,17 @@
-import { usePost } from '../'
+import { usePost, useAuth } from '../'
 import TweetCard from './TweetCard'
 import WhatsNew from './WriteNewTweet'
 export default function TweetsSection() {
-  const { allPosts } = usePost()
+  const { allPosts } = usePost();
+  const {currentUser} =useAuth()
+  const feedPosts = allPosts?.allPostsInDB.filter(
+    (item)=>currentUser.following.some(person=> person.username===item.username || currentUser.username === item.username)
+  )
   return <div className="tweetsSection">
     <WhatsNew />
     {
-      allPosts?.allPostsInDB.length > 0 ?
-        allPosts?.allPostsInDB?.map(item => <TweetCard key={item.id} item={item} />) :
+      feedPosts.length > 0 ?
+      feedPosts.map(item => <TweetCard key={item.id} item={item} />) :
         "No post available"
 
     }
