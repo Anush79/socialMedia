@@ -1,37 +1,42 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink , useParams} from "react-router-dom";
 import { useAuth, usePost, useUser } from "../../";
 import Modal from "../../utils/Modal";
 
 import TweetCard from "../../components/TweetCard";
 import EditProfile from "./EditProfile";
+
+
 export default function Profile() {
+
   const [modalOpen, setModalOpen] = useState(false);
   const { currentUser, token } = useAuth();
   const {
     users: { userWithId },
   } = useUser();
   const { allPosts } = usePost();
+  const {username:paramUsername}=useParams()
+  console.log(paramUsername)
   return (
     <div className="ProfileContainer">
       <h2>Profile page</h2>
       <div className="profileHeader">
         <img
-          src={currentUser?.backgroundImage}
+          src={userWithId?.backgroundImage}
           alt=""
           width={"100%"}
           height={"300px"}
         />
-        <img src={currentUser?.profileAvatar} alt="" width={"100px"} />
-        <h3>{currentUser?.firstName}</h3>
-        <h4>{currentUser?.bio}</h4>
+        <img src={userWithId?.profileAvatar} alt="" width={"100px"} />
+        <h3>{userWithId?.firstName} {userWithId?.lastName}</h3>
+        <h4>{userWithId?.bio}</h4>
         <p>
-          Following: {currentUser?.following.length} Followers:{" "}
-          {currentUser.followers.length}
+          Following: {userWithId?.following.length} Followers:{" "}
+          {userWithId.followers.length}
         </p>
         <h5>
-          <NavLink to={currentUser?.website} target="_blank">
-            {currentUser?.website}
+          <NavLink to={userWithId?.website} target="_blank">
+            {userWithId?.website}
           </NavLink>
         </h5>
         <div className="editProfile">
@@ -40,7 +45,7 @@ export default function Profile() {
             setCloseModal={setModalOpen}
             modalText={"Edit Profile"}
           >
-            <EditProfile user={currentUser}/>
+            <EditProfile user={userWithId}/>
           </Modal>
         </div>
         

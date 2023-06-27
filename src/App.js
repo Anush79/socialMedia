@@ -15,6 +15,7 @@ import SingleTweet from "./components/SingleTweetPage";
 import RequiresAuth from "./components/RequiresAuth";
 import BookMarks from "./pages/bookMarks/BookMarks";
 import Explore from "./pages/explore";
+import ErrorPage from "./pages/errorPage/Error";
 
 function App() {
   const { token } = useAuth();
@@ -38,8 +39,10 @@ function App() {
             <Route path="post/:id" element={<SingleTweet />} />
             <Route path = 'bookmarks' element={<BookMarks/>}/>
             <Route path="explore" element={<Explore/>}/>
-            <Route path="profile" element={<Profile />} />
+            <Route path="profile/:username" element={<Profile />} />
+            <Route path='*' element={<ErrorPage/>}/>
           </Route>
+          <Route path='*' element={<ErrorPage/>}/>
         </Routes>
       </div>
       <Footer />

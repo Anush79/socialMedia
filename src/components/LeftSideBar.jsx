@@ -8,6 +8,7 @@ import { formatDate } from "../backend/utils/authUtils";
 
 export default function LeftSideBaar() {
   const { logOutFunction, currentUser } = useAuth();
+  const {getUserByIdFunction}= useUser()
   const { getAllUserPostsHandlerFunction ,createPostFunction} = usePost();
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -73,10 +74,11 @@ e.preventDefault();
       <div
         className="profile"
         onClick={() => {
+          getUserByIdFunction(currentUser._id)
           getAllUserPostsHandlerFunction(currentUser.username);
         }}
       >
-        <NavLink to="/home/profile">Profile</NavLink>
+        <NavLink to={`/home/profile/${currentUser.username}`}>Profile</NavLink>
       </div>
 
       <div className="addTweet">
