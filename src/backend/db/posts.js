@@ -140,7 +140,7 @@ export const posts = [
     content: "Started learning a new musical instrument today. It's frustrating, but I'm determined to become a maestro! 🎶 #MusicEnthusiast",
     mediaURL: "",
     likes: {
-      likeCount: 2,
+      likeCount: 203,
       likedBy: [],
       dislikedBy: [],
     },
@@ -155,7 +155,7 @@ export const posts = [
       "Movie night with friends is always a blast. Laughter, popcorn, and a good film—perfect ingredients for a fun evening! 🍿 #MovieMarathon",
     mediaURL: "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686818140/samples/imagecon-group.jpg",
     likes: {
-      likeCount: 2,
+      likeCount: 102,
       likedBy: [],
       dislikedBy: [],
     },

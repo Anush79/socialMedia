@@ -1,18 +1,43 @@
-import { useUser,useAuth } from '../'
-import UsersCard from './UsersCard'
+import { useState } from "react";
+import { useUser, useAuth } from "../";
+import UsersCard from "./UsersCard";
 export default function Search() {
-  const { users } = useUser()
-  const {token } = useAuth()
+  const { users } = useUser();
+  const { token } = useAuth();
 
-  return <div className="searchContainer">
+  const [searchResult, setSearchResult] = useState(
+    users?.allUsersInDB.slice(-4)
+  );
 
-          <input type="text" name="search" id="search" placeholder="search by name or username " />
+  const searchHandler = (e) => {
+    const { value } = e.target;
+    console.log(value);
+    const searchFinder = users?.allUsersInDB?.filter((item) =>
+      item.username.toLowerCase().includes(value.toLowerCase().trim())||
+      
+      item.firstName.toLowerCase().includes(value.toLowerCase().trim())||
+      
+      item.lastName.toLowerCase().includes(value.toLowerCase().trim())
+    );
+    console.log(searchFinder);
+    setSearchResult(()=>[...searchFinder])
 
-    {token && users?.allUsersInDB.length > 0 ?
-      users?.allUsersInDB.slice(-4).map(item => {
-        return <UsersCard key={item._id}item={item}/> 
-      }) : "No suggestions for now"
+  };
+  return (
+    <div className="searchContainer">
+      <input
+        type="text"
+        name="search"
+        id="search"
+        onChange={searchHandler}
+        placeholder="search by name or username "
+      />
 
-    }
-  </div>
+      {searchResult.length > 0
+        ? searchResult.map((item) => {
+            return <UsersCard key={item._id} item={item} />;
+          })
+        : "No User found for now, try again with another name"}
+    </div>
+  );
 }
