@@ -39,7 +39,7 @@ export function UserProvider({ children }) {
       const response = await getUserByIdService(userId);
       usersDispatch({ type: GET_USER, payload: response.data.user });
     } catch (error) {
-      toast.error(error.response.data.errors[0]);
+      toast.error(error.response);
     }
   };
 
@@ -98,6 +98,7 @@ export function UserProvider({ children }) {
           `Started following ${response?.data.followUser.firstName}`
         );
         setCurrentUser(response.data.user);
+        usersDispatch({ type: GET_USER, payload: response.data.user });
    
       }
     } catch (error) {
@@ -111,6 +112,7 @@ export function UserProvider({ children }) {
       if (response.status === 200) {
         toast.info(`Unfollowed ${response?.data.followUser.firstName}`);
         setCurrentUser(response.data.user);
+        usersDispatch({ type: GET_USER, payload: response.data.user });
 
       }
     } catch (error) {

@@ -4,7 +4,8 @@ export default function EditProfile({ user }) {
   const [selectedImg, setSelectedImage] = useState(
     `https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}`
   );
-
+  console.log(user)
+  const [userDetailsToUpdate, setUserDetailsToUpdate] = useState(user)
   const handleAvatar = (e) => {
     setSelectedImage(e.target.src);
   };
@@ -81,15 +82,15 @@ export default function EditProfile({ user }) {
             </label>
             <div>
               <label htmlFor="firstName">First Name: </label>
-              <input type="text" name="firstName" />
+              <input type="text" name="firstName" value={userDetailsToUpdate.firstName}/>
               <label htmlFor="lastName">Last Name: </label>
-              <input type="text" name="lastName" />
+              <input type="text" name="lastName"value={userDetailsToUpdate.lastName} />
             </div>
 
             <label htmlFor="website">Website</label>
-            <input type="url" name="website" />
+            <input type="url" name="website" value={userDetailsToUpdate.website} />
             <label htmlFor="bio">Bio</label>
-            <textarea name="bio" id="bio" cols="10" rows="5"></textarea>
+            <textarea name="bio" id="bio" cols="10" rows="5" value={userDetailsToUpdate.bio}></textarea>
             <button type="submit">Submit changes</button>
           </form>
         </div>

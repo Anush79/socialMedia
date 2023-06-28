@@ -7,8 +7,12 @@ export const testSignUpData = {
   firstName: "Kate",
   lastName: "Johnson",
   emailId: "kateJohn49@email.com",
-  userName: "kateJohn",
+  username: "kateJohn",
   password: "johnKate",
+  bio: "",
+  website: "",
+  profileAvatar:"",
+  backgroundImage:"",
 };
 
 export const actionTypes = {

@@ -1,12 +1,19 @@
-import { useAuth, usePost, useUser } from "../";
 import { useNavigate } from "react-router-dom";
+import {useState} from 'react'
+
+import Modal from "../utils/Modal";
+import TweetForm from "./NewTweetHandler";
+import { useAuth, usePost, useUser } from "../";
 import { copyLinkToShare } from '../utils/utilityFunctions'
 export default function TweetCard({ item, inBookmark, onPostDetails }) {
+  
+  const [modalOpen, setModalOpen] = useState(false);
   const {
     getPostByIdFunction,
     likePostHandlerfunction,
     dislikePostHandlerfunction,
     deletePostFunction,
+    editPostFunction,
   } = usePost();
   const {
     bookMarKPostFunction,
@@ -103,6 +110,13 @@ export default function TweetCard({ item, inBookmark, onPostDetails }) {
    
        if(onPostDetails) navigate("/home")
           }}> Delete this post</button>
+        }
+         {
+          (username === currentUser.username) &&
+         
+          <Modal status={modalOpen} setCloseModal={setModalOpen} modalText="Edit Post">
+          <TweetForm setModalOpen={setModalOpen} status={modalOpen} submitHandlerF={editPostFunction}postToEdit={item}/>
+        </Modal>
         }
         {<div className="comments">{ }</div>}
       </div>

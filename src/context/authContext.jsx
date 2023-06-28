@@ -38,6 +38,7 @@ export function AuthProvider({ children }) {
 
   const signUpFunction = async (signUpData) => {
     try {
+      console.log(signUpData, "input")
       const response = await signUpService(signUpData);
       const {
         data: { createdUser, encodedToken },
@@ -49,6 +50,7 @@ export function AuthProvider({ children }) {
         "loginDetails",
         JSON.stringify({ user: createdUser, token: encodedToken })
       );
+      console.log(createdUser, "output")
 
       if (status === 201) {
         toast.success(`Hello ${createdUser?.firstName}! Welcome to Tweetopia`);

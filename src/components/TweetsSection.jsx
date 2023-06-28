@@ -12,7 +12,7 @@ export default function TweetsSection() {
     {
       feedPosts.length > 0 ?
       feedPosts.map(item => <TweetCard key={item.id} item={item} />) :
-        "No post available"
+        "No post available,start following someone or write your own tweet :)"
 
     }
   </div>

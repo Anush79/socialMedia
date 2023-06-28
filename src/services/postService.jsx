@@ -44,3 +44,9 @@ axios.delete(`/api/posts/${postId}`, { headers: { authorization } });
 
 export const createPostService =async(postData, authorization) =>await
 axios.post("/api/posts", { postData }, { headers: { authorization } });
+
+export const editPostService=async (postData, authorization) => await axios.post(
+  `/api/posts/edit/${postData._id}`,
+  { postData },
+  { headers: { authorization } }
+);
