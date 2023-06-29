@@ -17,14 +17,14 @@ export const loginService = async (username, password) => {
 export const signUpService = async ({
   firstName,
   lastName,
-  userName,
+  username,
   password,
 }) => {
   try {
     const response = await axios.post("/api/auth/signup", {
       firstName,
       lastName,
-      userName,
+      username,
       password,
     });
     if (response.status === 201) return response;

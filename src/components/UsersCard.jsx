@@ -19,7 +19,7 @@ export default function UsersCard({ item }) {
     getAllUserPostsHandlerFunction(item.username);
     navigate(`/home/profile/${item.username}/${item._id}`); 
   };
-console.log(item)
+
   return (
     <>
       <div

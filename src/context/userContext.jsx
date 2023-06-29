@@ -158,9 +158,11 @@ export function UserProvider({ children }) {
 
   useEffect(() => {
     getAllUsersFunction();
-    getSuggestedUsersArray();
   }, []);
 
+useEffect(()=>{
+  getSuggestedUsersArray();
+},[users?.allUsersInDB])
   return (
     <UserContext.Provider
       value={{

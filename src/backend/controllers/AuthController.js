@@ -41,7 +41,9 @@ export const signupHandler = function (schema, request) {
       following: [],
       bookmarks: [],
     };
+    console.log(request.requestBody, newUser, "inside backend")
     const createdUser = schema.users.create(newUser);
+    console.log(createdUser)
     const encodedToken = sign(
       { _id, username },
       process.env.REACT_APP_JWT_SECRET
