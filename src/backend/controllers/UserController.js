@@ -144,7 +144,7 @@ export const bookmarkPostHandler = function (schema, request) {
         { errors: ["This Post is already bookmarked"] }
       );
     }
-    user.bookmarks.push({ _id: post._id, username: post.username, likes: post.likes, content: post.content, createdAt: post.createdAt, updatedAt: post.updatedAt });
+    user.bookmarks.push({ _id: post._id, username: post.username, likes: post.likes, content: post.content,mediaURL:post.mediaURL, createdAt: post.createdAt, updatedAt: post.updatedAt });
     // this.db.users.update(
     //   { _id: user._id },
     //   { ...user, updatedAt: formatDate() }

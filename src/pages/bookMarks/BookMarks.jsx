@@ -7,9 +7,9 @@ export default function BookMarks() {
   const { getUserByIdFunction, users } = useUser();
   const bookMarks = users?.userWithId?.bookmarks;
 
-  useEffect(() => {
-    getUserByIdFunction(currentUser._id)
-  }, [users]);
+  // useEffect(() => {
+  //   getUserByIdFunction(currentUser._id)
+  // }, [users]);
 
   return (
     <div className="bookMarksContainer">
@@ -18,6 +18,7 @@ export default function BookMarks() {
       <div className="tweetSection">
         {bookMarks && bookMarks.length > 0
           ? bookMarks.map((item) => {
+            console.log(item);
               return <TweetCard key={item.id}  item={item} inBookmark={true}/>;
             })
           : "No post available"}

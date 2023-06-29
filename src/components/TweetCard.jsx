@@ -19,6 +19,7 @@ export default function TweetCard({ item, inBookmark, onPostDetails }) {
     bookMarKPostFunction,
     removeFromBookmarkFunction,
     isAlreadyBookMarked,
+    getUserByIdFunction,
   } = useUser();
   const { token, currentUser } = useAuth();
   const navigate = useNavigate();
@@ -83,7 +84,7 @@ export default function TweetCard({ item, inBookmark, onPostDetails }) {
           <button
             onClick={(e) => {
               removeFromBookmarkFunction(_id, token);
-
+              getUserByIdFunction(currentUser._id)
               e.stopPropagation();
             }}
           >
@@ -93,6 +94,7 @@ export default function TweetCard({ item, inBookmark, onPostDetails }) {
           <button
             onClick={(e) => {
               bookMarKPostFunction(_id, token);
+              getUserByIdFunction(currentUser._id)
 
               e.stopPropagation();
             }}
