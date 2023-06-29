@@ -1,11 +1,21 @@
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import '../styles/postCard.css';
 
-import Modal from "../utils/Modal";
-import TweetForm from "./NewTweetHandler";
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
+import ClassOutlinedIcon from '@mui/icons-material/ClassOutlined';
+import ClassRoundedIcon from '@mui/icons-material/ClassRounded';
+import ShareRoundedIcon from '@mui/icons-material/ShareRounded';
+import EditNoteRoundedIcon from '@mui/icons-material/EditNoteRounded';
+import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
+import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
+
 import { useAuth, usePost, useUser } from "../";
+import Modal from "../utils/Modal";
 import { copyLinkToShare } from "../utils/utilityFunctions";
-export default function TweetCard({ item, inBookmark, onPostDetails }) {
+import TweetForm from "./NewTweetHandler";
+export default function TweetCard({ item, onPostDetails }) {
   const [modalOpen, setModalOpen] = useState(false);
   const {
     getPostByIdFunction,

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { useAuth, usePost, useUser } from "../../";
 import Modal from "../../utils/Modal";
-
+import ManageAccountsRoundedIcon from '@mui/icons-material/ManageAccountsRounded';
 import TweetCard from "../../components/TweetCard";
 import EditProfile from "./EditProfile";
 

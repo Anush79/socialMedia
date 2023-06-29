@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useUser } from "../../context/userContext";
+
+import ManageAccountsRoundedIcon from '@mui/icons-material/ManageAccountsRounded';
+
 export default function EditProfile({ user }) {
 
   const [selectedImg, setSelectedImage] = useState(

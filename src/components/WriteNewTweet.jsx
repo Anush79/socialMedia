@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useAuth } from "../";
 import Modal from "../utils/Modal";
+import TuneRoundedIcon from '@mui/icons-material/TuneRounded';
+import SortRoundedIcon from '@mui/icons-material/SortRounded';
+import CalendarMonthRoundedIcon from '@mui/icons-material/CalendarMonthRounded';
 import TweetForm from "./NewTweetHandler";
 export default function WhatsNew() {
   const [modalOpen, setModalOpen] = useState(false);
