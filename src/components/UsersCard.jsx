@@ -17,9 +17,9 @@ export default function UsersCard({ item }) {
   const openUserProfile = (item) => {
     getUserByIdFunction(item._id);
     getAllUserPostsHandlerFunction(item.username);
-    navigate(`/home/profile/${item.username}`); 
+    navigate(`/home/profile/${item.username}/${item._id}`); 
   };
-
+console.log(item)
   return (
     <>
       <div
@@ -30,7 +30,7 @@ export default function UsersCard({ item }) {
         className="suggestedProfile"
       >
         <p>
-          <NavLink to={`/home/profile/${item.username}`}>
+          <NavLink to={`/home/profile/${item.username}/${item._id}`}>
             <img src={item.profileAvatar} alt="avatar" width="50px" />
           </NavLink>
         </p>

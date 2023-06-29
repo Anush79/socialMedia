@@ -9,19 +9,18 @@ import EditProfile from "./EditProfile";
 export default function Profile() {
   const { currentUser } = useAuth();
   const {
-    users: { userWithId, allUsersInDB },
+    users: { userWithId, allUsersInDB },getAllUsersFunction
   } = useUser();
   const { allPosts } = usePost();
   const { username: paramUsername } = useParams();
   const [modalOpen, setModalOpen] = useState(false);
-  const [isLoggedUser, setisLoggedUser] = useState(
-    paramUsername === currentUser.username
-  );
-
+  const isLoggedUser =   paramUsername === currentUser.username;
   const foundUserInDb =
     userWithId ??
     allUsersInDB.find((person) => person.username === paramUsername);
-  console.log(foundUserInDb);
+useEffect(()=>{
+  getAllUsersFunction()
+},[])
   return (
     <div className="ProfileContainer">
       <h2>Profile page</h2>

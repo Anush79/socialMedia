@@ -1,14 +1,26 @@
 import { useState } from "react";
-
+import { useUser } from "../../context/userContext";
 export default function EditProfile({ user }) {
+
   const [selectedImg, setSelectedImage] = useState(
     `https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}`
   );
-  console.log(user)
   const [userDetailsToUpdate, setUserDetailsToUpdate] = useState(user)
+  const {editUserProfileFunction}= useUser();
   const handleAvatar = (e) => {
     setSelectedImage(e.target.src);
   };
+  const handleChange= (e)=>{
+const {value, name}= e.target;
+setUserDetailsToUpdate((prev)=>({...prev,[name]:value }))
+  }
+  console.log(userDetailsToUpdate, "new")
+
+const handleEditSubmit=(e)=>{
+  e.preventDefault();
+  editUserProfileFunction(userDetailsToUpdate)
+}
+
 
   return (
     <>
@@ -76,21 +88,21 @@ export default function EditProfile({ user }) {
           </div>
         </div>
         <div className="dataToChange">
-          <form action="">
+          <form onSubmit={handleEditSubmit}>
             <label htmlFor="selectImage">
               Profile Image: <img src={selectedImg} width="100px" />
             </label>
             <div>
               <label htmlFor="firstName">First Name: </label>
-              <input type="text" name="firstName" value={userDetailsToUpdate.firstName}/>
+              <input type="text" name="firstName" value={userDetailsToUpdate.firstName} onChange={handleChange} />
               <label htmlFor="lastName">Last Name: </label>
-              <input type="text" name="lastName"value={userDetailsToUpdate.lastName} />
+              <input type="text" name="lastName"value={userDetailsToUpdate.lastName}onChange={handleChange}  />
             </div>
 
             <label htmlFor="website">Website</label>
-            <input type="url" name="website" value={userDetailsToUpdate.website} />
+            <input type="url" name="website" value={userDetailsToUpdate.website}onChange={handleChange}  />
             <label htmlFor="bio">Bio</label>
-            <textarea name="bio" id="bio" cols="10" rows="5" value={userDetailsToUpdate.bio}></textarea>
+            <textarea name="bio" id="bio" cols="10" rows="5" value={userDetailsToUpdate.bio}onChange={handleChange} />
             <button type="submit">Submit changes</button>
           </form>
         </div>

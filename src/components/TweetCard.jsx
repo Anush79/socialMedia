@@ -1,12 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import {useState} from 'react'
+import { useState } from "react";
 
 import Modal from "../utils/Modal";
 import TweetForm from "./NewTweetHandler";
 import { useAuth, usePost, useUser } from "../";
-import { copyLinkToShare } from '../utils/utilityFunctions'
+import { copyLinkToShare } from "../utils/utilityFunctions";
 export default function TweetCard({ item, inBookmark, onPostDetails }) {
-  
   const [modalOpen, setModalOpen] = useState(false);
   const {
     getPostByIdFunction,
@@ -31,13 +30,12 @@ export default function TweetCard({ item, inBookmark, onPostDetails }) {
     createdAt,
     likes: { likeCount, likedBy },
     username,
-
   } = item;
 
   const isLikedByUser = likedBy.find((item) => {
     return item.username === currentUser.username;
   });
-  const isBookMarked = isAlreadyBookMarked(item)
+  const isBookMarked = isAlreadyBookMarked(item);
   return (
     <div key={_id} className="tweetCard">
       <div
@@ -49,7 +47,7 @@ export default function TweetCard({ item, inBookmark, onPostDetails }) {
         className="heading"
       >
         <h3>{username}</h3>
-        <p>{createdAt}</p>
+        <p>{createdAt.slice(0,10)}</p>
         <img src={mediaURL} alt={mediaAlt} width="300px" />
         <p>{content}</p>
         <p>likes:{likeCount}</p>
@@ -75,7 +73,7 @@ export default function TweetCard({ item, inBookmark, onPostDetails }) {
         <button
           onClick={(e) => {
             e.stopPropagation();
-            copyLinkToShare(`https://tweetopiaa.netlify.app/home/post/${_id}`)
+            copyLinkToShare(`https://tweetopiaa.netlify.app/home/post/${_id}`);
           }}
         >
           share
@@ -83,8 +81,8 @@ export default function TweetCard({ item, inBookmark, onPostDetails }) {
         {isBookMarked ? (
           <button
             onClick={(e) => {
-              removeFromBookmarkFunction(_id, token);
-              getUserByIdFunction(currentUser._id)
+              removeFromBookmarkFunction(_id);
+              getUserByIdFunction(currentUser._id);
               e.stopPropagation();
             }}
           >
@@ -93,8 +91,8 @@ export default function TweetCard({ item, inBookmark, onPostDetails }) {
         ) : (
           <button
             onClick={(e) => {
-              bookMarKPostFunction(_id, token);
-              getUserByIdFunction(currentUser._id)
+              bookMarKPostFunction(_id);
+              getUserByIdFunction(currentUser._id);
 
               e.stopPropagation();
             }}
@@ -102,25 +100,39 @@ export default function TweetCard({ item, inBookmark, onPostDetails }) {
             BookMark
           </button>
         )}
-        {
-          (username === currentUser.username) &&
-          <button onClick={(e) => {
+        {username === currentUser.username && (
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
 
-            e.stopPropagation();
+              deletePostFunction(_id, token);
+              if (isBookMarked) {
+                removeFromBookmarkFunction(_id);
+                getUserByIdFunction(currentUser._id);
+              }
 
-            deletePostFunction(_id, token)
-   
-       if(onPostDetails) navigate("/home")
-          }}> Delete this post</button>
-        }
-         {
-          (username === currentUser.username) &&
-         
-          <Modal status={modalOpen} setCloseModal={setModalOpen} modalText="Edit Post">
-          <TweetForm setModalOpen={setModalOpen} status={modalOpen} submitHandlerF={editPostFunction}postToEdit={item}/>
-        </Modal>
-        }
-        {<div className="comments">{ }</div>}
+              if (onPostDetails) navigate("/home");
+            }}
+          >
+            {" "}
+            Delete this post
+          </button>
+        )}
+        {username === currentUser.username && (
+          <Modal
+            status={modalOpen}
+            setCloseModal={setModalOpen}
+            modalText="Edit Post"
+          >
+            <TweetForm
+              setModalOpen={setModalOpen}
+              status={modalOpen}
+              submitHandlerF={editPostFunction}
+              postToEdit={item}
+            />
+          </Modal>
+        )}
+        {<div className="comments">{}</div>}
       </div>
     </div>
   );

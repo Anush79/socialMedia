@@ -54,3 +54,5 @@ export const followUserService = async(followUserId, authorization) => await axi
     {},
     { headers: { authorization } }
   );
+
+  export const editUserProfileService = async(userData, authorization)=>await axios.post(`/api/users/edit`,{userData},{ headers: { authorization } } )

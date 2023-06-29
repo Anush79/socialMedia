@@ -24,6 +24,8 @@ button:hover{
   border-radius: 10px;
   border: 2px dashed rgb(102, 102, 255);
   margin: 3px ;
+  max-width: 500px;
+  padding:0.5rem 1rem;
 }
 .suggestedProfile{
   border: 1px solid rgb(247, 106, 197);
@@ -93,3 +95,24 @@ button {
 
 }
 
+
+.leftSideBar {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80vh;
+  align-items: flex-start;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+  padding:0.5rem;
+}
+.leftSideBar :hover{
+
+outline: 2px double  rgba(123, 123, 251, 0.807);
+}
+.active{
+  outline: 2px double  rgba(123, 123, 251, 0.807);
+}

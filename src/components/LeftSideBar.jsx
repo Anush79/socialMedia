@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 import { useAuth, usePost, useUser } from "../";
 import Modal from "../utils/Modal";
@@ -14,7 +14,7 @@ export default function LeftSideBaar() {
   return (
     <div className="leftSideBar">
       <div className="feed">
-        <NavLink to="/home">Feed</NavLink>
+        <NavLink to="/home/feed">Feed</NavLink>
       </div>
       <div className="search">
         <NavLink to="/home/search">Search</NavLink>
@@ -26,11 +26,11 @@ export default function LeftSideBaar() {
       <div
         className="profile"
         onClick={() => {
-          getUserByIdFunction(currentUser._id)
+          getUserByIdFunction(currentUser._id);          
           getAllUserPostsHandlerFunction(currentUser.username);
         }}
       >
-        <NavLink to={`/home/profile/${currentUser.username}`}>Profile</NavLink>
+        <NavLink to={`/home/profile/${currentUser.username}/${currentUser._id}`}>Profile</NavLink>
       </div>
 
       <div className="addTweet">

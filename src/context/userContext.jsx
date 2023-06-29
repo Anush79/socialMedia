@@ -1,19 +1,20 @@
-import { createContext, useContext, useReducer, useEffect } from "react";
-import {
-  getAllUsersService,
-  bookMarKPostService,
-  getUserByIdService,
-  removeBookmarkService,
-  followUserService,
-  unfollowUserService,
-} from "../services/userService";
-import {
-  userReducerFunction,
-  userInitialState,
-} from "../reducers/userReducers";
-import { actionTypes } from "../utils/constants";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import { toast } from "react-toastify";
 import { useAuth } from "../";
+import {
+  userInitialState,
+  userReducerFunction,
+} from "../reducers/userReducers";
+import {
+  bookMarKPostService,
+  editUserProfileService,
+  followUserService,
+  getAllUsersService,
+  getUserByIdService,
+  removeBookmarkService,
+  unfollowUserService,
+} from "../services/userService";
+import { actionTypes } from "../utils/constants";
 const UserContext = createContext();
 
 export function UserProvider({ children }) {
@@ -23,7 +24,8 @@ export function UserProvider({ children }) {
   );
 
   const { token, currentUser, setCurrentUser } = useAuth();
-  const { GET_ALL_USERS, GET_USER, GET_BOOKMARKS,GET_SUGGESTED_USER } = actionTypes;
+  const { GET_ALL_USERS, GET_USER, GET_BOOKMARKS, GET_SUGGESTED_USER } =
+    actionTypes;
 
   const getAllUsersFunction = async () => {
     try {
@@ -43,12 +45,12 @@ export function UserProvider({ children }) {
     }
   };
 
-  const bookMarKPostFunction = async (id, encodedToken) => {
+  const bookMarKPostFunction = async (id) => {
     try {
-      const response = await bookMarKPostService(id, encodedToken);
+      const response = await bookMarKPostService(id, token);
       if (response.status === 200) {
         toast.success("Added BookMark");
-        
+
         usersDispatch({
           type: GET_BOOKMARKS,
           payload: response.data.bookmarks,
@@ -77,9 +79,9 @@ export function UserProvider({ children }) {
   //   }
   // };
 
-  const removeFromBookmarkFunction = async (postId, encodedToken) => {
+  const removeFromBookmarkFunction = async (postId) => {
     try {
-      const response = await removeBookmarkService(postId, encodedToken);
+      const response = await removeBookmarkService(postId, token);
       usersDispatch({ type: GET_BOOKMARKS, payload: response.data.bookmarks });
       if (response.status === 200) {
         toast.info("Post removed from Bookmarks");
@@ -95,11 +97,10 @@ export function UserProvider({ children }) {
       const response = await followUserService(followUserId, token);
       if (response.status === 200) {
         toast.success(
-          `Started following ${response?.data.followUser.firstName}`
+          `Started following ${response?.data?.followUser?.firstName}`
         );
         setCurrentUser(response.data.user);
         usersDispatch({ type: GET_USER, payload: response.data.user });
-   
       }
     } catch (error) {
       toast.error(error.response.data.errors[0]);
@@ -113,7 +114,6 @@ export function UserProvider({ children }) {
         toast.info(`Unfollowed ${response?.data.followUser.firstName}`);
         setCurrentUser(response.data.user);
         usersDispatch({ type: GET_USER, payload: response.data.user });
-
       }
     } catch (error) {
       toast.error(error.response.data.errors[0]);
@@ -132,25 +132,40 @@ export function UserProvider({ children }) {
     );
     return checkFollowing ? true : false;
   };
-  const getSuggestedUsersArray=() => {
-    
+  const getSuggestedUsersArray = () => {
     const suggestions = users?.allUsersInDB?.filter(
-    (item) =>
-      item.username !== currentUser.username &&
-      currentUser.following.every((person) => person.username !== item.username)
-  );
-  usersDispatch({type:GET_SUGGESTED_USER, payload: suggestions})
+      (item) =>
+        item.username !== currentUser.username &&
+        currentUser.following.every(
+          (person) => person.username !== item.username
+        )
+    );
+    usersDispatch({ type: GET_SUGGESTED_USER, payload: suggestions });
+  };
 
-}
+  const editUserProfileFunction = async (userData) => {
+    try {
+      const { data, status } = await editUserProfileService(userData, token);
+      if (status === 201) {
+        toast.success("profile updated successfully");
+        setCurrentUser(data.user);
+        usersDispatch({ type: GET_USER, payload: data.user });
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
     getAllUsersFunction();
-    getSuggestedUsersArray()
+    getSuggestedUsersArray();
   }, []);
 
   return (
     <UserContext.Provider
       value={{
         users,
+        getAllUsersFunction,
         bookMarKPostFunction,
         getUserByIdFunction,
         removeFromBookmarkFunction,
@@ -159,6 +174,7 @@ export function UserProvider({ children }) {
         unFollowUserFunction,
         isAlreadyFollowing,
         getSuggestedUsersArray,
+        editUserProfileFunction,
       }}
     >
       {children}

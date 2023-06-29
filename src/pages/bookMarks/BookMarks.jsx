@@ -1,15 +1,10 @@
-import { useEffect } from "react";
 import { useAuth, useUser } from "../../";
 import TweetCard from "../../components/TweetCard";
 
 export default function BookMarks() {
   const { currentUser } = useAuth();
-  const { getUserByIdFunction, users } = useUser();
+  const { users } = useUser();
   const bookMarks = users?.userWithId?.bookmarks;
-
-  // useEffect(() => {
-  //   getUserByIdFunction(currentUser._id)
-  // }, [users]);
 
   return (
     <div className="bookMarksContainer">

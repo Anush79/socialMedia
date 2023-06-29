@@ -29,7 +29,7 @@ export function AuthProvider({ children }) {
       );
       if (status === 200) {
         toast.success(`Welcome back ${foundUser?.firstName}`);
-        navigate("/home");
+        navigate("/home/feed");
       }
     } catch (error) {
       console.log(error);
@@ -54,7 +54,7 @@ export function AuthProvider({ children }) {
 
       if (status === 201) {
         toast.success(`Hello ${createdUser?.firstName}! Welcome to Tweetopia`);
-        navigate("/home");
+        navigate("/home/profile");
       }
     } catch (error) {
       console.log(error);
