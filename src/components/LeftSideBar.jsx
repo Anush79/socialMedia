@@ -6,6 +6,7 @@ import AccountBoxOutlinedIcon from '@mui/icons-material/AccountBoxOutlined';
 import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
 import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
 import PersonSearchOutlinedIcon from '@mui/icons-material/PersonSearchOutlined';
+import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 
 import { useAuth, usePost, useUser } from "../";
 import Modal from "../utils/Modal";

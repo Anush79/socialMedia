@@ -44,6 +44,10 @@ export function UserProvider({ children }) {
       toast.error(error.response);
     }
   };
+  const getUserByUsername =(userName)=>{
+    const foundUser = users?.allUsersInDB?.find(item=>item.username===userName)
+    return foundUser
+  }
 
   const bookMarKPostFunction = async (id) => {
     try {
@@ -150,6 +154,8 @@ export function UserProvider({ children }) {
         toast.success("profile updated successfully");
         setCurrentUser(data.user);
         usersDispatch({ type: GET_USER, payload: data.user });
+        getUserByIdFunction(data?.user._id);          
+        
       }
     } catch (error) {
       console.error(error);
@@ -177,6 +183,7 @@ useEffect(()=>{
         isAlreadyFollowing,
         getSuggestedUsersArray,
         editUserProfileFunction,
+        getUserByUsername,
       }}
     >
       {children}

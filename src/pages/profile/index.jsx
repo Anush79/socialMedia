@@ -1,18 +1,21 @@
 import { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { useAuth, usePost, useUser } from "../../";
+
+import '../../styles/profile.css'
 import Modal from "../../utils/Modal";
 import ManageAccountsRoundedIcon from '@mui/icons-material/ManageAccountsRounded';
+import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import TweetCard from "../../components/TweetCard";
 import EditProfile from "./EditProfile";
 
 export default function Profile() {
   const { currentUser } = useAuth();
   const {
-    users: { userWithId, allUsersInDB },getAllUsersFunction
+    users: { userWithId, allUsersInDB },getAllUsersFunction,getUserByIdFunction
   } = useUser();
   const { allPosts } = usePost();
-  const { username: paramUsername } = useParams();
+  const { username: paramUsername , _id:paramId} = useParams();
   const [modalOpen, setModalOpen] = useState(false);
   const isLoggedUser =   paramUsername === currentUser.username;
   const foundUserInDb =
@@ -21,6 +24,9 @@ export default function Profile() {
 useEffect(()=>{
   getAllUsersFunction()
 },[])
+useEffect(()=>{
+  getUserByIdFunction(paramId)
+},[allUsersInDB])
   return (
     <div className="ProfileContainer">
       <h2>Profile page</h2>
@@ -60,10 +66,13 @@ useEffect(()=>{
               setCloseModal={setModalOpen}
               modalText={"Edit Profile"}
             >
-              <EditProfile user={foundUserInDb} />
+              <EditProfile user={foundUserInDb} modalOpen={modalOpen} setModalOpen={setModalOpen}/>
             </Modal>
           </div>
         )}
+        <div className="logout">
+        <LogoutRoundedIcon/>
+        </div>
       </div>
       <div className="profileBody">
         <div className="tweetsSection">

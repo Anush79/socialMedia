@@ -13,7 +13,7 @@ import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
 
 import { useAuth, usePost, useUser } from "../";
 import Modal from "../utils/Modal";
-import { copyLinkToShare } from "../utils/utilityFunctions";
+import { copyLinkToShare, formatDateAgo } from "../utils/utilityFunctions";
 import TweetForm from "./NewTweetHandler";
 export default function TweetCard({ item, onPostDetails }) {
   const [modalOpen, setModalOpen] = useState(false);
@@ -57,19 +57,19 @@ export default function TweetCard({ item, onPostDetails }) {
         className="heading"
       >
         <h3>{username}</h3>
-        <p>{createdAt.slice(0,10)}</p>
+        <p>{formatDateAgo(createdAt)}</p>
         <img src={mediaURL} alt={mediaAlt} width="300px" />
         <p>{content}</p>
         <p>likes:{likeCount}</p>
         {isLikedByUser ? (
-          <button
+          <span
             onClick={(e) => {
               e.stopPropagation();
               dislikePostHandlerfunction(_id, token);
             }}
           >
-            Dislike
-          </button>
+            <FavoriteBorderOutlinedIcon />
+          </span>
         ) : (
           <button
             onClick={(e) => {
@@ -77,7 +77,7 @@ export default function TweetCard({ item, onPostDetails }) {
               likePostHandlerfunction(_id, token);
             }}
           >
-            Like
+            {/* <FavoriteBorderOutlined /> */}
           </button>
         )}
         <button
@@ -86,7 +86,7 @@ export default function TweetCard({ item, onPostDetails }) {
             copyLinkToShare(`https://tweetopiaa.netlify.app/home/post/${_id}`);
           }}
         >
-          share
+          <ShareRoundedIcon />
         </button>
         {isBookMarked ? (
           <button
@@ -96,7 +96,7 @@ export default function TweetCard({ item, onPostDetails }) {
               e.stopPropagation();
             }}
           >
-            remove bookmark
+            <ClassOutlinedIcon />
           </button>
         ) : (
           <button
@@ -107,7 +107,7 @@ export default function TweetCard({ item, onPostDetails }) {
               e.stopPropagation();
             }}
           >
-            BookMark
+            <ClassRoundedIcon />
           </button>
         )}
         {username === currentUser.username && (
@@ -142,7 +142,7 @@ export default function TweetCard({ item, onPostDetails }) {
             />
           </Modal>
         )}
-        {<div className="comments">{}</div>}
+        {<div className="comments">{ }</div>}
       </div>
     </div>
   );

@@ -1,0 +1,9 @@
+.editProfileBox{
+  display: flex;
+
+}
+.avatars{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

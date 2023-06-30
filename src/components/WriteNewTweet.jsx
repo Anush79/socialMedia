@@ -22,7 +22,7 @@ export default function WhatsNew() {
           e.preventDefault();
           setModalOpen(true);
         }}
-      />
+      /><TuneRoundedIcon/>
 
       {modalOpen && (
         <Modal status={modalOpen} setCloseModal={setModalOpen}>
@@ -30,7 +30,7 @@ export default function WhatsNew() {
         </Modal>
       )}
 
-      <div></div>
+      
     </div>
   );
 }

@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { useUser } from "../../context/userContext";
 
-import ManageAccountsRoundedIcon from '@mui/icons-material/ManageAccountsRounded';
+export default function EditProfile({ user , setModalOpen }) {
 
-export default function EditProfile({ user }) {
-
-  const [selectedImg, setSelectedImage] = useState(
-    `https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}`
+  const [selectedImg, setSelectedImage] = useState(user.profileAvatar.length<1?
+    `https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}`: user.profileAvatar
   );
   const [userDetailsToUpdate, setUserDetailsToUpdate] = useState(user)
   const {editUserProfileFunction}= useUser();
@@ -21,15 +19,23 @@ setUserDetailsToUpdate((prev)=>({...prev,[name]:value }))
 
 const handleEditSubmit=(e)=>{
   e.preventDefault();
-  editUserProfileFunction(userDetailsToUpdate)
+  editUserProfileFunction({...userDetailsToUpdate, profileAvatar:selectedImg})
+
 }
 
 
   return (
     <>
-      <div className="editProfile">
+      <div className="editProfileBox">
+        
         <div className="avatars">
+        <div className="row0">
+          <label htmlFor="selectImage">
+              Profile Image: <img src={selectedImg} width="100px" />
+            </label>
+          </div>
           <div className="row1">
+            
             <img
               src="\assets\avataaar1.png"
               alt=""
@@ -92,9 +98,7 @@ const handleEditSubmit=(e)=>{
         </div>
         <div className="dataToChange">
           <form onSubmit={handleEditSubmit}>
-            <label htmlFor="selectImage">
-              Profile Image: <img src={selectedImg} width="100px" />
-            </label>
+           
             <div>
               <label htmlFor="firstName">First Name: </label>
               <input type="text" name="firstName" value={userDetailsToUpdate.firstName} onChange={handleChange} />
@@ -106,7 +110,7 @@ const handleEditSubmit=(e)=>{
             <input type="url" name="website" value={userDetailsToUpdate.website}onChange={handleChange}  />
             <label htmlFor="bio">Bio</label>
             <textarea name="bio" id="bio" cols="10" rows="5" value={userDetailsToUpdate.bio}onChange={handleChange} />
-            <button type="submit">Submit changes</button>
+            <button type="submit" onClick={setModalOpen(false)}>Submit changes</button>
           </form>
         </div>
       </div>

@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  font-family:cursive;
+  font-family: 'IM Fell English', serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,10 @@
   width: 100%;
 }
 button:hover{
-  background:rgb(6, 138, 6)
+  background:var(--primary-color);
+  color:var(--text-color);
+  outline : 2px solid ;
+  transition:0.3s;
 }
 .homePage{
   display: grid;
@@ -22,10 +25,10 @@ button:hover{
 }
 .tweetCard{
   border-radius: 10px;
-  border: 2px dashed rgb(102, 102, 255);
   margin: 3px ;
   max-width: 500px;
   padding:0.5rem 1rem;
+  font-family: 'Satisfy', cursive;
 }
 .suggestedProfile{
   border: 1px solid rgb(247, 106, 197);
@@ -47,6 +50,7 @@ button:hover{
   justify-content: center;
   align-items: center;
   backdrop-filter: blur(3px);
+  color: var(--primary-color);
 }
 .outer div {
   border-radius: 10px;
@@ -71,12 +75,13 @@ button:hover{
 form {
   display: flex;
   flex-direction: column;
+
   gap: 10px;
   padding: 1rem;
   text-align: center;
   margin:auto;
   gap:5px;
-  max-width: 20rem;
+  max-width: 25rem;
 }
 form input,.tweetArea,
 button {
@@ -92,7 +97,6 @@ button {
   background: var(--text-color-secondary);
   cursor: pointer;
   margin: 5px;
-
 }
 
 

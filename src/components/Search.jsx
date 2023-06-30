@@ -37,7 +37,7 @@ export default function Search() {
         ? searchResult.map((item) => {
             return <UsersCard key={item._id} item={item} />;
           })
-        : "No User found for now, try again with another name"}
+        : <div> “ No User found for now, try again with another name "</div>}
     </div>
   );
 }
