@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from "react";
 import { toast } from "react-toastify";
 
 import { loginService, signUpService } from "../services/loginService";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const AuthContext = createContext();
 
@@ -12,7 +12,7 @@ export function AuthProvider({ children }) {
   const [token, setToken] = useState(localStorageData?.token);
 
   const navigate = useNavigate();
-
+  const location = useLocation()
   const loginFunction = async (username, password) => {
     try {
       const response = await loginService(username, password);
@@ -29,7 +29,9 @@ export function AuthProvider({ children }) {
       );
       if (status === 200) {
         toast.success(`Welcome back ${foundUser?.firstName}`);
-        navigate("/home/feed");
+        if (location?.state?.from?.pathname)
+          navigate(location?.state?.from?.pathname);
+        else navigate("/home/feed", { replace: true });
       }
     } catch (error) {
       console.log(error);
@@ -54,7 +56,9 @@ export function AuthProvider({ children }) {
 
       if (status === 201) {
         toast.success(`Hello ${createdUser?.firstName}! Welcome to Tweetopia`);
-        navigate("/home/profile");
+        if (location?.state?.from?.pathname)
+        navigate(location?.state?.from?.pathname);
+      else navigate("/home/profile", { replace: true });
       }
     } catch (error) {
       console.log(error);

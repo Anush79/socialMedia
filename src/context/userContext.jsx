@@ -137,6 +137,7 @@ export function UserProvider({ children }) {
     return checkFollowing ? true : false;
   };
   const getSuggestedUsersArray = () => {
+    console.log("allUSers",users?.allUsersInDB )
     const suggestions = users?.allUsersInDB?.filter(
       (item) =>
         item.username !== currentUser.username &&
@@ -167,6 +168,7 @@ export function UserProvider({ children }) {
   }, []);
 
 useEffect(()=>{
+  if(token)
   getSuggestedUsersArray();
 },[users?.allUsersInDB])
   return (
