@@ -15,12 +15,11 @@ export default function EditProfile({ user , setModalOpen }) {
 const {value, name}= e.target;
 setUserDetailsToUpdate((prev)=>({...prev,[name]:value }))
   }
-  console.log(userDetailsToUpdate, "new")
-
 const handleEditSubmit=(e)=>{
   e.preventDefault();
-  editUserProfileFunction({...userDetailsToUpdate, profileAvatar:selectedImg})
 
+  editUserProfileFunction({...userDetailsToUpdate, profileAvatar:selectedImg})
+  setModalOpen(false)
 }
 
 
@@ -110,7 +109,7 @@ const handleEditSubmit=(e)=>{
             <input type="url" name="website" value={userDetailsToUpdate.website}onChange={handleChange}  />
             <label htmlFor="bio">Bio</label>
             <textarea name="bio" id="bio" cols="10" rows="5" value={userDetailsToUpdate.bio}onChange={handleChange} />
-            <button type="submit" onClick={setModalOpen(false)}>Submit changes</button>
+            <button type="submit" >Submit changes</button>
           </form>
         </div>
       </div>

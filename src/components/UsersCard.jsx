@@ -29,12 +29,12 @@ export default function UsersCard({ item }) {
         }}
         className="suggestedProfile"
       >
-        <p>
+        <p className="userPP">
           <NavLink to={`/home/profile/${item.username}/${item._id}`}>
-            <img src={item.profileAvatar} alt="avatar" width="50px" />
+            <img src={item.profileAvatar} alt="avatar"/>
           </NavLink>
         </p>
-        <div>
+        <div className="userNameSuggestion">
           {item.firstName} {item.lastName}
           <p>
             <small>@{item.username}</small>

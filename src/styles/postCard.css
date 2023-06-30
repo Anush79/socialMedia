@@ -1,4 +1,38 @@
+.tweetsSection{
+  width: 100%;
+}
 .tweetCard{
   background:var(--secondary-color);
-  color:var(--text-color)
+  color:var(--text-color);
+  text-align: left;
+  min-width: 90%;
   }
+.nameOfUserInPost{
+  display: flex;
+  flex-direction: column;
+}
+.nameOfUserInPost small{
+  color:var(--tertiary-color)
+}
+.timeOfPost{
+  color:var(--text-color-secondary)
+}
+.tweetCard .heading h3{
+display: flex;
+gap: 10px;
+font-family: 'Courier New', Courier, monospace;
+}
+.likesCount{
+  font-family: 'Courier New', Courier, monospace;
+
+}
+.postImage{
+  width: 100%;
+}
+.iconsOnPostCard{
+  display: flex;
+  justify-content: space-between;
+}
+.displayPages{
+  min-width:100%;
+}

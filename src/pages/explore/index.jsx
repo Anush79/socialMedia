@@ -9,7 +9,7 @@ export default function Explore(){
   const exploreData= allPosts?.allPostsInDB.filter(
     (item)=>currentUser.following.every(person=> person.username!==item.username && currentUser.username!==item.username)
   )
-console.log(exploreData)
+
 
   return <div className="explorePage">
 <h2>Explore Page</h2>

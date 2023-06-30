@@ -1,20 +1,21 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import '../styles/postCard.css';
+import "../styles/postCard.css";
 
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
-import ClassOutlinedIcon from '@mui/icons-material/ClassOutlined';
-import ClassRoundedIcon from '@mui/icons-material/ClassRounded';
-import ShareRoundedIcon from '@mui/icons-material/ShareRounded';
-import EditNoteRoundedIcon from '@mui/icons-material/EditNoteRounded';
-import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
-import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
+import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
+import ClassOutlinedIcon from "@mui/icons-material/ClassOutlined";
+import ClassRoundedIcon from "@mui/icons-material/ClassRounded";
+import ShareRoundedIcon from "@mui/icons-material/ShareRounded";
+import EditNoteRoundedIcon from "@mui/icons-material/EditNoteRounded";
+import ClearRoundedIcon from "@mui/icons-material/ClearRounded";
+import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
 
 import { useAuth, usePost, useUser } from "../";
 import Modal from "../utils/Modal";
 import { copyLinkToShare, formatDateAgo } from "../utils/utilityFunctions";
 import TweetForm from "./NewTweetHandler";
+import { SpeakerNotes } from "@mui/icons-material";
 export default function TweetCard({ item, onPostDetails }) {
   const [modalOpen, setModalOpen] = useState(false);
   const {
@@ -29,7 +30,9 @@ export default function TweetCard({ item, onPostDetails }) {
     removeFromBookmarkFunction,
     isAlreadyBookMarked,
     getUserByIdFunction,
+    getUserByUsername,
   } = useUser();
+
   const { token, currentUser } = useAuth();
   const navigate = useNavigate();
   const {
@@ -41,6 +44,8 @@ export default function TweetCard({ item, onPostDetails }) {
     likes: { likeCount, likedBy },
     username,
   } = item;
+
+  const postCreator = getUserByUsername(username);
 
   const isLikedByUser = likedBy.find((item) => {
     return item.username === currentUser.username;
@@ -56,93 +61,132 @@ export default function TweetCard({ item, onPostDetails }) {
         }}
         className="heading"
       >
-        <h3>{username}</h3>
-        <p>{formatDateAgo(createdAt)}</p>
-        <img src={mediaURL} alt={mediaAlt} width="300px" />
-        <p>{content}</p>
-        <p>likes:{likeCount}</p>
-        {isLikedByUser ? (
-          <span
-            onClick={(e) => {
-              e.stopPropagation();
-              dislikePostHandlerfunction(_id, token);
-            }}
-          >
-            <FavoriteBorderOutlinedIcon />
+        <h3>
+          {" "}
+          <img
+            src={postCreator.profileAvatar}
+            className="dp"
+            alt="Random image"
+          />
+          <span className="nameOfUserInPost">
+            <span>
+              {" "}
+              {postCreator.firstName} {postCreator.lastName}
+            </span>
+            <span>
+              <small>@{postCreator.username}</small>
+            </span>
           </span>
-        ) : (
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              likePostHandlerfunction(_id, token);
-            }}
-          >
-            {/* <FavoriteBorderOutlined /> */}
-          </button>
+        </h3>
+        <p className="timeOfPost">{formatDateAgo(createdAt)}...</p>
+        {mediaURL?.length > 0 && (
+          <img src={mediaURL} alt={mediaAlt} wi className="postImage" />
         )}
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            copyLinkToShare(`https://tweetopiaa.netlify.app/home/post/${_id}`);
-          }}
-        >
-          <ShareRoundedIcon />
-        </button>
-        {isBookMarked ? (
-          <button
+        <p>{content}</p>
+        <p className="likesCount">likes:{likeCount}</p>
+        <div className="iconsOnPostCard">
+          {isLikedByUser ? (
+            <span
+              className="clickableIcon"
+              onClick={(e) => {
+                e.stopPropagation();
+                dislikePostHandlerfunction(_id, token);
+              }}
+            >
+              {" "}
+              <FavoriteOutlinedIcon /> 
+            </span>
+          ) : (
+            <span
+              className="clickableIcon"
+              onClick={(e) => {
+                e.stopPropagation();
+                likePostHandlerfunction(_id, token);
+              }}
+            >
+              <FavoriteBorderOutlinedIcon />
+            </span>
+          )}
+          <span
+            className="clickableIcon"
             onClick={(e) => {
-              removeFromBookmarkFunction(_id);
-              getUserByIdFunction(currentUser._id);
               e.stopPropagation();
+              copyLinkToShare(
+                `https://tweetopiaa.netlify.app/home/post/${_id}`
+              );
             }}
           >
-            <ClassOutlinedIcon />
-          </button>
-        ) : (
-          <button
-            onClick={(e) => {
-              bookMarKPostFunction(_id);
-              getUserByIdFunction(currentUser._id);
-
-              e.stopPropagation();
-            }}
-          >
-            <ClassRoundedIcon />
-          </button>
-        )}
-        {username === currentUser.username && (
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-
-              deletePostFunction(_id, token);
-              if (isBookMarked) {
+            <ShareRoundedIcon />
+          </span>
+          {isBookMarked ? (
+            <span
+              className="clickableIcon"
+              onClick={(e) => {
                 removeFromBookmarkFunction(_id);
                 getUserByIdFunction(currentUser._id);
-              }
+                e.stopPropagation();
+              }}
+            >
+              <ClassRoundedIcon />
+            </span>
+          ) : (
+            <span
+              className="clickableIcon"
+              onClick={(e) => {
+                bookMarKPostFunction(_id);
+                getUserByIdFunction(currentUser._id);
 
-              if (onPostDetails) navigate("/home");
-            }}
-          >
-            {" "}
-            Delete this post
-          </button>
-        )}
-        {username === currentUser.username && (
-          <Modal
-            status={modalOpen}
-            setCloseModal={setModalOpen}
-            modalText="Edit Post"
-          >
-            <TweetForm
-              setModalOpen={setModalOpen}
+                e.stopPropagation();
+              }}
+            >
+              <ClassOutlinedIcon />
+            </span>
+          )}
+          
+          {username === currentUser.username && (
+            <span
+              onClick={(e) => {
+                e.stopPropagation();
+                setModalOpen(true);
+              }}
+              className="clickableIcon"
+            >
+              <EditNoteRoundedIcon />
+            </span>
+          )}
+          {username === currentUser.username && (
+            <span
+              className="clickableIcon"
+              onClick={(e) => {
+                e.stopPropagation();
+
+                deletePostFunction(_id, token);
+                if (isBookMarked) {
+                  removeFromBookmarkFunction(_id);
+                  getUserByIdFunction(currentUser._id);
+                }
+
+                if (onPostDetails) navigate("/home");
+              }}
+            >
+              <DeleteForeverRoundedIcon />
+            </span>
+          )}
+          {modalOpen && (
+            <Modal
               status={modalOpen}
-              submitHandlerF={editPostFunction}
-              postToEdit={item}
-            />
-          </Modal>
-        )}
-        {<div className="comments">{ }</div>}
+              setCloseModal={setModalOpen}
+              modalText="Edit Post"
+            >
+              <TweetForm
+                setModalOpen={setModalOpen}
+                status={modalOpen}
+                submitHandlerF={editPostFunction}
+                postToEdit={item}
+              />
+            </Modal>
+          )}
+        </div>
       </div>
     </div>
   );

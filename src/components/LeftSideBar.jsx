@@ -20,6 +20,7 @@ export default function LeftSideBaar() {
 
   return (
     <div className="leftSideBar">
+    <div className="leftUpper">
       <div className="feed">
         
         <NavLink to="/home/feed"><DynamicFeedIcon/><span className="hideInMobile">Feed</span></NavLink>
@@ -30,8 +31,8 @@ export default function LeftSideBaar() {
         <PersonSearchOutlinedIcon/><span className="hideInMobile">Search</span></NavLink>
       </div>
       <div className="explore">  
-       
-       <NavLink to="/home/explore"> <ExploreOutlinedIcon/><span className="hideInMobile">Explore</span></NavLink></div>
+       <NavLink to="/home/explore"> <ExploreOutlinedIcon/><span className="hideInMobile">Explore</span></NavLink>
+       </div>
       <div className="bookMarks">
         
         <NavLink to="/home/bookmarks"><BookmarksOutlinedIcon/><span className="hideInMobile">Bookmarks</span></NavLink>
@@ -45,7 +46,7 @@ export default function LeftSideBaar() {
       >
         <NavLink to={`/home/profile/${currentUser.username}/${currentUser._id}`}><AccountBoxOutlinedIcon/><span className="hideInMobile">Profile</span></NavLink>
       </div>
-
+</div>
       <div className="addTweet">
         <Modal
           status={modalOpen}
@@ -55,8 +56,22 @@ export default function LeftSideBaar() {
          <TweetForm  setModalOpen={setModalOpen}status={modalOpen}/>
         </Modal>
       </div>
+      <div className="suggestedProfile">
+      <p className="userPP">
+          <NavLink to={`/home/profile/${currentUser.username}/${currentUser._id}`}>
+            <img src={currentUser.profileAvatar} alt="avatar"/>
+          </NavLink>
+        </p>
+        <div className="userNameSuggestion">
+          {currentUser.firstName} {currentUser.lastName}
+          <p>
+            <small>@{currentUser.username}</small>
+          </p>
+        </div>
+        <button onClick={logOutFunction}>Logout</button>
+      </div>
 
-      <button onClick={logOutFunction}>Logout</button>
+      
     </div>
   );
 }

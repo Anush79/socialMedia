@@ -13,7 +13,7 @@ export default function SingleTweet() {
   
   const foundPost = allPosts.allPostsInDB.find(item=>item._id===id)
   return (
-    <div className="Tweet">
+    <div className="tweetsSection">
       {foundPost && <TweetCard item={foundPost}onPostDetails = {true} />}
       <button
         onClick={(e) => {

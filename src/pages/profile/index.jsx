@@ -33,7 +33,7 @@ useEffect(()=>{
       <div className="profileHeader">
         <img
           src={foundUserInDb?.backgroundImage}
-          alt=""
+          alt="something random background picture"
           width={"100%"}
           height={"300px"}
         />
@@ -46,9 +46,12 @@ useEffect(()=>{
           alt=""
           width={"100px"}
         />
-        <h3>
-          {foundUserInDb?.firstName} {foundUserInDb?.lastName}
-        </h3>
+        <div className="userName">
+         <p>{foundUserInDb?.firstName} {foundUserInDb?.lastName}
+          </p> 
+          <p> @{foundUserInDb?.username}
+          </p> 
+        </div>
         <h4>{foundUserInDb?.bio}</h4>
         <p>
           Following: {foundUserInDb?.following?.length} Followers:{" "}
@@ -64,7 +67,7 @@ useEffect(()=>{
             <Modal
               status={modalOpen}
               setCloseModal={setModalOpen}
-              modalText={"Edit Profile"}
+              modalText="edit Profile"
             >
               <EditProfile user={foundUserInDb} modalOpen={modalOpen} setModalOpen={setModalOpen}/>
             </Modal>

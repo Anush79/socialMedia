@@ -24,13 +24,14 @@ export function PostProvider({ children }) {
   );
 
   const { token, currentUser } = useAuth();
-  const { GET_EVERY_POSTS, GET_SINGLE_POST, GET_ALL_POSTS_OF_USER } =
+  const { GET_EVERY_POSTS, GET_SINGLE_POST,SORT_LATEST_POSTS, GET_ALL_POSTS_OF_USER } =
     actionTypes;
 
   const getEveryPostinDb = async () => {
     try {
       const response = await getEveryPostService();
       postDispatch({ type: GET_EVERY_POSTS, payload: response.data.posts });
+
     } catch (error) {
       console.log(error);
     }
@@ -64,6 +65,7 @@ export function PostProvider({ children }) {
       const response = await likePostHandlerService(postId, token);
       postDispatch({ type: GET_EVERY_POSTS, payload: response.data.posts });
       getPostByIdFunction(postId);
+      toast.success("Liked the post",{autoClose: 800})
     } catch (error) {
       console.error(error);
       toast.error(error);
@@ -74,6 +76,7 @@ export function PostProvider({ children }) {
       const response = await dislikePostService(postId, token);
       postDispatch({ type: GET_EVERY_POSTS, payload: response.data.posts });
       getPostByIdFunction(postId);
+      toast.warn("Disliked the post",{autoClose: 800})
     } catch (error) {
       toast.error(error.response.data.errors[0]);
     }
@@ -117,6 +120,9 @@ export function PostProvider({ children }) {
   useEffect(() => {
     if (currentUser) getAllUserPostsHandlerFunction(currentUser.username);
   }, []);
+  useEffect(()=>{
+    if (token) postDispatch({ type: SORT_LATEST_POSTS, payload: "" });
+  },[allPosts?.allPostsInDB])
   return (
     <PostContext.Provider
       value={{
