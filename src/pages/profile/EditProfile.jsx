@@ -7,7 +7,7 @@ export default function EditProfile({ user , setModalOpen }) {
     `https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}`: user.profileAvatar
   );
   const [userDetailsToUpdate, setUserDetailsToUpdate] = useState(user)
-  const {editUserProfileFunction}= useUser();
+  const {editUserProfileFunction, getUserByIdFunction}= useUser();
   const {getAllUserPostsHandlerFunction} = usePost()
   const handleAvatar = (e) => {
     setSelectedImage(e.target.src);
@@ -21,6 +21,9 @@ const handleEditSubmit=(e)=>{
 
   editUserProfileFunction({...userDetailsToUpdate, profileAvatar:selectedImg})
   getAllUserPostsHandlerFunction(user.username);
+
+  getUserByIdFunction(user._id);          
+
   setModalOpen(false)
 }
 

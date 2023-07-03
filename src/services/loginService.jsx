@@ -19,6 +19,11 @@ export const signUpService = async ({
   lastName,
   username,
   password,
+  emailId,
+  bio,
+  website,
+  profileAvatar,
+  backgroundImage
 }) => {
   try {
     const response = await axios.post("/api/auth/signup", {
@@ -26,6 +31,11 @@ export const signUpService = async ({
       lastName,
       username,
       password,
+      emailId,
+      bio,
+      website,
+      profileAvatar,
+      backgroundImage
     });
     if (response.status === 201) return response;
   } catch (error) {

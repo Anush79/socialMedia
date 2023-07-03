@@ -1,4 +1,6 @@
+import { useAuth } from "../context/authContext";
 export default function Modal({ children, setCloseModal, status ,modalText}) {
+const {currentUser}= useAuth();
 
   if (status){
   
@@ -18,7 +20,9 @@ export default function Modal({ children, setCloseModal, status ,modalText}) {
           <div className="inner">
             <h3>{modalText}</h3>
             
-            <div> {children}</div>
+            <div><div className="pp">
+              <img src={currentUser.profileAvatar} alt="" width={"30px"} />
+              </div> {children}</div>
             <button
               onClick={(e) => {
                 setCloseModal(false);

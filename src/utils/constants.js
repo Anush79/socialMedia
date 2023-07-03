@@ -12,7 +12,7 @@ export const testSignUpData = {
   bio: "",
   website: "",
   profileAvatar:"",
-  backgroundImage:"",
+  backgroundImage:"https://res.cloudinary.com/dt1leq0nd/image/upload/v1688371999/tweetopia/hyacinth-1398839_1280_bpodyt.jpg",
 };
 
 export const actionTypes = {

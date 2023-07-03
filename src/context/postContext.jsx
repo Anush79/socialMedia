@@ -13,6 +13,7 @@ import {
   getPostByIdService,
   likePostHandlerService,
 } from "../services/postService";
+
 import { actionTypes } from "../utils/constants";
 
 const PostContext = createContext();
@@ -22,7 +23,6 @@ export function PostProvider({ children }) {
     postReducerfunction,
     initialstate
   );
-
   const { token, currentUser } = useAuth();
   const { GET_EVERY_POSTS, GET_SINGLE_POST,SORT_LATEST_POSTS, GET_ALL_POSTS_OF_USER } =
     actionTypes;
@@ -98,6 +98,7 @@ export function PostProvider({ children }) {
       if (response.status === 201) {
         toast.success("New Post Created");
         postDispatch({ type: GET_EVERY_POSTS, payload: response.data.posts });
+        
       }
     } catch (error) {
       console.log(error);

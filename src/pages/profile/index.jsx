@@ -21,7 +21,8 @@ export default function Profile() {
   const foundUserInDb =
     userWithId ??
     allUsersInDB.find((person) => person.username === paramUsername);
-useEffect(()=>{
+console.log(userWithId)
+    useEffect(()=>{
   getAllUsersFunction()
 },[])
 useEffect(()=>{
@@ -32,7 +33,7 @@ useEffect(()=>{
       <h2>Profile page</h2>
       <div className="profileHeader">
         <img
-          src={foundUserInDb?.backgroundImage}
+          src={foundUserInDb?.backgroundImage }
           alt="something random background picture"
           width={"100%"}
           height={"300px"}
@@ -79,7 +80,7 @@ useEffect(()=>{
       </div>
       <div className="profileBody">
         <div className="tweetsSection">
-          {allPosts?.allPostOfUser.length > 0
+          {allPosts?.allPostOfUser?.length > 0
             ? allPosts?.allPostOfUser?.map((item) => (
                 <TweetCard key={item.id} item={item} />
               ))
