@@ -1,37 +1,53 @@
 .App {
   text-align: center;
-  font-family: 'IM Fell English', serif;
+  font-family: "IM Fell English", serif;
+  
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
 }
-.main{
+.main {
   width: 100%;
 }
-button:hover{
-  background:var(--primary-color);
-  color:var(--text-color);
-  outline : 2px solid ;
-  transition:0.3s;
+button:hover {
+  background: var(--primary-color);
+  color: var(--text-color);
+  outline: 2px solid;
+  transition: 0.3s;
 }
-.homePage{
+
+.homePage {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   align-items: start;
   justify-items: center;
-  min-height: 80vh;
-  gap:1rem;
+  min-height: 90vh;
+  gap: 1rem;
+  margin: auto;
+  max-width: 1000px;
 }
-.tweetCard{
+.displayPages{
+  overflow-y: scroll;
+  height: 90vh;
+}
+.headSection{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+   
+}
+.headSection img{display: none;}
+.tweetCard {
   border-radius: 10px;
-  margin: 3px ;
+  margin: 3px;
   max-width: 500px;
-  padding:0.5rem 1rem;
-  font-family: 'Satisfy', cursive;
+  padding: 0.5rem 1rem;
+  font-family: "Satisfy", cursive;
 }
-.suggestedProfile{
+.suggestedProfile {
   background-color: var(--secondary-color);
   margin: 2px;
   padding: 5px;
@@ -39,30 +55,39 @@ button:hover{
   gap: 3px;
   justify-content: space-between;
   align-items: center;
-  border-radius:5px;
+  border-radius: 5px;
   max-width: 300px;
 }
 
-.suggestedProfile img, .dp{
+.suggestedProfile img,
+.dp {
   object-fit: cover;
   height: 40px;
   width: 40px;
   border-radius: 5px;
 }
-.suggestedProfile p{
-  margin:0.1rem;
+.suggestedProfile p {
+  margin: 0.1rem;
 }
-.userNameSuggestion{
+.userNameSuggestion {
   flex-grow: 1;
-    text-align: left;
+  text-align: left;
 }
 
-.userNameSuggestion p{
+.userNameSuggestion p {
   line-height: 0.2rem;
   text-align: left;
 }
-.userNameSuggestion p small{
-  color:var(--tertiary-color)
+.userNameSuggestion p small {
+  color: var(--tertiary-color);
+}
+.searchContainer{
+  display: flex;
+  justify-content: center;
+  margin:auto;
+  align-items: start;
+  flex-direction: column;
+  width: 100%;
 }
 .outer {
   position: fixed;
@@ -91,7 +116,7 @@ button:hover{
   border: 1px solid;
   width: 300px;
   padding: 20px;
-  background: rgb(230, 209, 216,0.52);
+  background: rgb(230, 209, 216, 0.52);
   transition: 2s;
   transition-timing-function: ease-in;
   border: 10px solid transparent;
@@ -104,18 +129,23 @@ form {
   gap: 10px;
   padding: 1rem;
   text-align: center;
-  margin:auto;
-  gap:5px;
+  margin: auto;
+  gap: 5px;
   max-width: 25rem;
 }
-form input,.tweetArea,
+form input,
+.tweetArea,
 button {
   text-align: left;
   padding: 0.5rem;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
-  background-color: rgba(202, 232, 254, 0.52);
+
+}
+form input,.textArea{
+  background-color: rgba(0, 0, 0, 0.52);
+  color:var(--text-color);
 }
 button {
   text-align: center;
@@ -123,24 +153,28 @@ button {
   cursor: pointer;
   margin: 5px;
 }
-.leftSideBar, .leftUpper {
-  display:flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-.leftSideBar{  height: 80vh;}
-
-a{
-  text-decoration: none;
-  color: var(--text-color);
-  padding:0.2rem;
+.clickableIcon {
   cursor: pointer;
 }
-.leftSideBar .active{
-   background-color: var(--secondary-color);
-   border-radius: 5px;
+
+::-webkit-scrollbar {
+  width: 5px;
 }
-.clickableIcon{
-  cursor:pointer;
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--text-color-secondary);
+  border-radius: 10px;
+  visibility: hidden;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--text-color-secondary);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-color-secondary);
 }

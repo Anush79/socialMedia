@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import DynamicFeedIcon from '@mui/icons-material/DynamicFeed';
 import AccountBoxOutlinedIcon from '@mui/icons-material/AccountBoxOutlined';
@@ -7,7 +7,7 @@ import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
 import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
 import PersonSearchOutlinedIcon from '@mui/icons-material/PersonSearchOutlined';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
-
+import '../styles/leftSideBar.css'
 import { useAuth, usePost, useUser } from "../";
 import Modal from "../utils/Modal";
 import TweetForm from "./NewTweetHandler";
@@ -17,6 +17,13 @@ export default function LeftSideBaar() {
   const {getUserByIdFunction}= useUser()
   const { getAllUserPostsHandlerFunction } = usePost();
   const [modalOpen, setModalOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const openUserProfile = (item) => {
+    getUserByIdFunction(item._id);
+    getAllUserPostsHandlerFunction(item.username);
+    navigate(`/home/profile/${item.username}/${item._id}`); 
+  };
 
   return (
     <div className="leftSideBar">
@@ -56,7 +63,7 @@ export default function LeftSideBaar() {
          <TweetForm  setModalOpen={setModalOpen}status={modalOpen}/>
         </Modal>
       </div>
-      <div className="suggestedProfile">
+      <div className="suggestedProfile" onClick={()=>{openUserProfile(currentUser)}}>
       <p className="userPP">
           <NavLink to={`/home/profile/${currentUser.username}/${currentUser._id}`}>
             <img src={currentUser.profileAvatar} alt="avatar"/>
@@ -68,7 +75,7 @@ export default function LeftSideBaar() {
             <small>@{currentUser.username}</small>
           </p>
         </div>
-        <button onClick={logOutFunction}>Logout</button>
+        <button onClick={(e)=>{e.stopPropagation();logOutFunction()}}>Logout</button>
       </div>
 
       

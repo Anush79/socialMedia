@@ -23,6 +23,7 @@ export default function Modal({ children, setCloseModal, status ,modalText}) {
               onClick={(e) => {
                 setCloseModal(false);
               }}
+              className="formButton"
             >
               Close
             </button>
@@ -33,7 +34,7 @@ export default function Modal({ children, setCloseModal, status ,modalText}) {
   else
     return (
       <>
-        <button
+        <button className="formButton"
           onClick={(e) => {
             e.stopPropagation();
             setCloseModal(true);

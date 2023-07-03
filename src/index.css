@@ -19,7 +19,9 @@ body {
   color:var(--text-color);
   font-family: 'Quicksand', sans-serif;
 font-family: 'Satisfy', cursive;
+font-family: 'Courier New', Courier, monospace;
   background-color: var(--primary-color);
+  overflow-y: hidden;
 }
 
 code {

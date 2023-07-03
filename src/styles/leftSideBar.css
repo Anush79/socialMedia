@@ -1,0 +1,34 @@
+
+.leftSideBar,
+.leftUpper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.leftSideBar {
+  position: sticky;
+  height: 87vh;
+}
+.leftUpper div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+a {
+  text-decoration: none;
+  color: var(--text-color);
+  padding: 0.2rem;
+  cursor: pointer;
+}
+.leftSideBar .active {
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+}
+
+@media (max-width:768px){
+  .hideInMobile{
+    display: none;
+  }
+}

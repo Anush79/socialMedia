@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useUser } from "../../context/userContext";
-
+import { usePost } from "../../context/postContext";
 export default function EditProfile({ user , setModalOpen }) {
 
   const [selectedImg, setSelectedImage] = useState(user.profileAvatar.length<1?
@@ -8,6 +8,7 @@ export default function EditProfile({ user , setModalOpen }) {
   );
   const [userDetailsToUpdate, setUserDetailsToUpdate] = useState(user)
   const {editUserProfileFunction}= useUser();
+  const {getAllUserPostsHandlerFunction} = usePost()
   const handleAvatar = (e) => {
     setSelectedImage(e.target.src);
   };
@@ -19,6 +20,7 @@ const handleEditSubmit=(e)=>{
   e.preventDefault();
 
   editUserProfileFunction({...userDetailsToUpdate, profileAvatar:selectedImg})
+  getAllUserPostsHandlerFunction(user.username);
   setModalOpen(false)
 }
 
@@ -33,7 +35,8 @@ const handleEditSubmit=(e)=>{
               Profile Image: <img src={selectedImg} width="100px" />
             </label>
           </div>
-          <div className="row1">
+          Choose avatar : 
+          <div className="row1 row">
             
             <img
               src="\assets\avataaar1.png"
@@ -54,7 +57,7 @@ const handleEditSubmit=(e)=>{
               alt=""
             />
           </div>
-          <div className="row2">
+          <div className="row2 row">
             <img
               src="\assets\avataaar8.png"
               alt=""
@@ -74,7 +77,7 @@ const handleEditSubmit=(e)=>{
               alt=""
             />
           </div>
-          <div className="row3">
+          <div className="row3 row">
             <img
               src="\assets\avataaar4.png"
               alt=""

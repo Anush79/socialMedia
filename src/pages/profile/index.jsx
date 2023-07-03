@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { useAuth, usePost, useUser } from "../../";
-
+import './profile.css'
 import '../../styles/profile.css'
 import Modal from "../../utils/Modal";
 import ManageAccountsRoundedIcon from '@mui/icons-material/ManageAccountsRounded';
@@ -10,7 +10,7 @@ import TweetCard from "../../components/TweetCard";
 import EditProfile from "./EditProfile";
 
 export default function Profile() {
-  const { currentUser } = useAuth();
+  const { currentUser ,logOutFunction} = useAuth();
   const {
     users: { userWithId, allUsersInDB },getAllUsersFunction,getUserByIdFunction
   } = useUser();
@@ -73,7 +73,7 @@ useEffect(()=>{
             </Modal>
           </div>
         )}
-        <div className="logout">
+        <div className="logout" title="Logout" role="button" onClick={(e)=>{e.stopPropagation();logOutFunction()}}>
         <LogoutRoundedIcon/>
         </div>
       </div>

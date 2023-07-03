@@ -28,8 +28,7 @@ export const users = [
     password: "a1n2u3s4h5k6a7",
     bio: "Someone who knows the value of friendship and loves her peace of mind",
     website: "https://ajaisportfolio.netlify.app",
-    profileAvatar:
-      "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686847139/tweetopia/download_pzswom.jpg",
+    profileAvatar:"https://res.cloudinary.com/dt1leq0nd/image/upload/v1688291313/tweetopia/discord_ofxkjh.jpg",
     backgroundImage:
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686847189/tweetopia/15618018448867-IM_Tom_Holland_Spiderman_im0mw0.jpg",
     createdAt: formatDate(),

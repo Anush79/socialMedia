@@ -1,0 +1,15 @@
+.whatsNewSection{
+  display: flex;
+  width: 100%;
+align-items: stretch;
+justify-content: center;
+
+}
+.whatsNewSection input{
+  flex-grow: 1;
+}
+
+.whatsNewSection span{
+  display: flex;
+  align-items: center;
+}
