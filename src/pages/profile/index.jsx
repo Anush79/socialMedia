@@ -12,7 +12,7 @@ import EditProfile from "./EditProfile";
 export default function Profile() {
   const { currentUser ,logOutFunction} = useAuth();
   const {
-    users: { userWithId, allUsersInDB },getAllUsersFunction,getUserByIdFunction
+    users: { userWithId, allUsersInDB },getAllUsersFunction,getUserByIdFunction,isAlreadyFollowing,unFollowUserFunction,followUserFunction
   } = useUser();
   const { allPosts } = usePost();
   const { username: paramUsername , _id:paramId} = useParams();
@@ -21,6 +21,8 @@ export default function Profile() {
   const foundUserInDb =
     userWithId ??
     allUsersInDB.find((person) => person.username === paramUsername);
+    
+  const checkFollow = isAlreadyFollowing(foundUserInDb?._id);
 console.log(userWithId)
     useEffect(()=>{
   getAllUsersFunction()
@@ -47,11 +49,36 @@ useEffect(()=>{
           alt=""
           width={"100px"}
         />
+        <div className="nameandfollow">
+          
         <div className="userName">
          <p>{foundUserInDb?.firstName} {foundUserInDb?.lastName}
           </p> 
           <p> @{foundUserInDb?.username}
           </p> 
+        </div>
+        {!isLoggedUser &&<p>
+          {(checkFollow )? (
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                unFollowUserFunction(foundUserInDb?._id);
+              }}
+            >
+              Unfollow
+            </button>
+          ) : (
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                followUserFunction(foundUserInDb?._id);
+              }}
+            >
+              Follow
+            </button>
+          )}
+        </p>}
+        
         </div>
         <h4>{foundUserInDb?.bio}</h4>
         <p>
@@ -73,7 +100,8 @@ useEffect(()=>{
               <EditProfile user={foundUserInDb} modalOpen={modalOpen} setModalOpen={setModalOpen}/>
             </Modal>
           </div>
-        )}
+        )
+        }
         <div className="logout" title="Logout" role="button" onClick={(e)=>{e.stopPropagation();logOutFunction()}}>
         <LogoutRoundedIcon/>
         </div>

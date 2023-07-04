@@ -31,7 +31,7 @@ export default function UsersCard({ item }) {
       >
         <p className="userPP">
           <NavLink to={`/home/profile/${item.username}/${item._id}`}>
-            <img src={item.profileAvatar} alt="avatar"/>
+            <img src={item?.profileAvatar?.trim().length<1?`https://ui-avatars.com/api/?name=${item.firstName}+${item.lastName}`:item?.profileAvatar } alt="avatar"/>
           </NavLink>
         </p>
         <div className="userNameSuggestion">

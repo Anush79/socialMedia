@@ -57,7 +57,7 @@ export function AuthProvider({ children }) {
         toast.success(`Hello ${createdUser?.firstName}! Welcome to Tweetopia`);
         if (location?.state?.from?.pathname)
         navigate(location?.state?.from?.pathname);
-      else navigate("/home/profile", { replace: true });
+      else navigate("/home/explore", { replace: true });
       }
     } catch (error) {
       console.log(error);

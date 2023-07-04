@@ -1,10 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Quicksand:wght@700&family=Satisfy&display=swap');
 :root{
+  /*first choice*/
+  /*
   --primary-color:#391E22;
   --secondary-color:#56373C;
   --tertiary-color:#9F807D;
   --text-color-secondary:#D0B0B1;
   --text-color:#E6D1D8;
+*/
+/*second choice*/
+/* 
+  --primary-color:#2B2A4C;
+  --secondary-color:#5c469c8d;
+  --tertiary-color:#ad9e9e;
+  --text-color-secondary:#D4ADFC;
+  --text-color:#E6D1D8; */
+
+  /* third choice */
+  /* --primary-color:#C2DEDC;
+  --secondary-color:#fff8d9;
+  --tertiary-color:#ad9e9e;
+  --text-color-secondary:#CDC2AE;
+  --text-color:#116A7B; */
+
+/*fourth Choice*/
+ 
+/* --primary-color:#1A120B;
+--secondary-color:#3C2A21;
+--tertiary-color:#959595;
+--text-color-secondary:#ff9967;
+--text-color:#D5CEA3; */
+
+--primary-color:#111;
+--secondary-color:#52525276;
+--tertiary-color:#71767b;
+--text-color-secondary:#1d9bf0;
+--text-color:#fff;
+
+
 }
 ::selection{
   background-color: #D0B0B1;

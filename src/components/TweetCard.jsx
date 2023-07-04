@@ -74,6 +74,7 @@ export default function TweetCard({ item, onPostDetails }) {
             src={postCreator.profileAvatar}
             className="dp"
             alt="Random image"
+            loading="lazy"
           />
           <span className="nameOfUserInPost">
             <span>

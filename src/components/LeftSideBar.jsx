@@ -66,7 +66,7 @@ export default function LeftSideBaar() {
       <div className="suggestedProfile" onClick={()=>{openUserProfile(currentUser)}}>
       <p className="userPP">
           <NavLink to={`/home/profile/${currentUser.username}/${currentUser._id}`}>
-            <img src={currentUser.profileAvatar} alt="avatar"/>
+            <img src={currentUser?.profileAvatar?.length<1?`https://ui-avatars.com/api/?name=${currentUser.firstName}+${currentUser.lastName}`:currentUser?.profileAvatar} alt="avatar"/>
           </NavLink>
         </p>
         <div className="userNameSuggestion">

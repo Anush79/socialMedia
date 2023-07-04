@@ -4,14 +4,14 @@ import WhatsNew from './WriteNewTweet'
 export default function TweetsSection() {
   const { allPosts } = usePost();
   const {currentUser} =useAuth()
-  const feedPosts = allPosts?.allPostsInDB.filter(
+  const feedPosts = allPosts?.allPostsInDB?.filter(
     (item)=>currentUser.following.some(person=> person.username===item.username || currentUser.username === item.username)
   )
   return <div className="tweetsSection">
     <WhatsNew />
     {
-      feedPosts.length > 0 ?
-      feedPosts.map(item => <TweetCard key={item.id} item={item} />) :
+      feedPosts?.length > 0 ?
+      feedPosts?.map(item => <TweetCard key={item.id} item={item} />) :
         <div> No post available,start following someone or write your own tweet </div>
 
     }
