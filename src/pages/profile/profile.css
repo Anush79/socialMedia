@@ -1,3 +1,50 @@
+
 .row{
   display: flex;
+}
+.editProfileBox{
+  display: flex;
+  min-width: 50%;
+}
+.avatars{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.profileHeader{
+  text-align: left;
+  padding:0 1rem;
+
+
+}
+.nameandfollow{
+  display: flex;
+  justify-content: space-between;
+}
+
+label{
+  text-align: left;
+}
+.labelForNames{
+  display:flex;
+  flex-direction: column;
+ 
+  width: 50%;
+}
+.nameInputforEdit{
+  gap:0.2rem;
+  display: flex;
+}
+.logout{
+  border: 12px solid red;
+}
+
+@media (max-width:768px){
+  .editProfileBox{
+    display: flex;
+    flex-direction: column;
+  }
+.outer{
+  position:relative;
+}
 }

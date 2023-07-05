@@ -20,38 +20,38 @@ export default function LeftSideBaar() {
   const navigate = useNavigate();
 
   const openUserProfile = (item) => {
-    getUserByIdFunction(item._id);
-    getAllUserPostsHandlerFunction(item.username);
-    navigate(`/home/profile/${item.username}/${item._id}`); 
+    getUserByIdFunction(item?._id);
+    getAllUserPostsHandlerFunction(item?.username);
+    navigate(`/home/profile/${item?.username}/${item?._id}`); 
   };
 
   return (
     <div className="leftSideBar">
     <div className="leftUpper">
-      <div className="feed">
+      <div className="feed clickableIcon">
         
-        <NavLink to="/home/feed"><DynamicFeedIcon/><span className="hideInMobile">Feed</span></NavLink>
+        <NavLink to="/home/feed"><DynamicFeedIcon  /><span className="hideInMobile clickableIcon">Feed</span></NavLink>
       </div>
-      <div className="search">
+      <div className="search clickableIcon">
 
         <NavLink to="/home/search">
-        <PersonSearchOutlinedIcon/><span className="hideInMobile">Search</span></NavLink>
+        <PersonSearchOutlinedIcon /><span className="hideInMobile clickableIcon">Search</span></NavLink>
       </div>
-      <div className="explore">  
-       <NavLink to="/home/explore"> <ExploreOutlinedIcon/><span className="hideInMobile">Explore</span></NavLink>
+      <div className="explore clickableIcon">  
+       <NavLink to="/home/explore"> <ExploreOutlinedIcon /><span className="hideInMobile clickableIcon">Explore</span></NavLink>
        </div>
-      <div className="bookMarks">
+      <div className="bookMarks clickableIcon">
         
-        <NavLink to="/home/bookmarks"><BookmarksOutlinedIcon/><span className="hideInMobile">Bookmarks</span></NavLink>
+        <NavLink to="/home/bookmarks"><BookmarksOutlinedIcon /><span className="hideInMobile clickableIcon">Bookmarks</span></NavLink>
       </div>
       <div
-        className="profile"
+        className="profile clickableIcon"
         onClick={() => {
           getUserByIdFunction(currentUser._id);          
           getAllUserPostsHandlerFunction(currentUser.username);
         }}
       >
-        <NavLink to={`/home/profile/${currentUser.username}/${currentUser._id}`}><AccountBoxOutlinedIcon/><span className="hideInMobile">Profile</span></NavLink>
+        <NavLink to={`/home/profile/${currentUser.username}/${currentUser._id}`}><AccountBoxOutlinedIcon /><span className="hideInMobile clickableIcon">Profile</span></NavLink>
       </div>
 </div>
       <div className="addTweet">
@@ -69,7 +69,7 @@ export default function LeftSideBaar() {
             <img src={currentUser?.profileAvatar?.length<1?`https://ui-avatars.com/api/?name=${currentUser.firstName}+${currentUser.lastName}`:currentUser?.profileAvatar} alt="avatar"/>
           </NavLink>
         </p>
-        <div className="userNameSuggestion">
+        <div className="userNameSuggestion clickableIcon">
           {currentUser.firstName} {currentUser.lastName}
           <p>
             <small>@{currentUser.username}</small>

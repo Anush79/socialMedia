@@ -1,6 +1,8 @@
 .App {
   text-align: center;
-  font-family: "IM Fell English", serif;
+  /* font-family: "IM Fell English", serif; */
+  font-family: 'Satisfy', cursive;
+font-family: 'Ysabeau Infant', sans-serif;
   
   min-height: 100vh;
   display: flex;
@@ -27,7 +29,7 @@ button:hover {
   min-height: 90vh;
   gap: 1rem;
   margin: auto;
-  max-width: 1000px;
+  max-width: 1100px;
 }
 .displayPages{
   overflow-y: scroll;
@@ -40,13 +42,7 @@ button:hover {
    
 }
 .headSection img{display: none;}
-.tweetCard {
-  border-radius: 10px;
-  margin: 3px;
-  max-width: 500px;
-  padding: 0.5rem 1rem;
-  font-family: "Satisfy", cursive;
-}
+
 .suggestedProfile {
   background-color: var(--secondary-color);
   margin: 2px;
@@ -56,7 +52,8 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   border-radius: 5px;
-  max-width: 300px;
+  width: 250px;
+  
 }
 
 .suggestedProfile img,
@@ -70,15 +67,17 @@ button:hover {
   margin: 0.1rem;
 }
 .userNameSuggestion {
-  flex-grow: 1;
+  flex-grow: 2;
   text-align: left;
 }
 
 .userNameSuggestion p {
-  line-height: 0.2rem;
+  word-wrap: break-word;
+  line-height: 0.4rem;
   text-align: left;
 }
-.userNameSuggestion p small {
+.smallUserName {
+  font-size: 0.8rem;
   color: var(--tertiary-color);
 }
 .searchContainer{
@@ -110,17 +109,23 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgb(208, 176, 177, 0.52);
+  background: rgba(255, 255, 255, 0.145);
 }
 .inner {
   border: 1px solid;
-  width: 300px;
+  min-width: 250px;
   padding: 20px;
-  background: rgb(230, 209, 216, 0.52);
+  background: rgba(255, 255, 255, 0.255);
   transition: 2s;
   transition-timing-function: ease-in;
   border: 10px solid transparent;
   backdrop-filter: blur(20px);
+}
+.closeModalButton{
+  position: absolute;
+  top:0;
+  right:0;
+  background-color: transparent;
 }
 form {
   display: flex;
@@ -143,7 +148,7 @@ button {
   font-size: 1rem;
 
 }
-form input,.textArea{
+form input,.textArea, textarea{
   background-color: rgba(0, 0, 0, 0.52);
   color:var(--text-color);
 }
@@ -152,6 +157,7 @@ button {
   background: var(--text-color-secondary);
   cursor: pointer;
   margin: 5px;
+  font-size: 0.7rem;
 }
 .clickableIcon {
   cursor: pointer;
@@ -159,6 +165,7 @@ button {
 
 ::-webkit-scrollbar {
   width: 5px;
+  visibility: hidden;
 }
 
 /* Track */
@@ -172,9 +179,11 @@ button {
 ::-webkit-scrollbar-thumb {
   background: var(--text-color-secondary);
   border-radius: 10px;
+  visibility: hidden;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-color-secondary);
+
 }

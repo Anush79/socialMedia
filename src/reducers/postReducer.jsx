@@ -7,6 +7,7 @@ export const initialstate = {
   feedPost: [],
   bookMarks: [],
   allPostOfUser: [],
+  currentFilter:"SORT_LATEST_POSTS"
 };
 const {
   GET_EVERY_POSTS,
@@ -21,10 +22,12 @@ export const postReducerfunction = (state, action) => {
   const { type, payload } = action;
   switch (type) {
     case GET_EVERY_POSTS:
-      return {
-        ...state,
-        allPostsInDB: payload,
-      };
+      const latestArr = payload.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      return { ...state, allPostsInDB: latestArr };
+      // return {
+      //   ...state,
+      //   allPostsInDB: payload,
+      // };
     case GET_SINGLE_POST:
       return {
         ...state,
@@ -42,9 +45,8 @@ export const postReducerfunction = (state, action) => {
       };
 
     case SORT_LATEST_POSTS:
-      
-      const latestArr = state.allPostsInDB.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-      return { ...state, allPostOfUser: latestArr };
+      const latestArrss = state.allPostsInDB.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      return { ...state, allPostOfUser: latestArrss };
     case SORT_OLDEST_POSTS:
       const oldestArr = state.allPostsInDB.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
       return { ...state, allPostOfUser: oldestArr };

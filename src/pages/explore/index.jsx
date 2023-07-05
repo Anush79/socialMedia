@@ -12,7 +12,7 @@ export default function Explore(){
 
 
   return <div className="explorePage">
-<h2>Explore Page</h2>
+<h2> <img src={currentUser.profileAvatar} alt="" width={"35px"} /> Explore Page</h2>
 <div className="tweetsSection">
    
     {
