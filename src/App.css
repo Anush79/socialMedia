@@ -134,9 +134,7 @@ svg{
   border: 1px solid;
   min-width: 250px;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.255);
-  transition: 2s;
-  transition-timing-function: ease-in;
+  background: rgba(39, 5, 5, 0.255);
   border: 10px solid transparent;
   backdrop-filter: blur(20px);
 }

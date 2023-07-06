@@ -76,7 +76,12 @@ export default function LeftSideBaar() {
             <small>@{currentUser.username}</small>
           </p>
         </div>
-      <ProfileMenu/>
+        <span
+        onClick={(e)=>{e.stopPropagation()}}>
+
+           <ProfileMenu/>
+        </span>
+     
       </div>
 
       

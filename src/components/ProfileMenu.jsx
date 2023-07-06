@@ -1,26 +1,26 @@
-import * as React from 'react';
+import { useState } from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { AutoAwesome, Edit, EditNoteSharp, Logout, ManageAccountsRounded, Settings, StarBorderOutlined } from '@mui/icons-material';
+import { AutoAwesome, Logout, ManageAccountsRounded, Settings } from '@mui/icons-material';
 
 export default function BasicMenu() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
+  const [anchorEl, setAnchorEl] = useState(false);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
-    setAnchorEl(null);
+    setAnchorEl(false);
   };
 
   return (
     <div>
       <Button
         id="basic-button"
-        aria-controls={open ? 'basic-menu' : undefined}
+        aria-controls={anchorEl ? 'basic-menu' : undefined}
         aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
+        aria-expanded={anchorEl ? 'true' : undefined}
         onClick={handleClick}
       >
         <Settings/>
@@ -28,7 +28,7 @@ export default function BasicMenu() {
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}
-        open={open}
+        open={anchorEl}
         onClose={handleClose}
         MenuListProps={{
           'aria-labelledby': 'basic-button',
