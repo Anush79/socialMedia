@@ -14,7 +14,7 @@ import { actionTypes } from "../utils/constants";
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const { postDispatch } = usePost();
+  const { postDispatch ,allPosts } = usePost();
   const { SORT_LATEST_POSTS, SORT_OLDEST_POSTS, TRENDING_POSTS } = actionTypes;
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -22,7 +22,6 @@ export default function BasicMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
   return (
     <div>
       <Button
@@ -44,6 +43,7 @@ export default function BasicMenu() {
         }}
       >
         <MenuItem
+        className={ allPosts?.currentFilter=== "TRENDING_POSTS"? "activeFilter":""}
           onClick={() => {
             postDispatch({ type: TRENDING_POSTS, payload: "" });
             handleClose();
@@ -53,6 +53,7 @@ export default function BasicMenu() {
           Trending
         </MenuItem>
         <MenuItem
+                className={ allPosts?.currentFilter=== "SORT_LATEST_POSTS"? "activeFilter":""}
           onClick={() => {
             postDispatch({ type: SORT_LATEST_POSTS, payload: "" });
             handleClose();
@@ -62,6 +63,8 @@ export default function BasicMenu() {
           Latest
         </MenuItem>
         <MenuItem
+                className={ allPosts?.currentFilter=== "SORT_OLDEST_POSTS"? "activeFilter":""}
+
           onClick={() => {
             postDispatch({ type: SORT_OLDEST_POSTS, payload: "" });
             handleClose();

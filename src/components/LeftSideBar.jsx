@@ -7,11 +7,11 @@ import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
 import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
 import PersonSearchOutlinedIcon from '@mui/icons-material/PersonSearchOutlined';
 
-import { Settings } from "@mui/icons-material";
 import { useAuth, usePost, useUser } from "../";
 import '../styles/leftSideBar.css';
 import Modal from "../utils/Modal";
 import TweetForm from "./NewTweetHandler";
+import ProfileMenu from './ProfileMenu'
 
 export default function LeftSideBaar() {
   const { logOutFunction, currentUser } = useAuth();
@@ -76,7 +76,7 @@ export default function LeftSideBaar() {
             <small>@{currentUser.username}</small>
           </p>
         </div>
-        <button onClick={(e)=>{e.stopPropagation();logOutFunction()}}><Settings/></button>
+      <ProfileMenu/>
       </div>
 
       
