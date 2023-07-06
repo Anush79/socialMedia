@@ -25,8 +25,7 @@ export default function TweetForm({ setModalOpen, status, submitHandlerF, postTo
     createdAt: postTime,
     updatedAt: formatDate(),
   });
-  console.log(postToEdit, "post")
-  console.log(newPost, "new")
+
   const handleImageUpload = (event) => {
     event.preventDefault();
     const file = event.target.files[0];
@@ -79,8 +78,8 @@ export default function TweetForm({ setModalOpen, status, submitHandlerF, postTo
       id="contentImage"
       name="selectedImage"
       onChange={handleImageUpload}
-
     />
+    <small>* Video files are not supported for now</small>
     <button type="submit">Submit</button>
   </form>
 }

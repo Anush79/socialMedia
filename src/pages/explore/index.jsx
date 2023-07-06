@@ -12,7 +12,13 @@ export default function Explore(){
 
 
   return <div className="explorePage">
-<h2>Explore Page</h2>
+<h2 className="header">
+        <img src={
+              currentUser?.profileAvatar?.length < 1
+                ? `https://ui-avatars.com/api/?name=${currentUser.firstName}+${currentUser.lastName}`
+                : currentUser?.profileAvatar
+            } alt="" width="35px"/>
+        Explore</h2>
 <div className="tweetsSection">
    
     {

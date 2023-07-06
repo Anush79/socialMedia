@@ -1,4 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Quicksand:wght@700&family=Satisfy&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Quicksand:wght@700&family=Satisfy&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&family=Ysabeau+Infant:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,1;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html {
+  font-size: calc(12px + 0.390625vw);
+  scroll-behavior: smooth;
+}
+
 :root{
   /*first choice*/
   /*
@@ -17,11 +24,11 @@
   --text-color:#E6D1D8; */
 
   /* third choice */
-  /* --primary-color:#C2DEDC;
+  --primary-color:#C2DEDC;
   --secondary-color:#fff8d9;
   --tertiary-color:#ad9e9e;
   --text-color-secondary:#CDC2AE;
-  --text-color:#116A7B; */
+  --text-color:#116A7B;
 
 /*fourth Choice*/
  
@@ -31,12 +38,12 @@
 --text-color-secondary:#ff9967;
 --text-color:#D5CEA3; */
 
---primary-color:#111;
+/* --primary-color:#111;
 --secondary-color:#52525276;
 --tertiary-color:#71767b;
 --text-color-secondary:#1d9bf0;
 --text-color:#fff;
-
+ */
 
 }
 ::selection{

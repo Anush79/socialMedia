@@ -3,6 +3,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { useAuth } from "../../";
 import { dummyLoginData, testSignUpData } from "../../utils/constants";
+import { toast } from "react-toastify";
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [signedUpAlready, setSignedUpalready] = useState(true);
@@ -16,6 +17,7 @@ export default function Login() {
     emailId: "",
     username: "",
     password: "",
+    confirmPassword:"",
     bio: "",
     website: "",
     profileAvatar: "",
@@ -29,6 +31,9 @@ export default function Login() {
   };
   const signUpSubmitHandler = (e) => {
     e.preventDefault();
+    if(signUpData.password !== signUpData.confirmPassword)
+    toast("Passwords does not match")
+    else
     signUpFunction(signUpData);
   };
 
@@ -43,6 +48,7 @@ export default function Login() {
     e.preventDefault();
     const { value, name } = e.target;
     setSignUpData({ ...signUpData, [name]: value });
+    
   };
 
   if (signedUpAlready)
@@ -65,16 +71,20 @@ export default function Login() {
                 onChange={handleInput}
               />
               <label htmlFor="passwordLogin">Enter your Password : </label>
-              <div>
+              <div className="passwordInput">
                 <input
-                type="password"
+                type={showPassword?"text":"password"}
                 name="password"
                 id="passwordLogin"
                 value={loginData.password}
                 onChange={handleInput}
               />
               {
-                showPassword ? <VisibilityIcon/>:<VisibilityOffIcon/>
+                showPassword ? <VisibilityIcon onClick={()=>{
+                  setShowPassword(!showPassword)
+                }}/>:<VisibilityOffIcon  onClick={()=>{
+                  setShowPassword(!showPassword)
+                }}/>
               }
               </div>
               
@@ -149,31 +159,34 @@ export default function Login() {
             onChange={handleSignUpInput}
           />
        
-          <div>
+          <div className="passwordInput">
           <input
             type="password"
             name="password"
             id="password"
             required
             placeholder="Password"
+            
             value={signUpData.password}
             onChange={handleSignUpInput}
-          />   {
-            showPassword ? <VisibilityIcon/>:<VisibilityOffIcon/>
-          }
+          />  
           </div>
       
-          <div>
+          <div className="passwordInput">
           <input
-            type="password"
+            type={showPassword?"text":"password"}
             name="confirmPassword"
             id="confirmPassword"
             placeholder="Confirm Password"
             required
-            value={signUpData.password}
+            value={signUpData.confirmPassword}
             onChange={handleSignUpInput}
           />   {
-            showPassword ? <VisibilityIcon/>:<VisibilityOffIcon/>
+            showPassword ? <VisibilityIcon onClick={()=>{
+              setShowPassword(!showPassword)
+            }}/>:<VisibilityOffIcon onClick={()=>{
+              setShowPassword(!showPassword)
+            }} />
           }
           </div>
           <button type="submit">Sign Up</button>

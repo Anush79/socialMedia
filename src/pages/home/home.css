@@ -1,3 +1,17 @@
+#basic-menu ul{
+background-color: var(--primary-color);
+padding:12px;
+}
+#basic-menu ul li{
+  color: var(--text-color);
+  border-bottom:1px solid var(--text-color-secondary);
+  font-family:inherit;
+  display: flex;
+}
+#basic-menu ul li svg{
+  margin-right:3px;
+}
+
 @media (max-width:768px) {
   body{
     overflow-y: none;

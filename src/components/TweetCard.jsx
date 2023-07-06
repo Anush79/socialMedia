@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import "../styles/postCard.css";
 
 import ClassOutlinedIcon from "@mui/icons-material/ClassOutlined";
 import ClassRoundedIcon from "@mui/icons-material/ClassRounded";
-import CommentIcon from '@mui/icons-material/Comment';
+import CommentIcon from "@mui/icons-material/Comment";
 import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
 import EditNoteRoundedIcon from "@mui/icons-material/EditNoteRounded";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
@@ -25,7 +25,7 @@ export default function TweetCard({ item, onPostDetails }) {
     dislikePostHandlerfunction,
     deletePostFunction,
     editPostFunction,
-    getAllUserPostsHandlerFunction
+    getAllUserPostsHandlerFunction,
   } = usePost();
   const {
     bookMarKPostFunction,
@@ -37,7 +37,7 @@ export default function TweetCard({ item, onPostDetails }) {
 
   const { token, currentUser } = useAuth();
   const navigate = useNavigate();
-  const location = useLocation()
+  const location = useLocation();
   const {
     _id,
     content,
@@ -50,7 +50,9 @@ export default function TweetCard({ item, onPostDetails }) {
   const openUserProfile = (item) => {
     getUserByIdFunction(item._id);
     getAllUserPostsHandlerFunction(item.username);
-    navigate(`/home/profile/${item.username}/${item._id}`, {state:{from : location}} ); 
+    navigate(`/home/profile/${item.username}/${item._id}`, {
+      state: { from: location },
+    });
   };
   const postCreator = getUserByUsername(username);
 
@@ -68,7 +70,13 @@ export default function TweetCard({ item, onPostDetails }) {
         }}
         className="heading"
       >
-        <h3 className="clickableIcon" onClick={(e)=>{e.stopPropagation();openUserProfile(postCreator)}}>
+        <h3
+          className="clickableIcon"
+          onClick={(e) => {
+            e.stopPropagation();
+            openUserProfile(postCreator);
+          }}
+        >
           {" "}
           <img
             src={postCreator.profileAvatar}
@@ -94,23 +102,23 @@ export default function TweetCard({ item, onPostDetails }) {
         <p className="likesCount">likes:{likeCount}</p>
         <div className="iconsOnPostCard">
           {isLikedByUser ? (
-            <span 
+            <span
               title="Dislike"
               role="button"
-              className="clickableIcon"
+              className="clickableIcon filledIcon"
               onClick={(e) => {
                 e.stopPropagation();
                 dislikePostHandlerfunction(_id, token);
               }}
             >
               {" "}
-              <FavoriteOutlinedIcon /> 
+              <FavoriteOutlinedIcon />
             </span>
           ) : (
             <span
-            title="Like "
-            role="button"
-              className="clickableIcon"
+              title="Like "
+              role="button"
+              className="clickableIcon "
               onClick={(e) => {
                 e.stopPropagation();
                 likePostHandlerfunction(_id, token);
@@ -119,8 +127,16 @@ export default function TweetCard({ item, onPostDetails }) {
               <FavoriteBorderOutlinedIcon />
             </span>
           )}
-          <span className="clickableIcon" title="comment" role='button' onClick={(e)=>{e.stopPropagation(); toast.info("Feature to be added soon")}}>
-            <CommentIcon/>
+          <span
+            className="clickableIcon"
+            title="comment"
+            role="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              toast.info("Feature to be added soon");
+            }}
+          >
+            <CommentIcon />
           </span>
           <span
             className="clickableIcon"
@@ -136,8 +152,8 @@ export default function TweetCard({ item, onPostDetails }) {
             <ShareRoundedIcon />
           </span>
           {isBookMarked ? (
-            <span 
-              className="clickableIcon"
+            <span
+              className="clickableIcon filledIcon"
               role="button"
               title="Remove from bookmark"
               onClick={(e) => {
@@ -150,7 +166,7 @@ export default function TweetCard({ item, onPostDetails }) {
             </span>
           ) : (
             <span
-              className="clickableIcon"
+              className="clickableIcon "
               role="button"
               title="Add to bookmark"
               onClick={(e) => {
@@ -163,7 +179,7 @@ export default function TweetCard({ item, onPostDetails }) {
               <ClassOutlinedIcon />
             </span>
           )}
-          
+
           {username === currentUser.username && (
             <span
               onClick={(e) => {

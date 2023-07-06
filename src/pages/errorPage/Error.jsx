@@ -5,6 +5,6 @@ export default function ErrorPage(){
   
   <h3>Something is not right</h3>
   <h5>Please go back</h5>
-  <NavLink to='/home'>🔙</NavLink>
+  <NavLink to='/home/feed'>🔙</NavLink>
   </>
 }

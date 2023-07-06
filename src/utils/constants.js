@@ -9,6 +9,7 @@ export const testSignUpData = {
   emailId: "kateJohn49@email.com",
   username: "kateJohn",
   password: "johnKate",
+  confirmPassword:"johnKate",
   bio: "",
   website: "",
   profileAvatar:"",
