@@ -5,7 +5,7 @@ import EmojiPicker from "emoji-picker-react";
 
 import { useAuth, usePost } from "../";
 import { formatDate } from "../backend/utils/authUtils";
-import { EmojiEmotions } from "@mui/icons-material";
+import { EmojiEmotions, EmojiEmotionsOutlined } from "@mui/icons-material";
 
 export default function TweetForm({
   setModalOpen,
@@ -96,11 +96,12 @@ export default function TweetForm({
         value={newPost.content}
       ></textarea>
       <span
+        className="clickableIcon"
         onClick={() => {
           setOpenEmoji(!openEmoji);
         }}
       >
-        <EmojiEmotions /> <small>Pick Emoji</small>
+        <small> 😊 Pick Emoji</small>
       </span>
       <Popover
         id={"Popover for emoji icons"}

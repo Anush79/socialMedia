@@ -11,10 +11,11 @@
   position: sticky;
   height: 87vh;
 }
-.leftUpper div{
+.leftUpper div a{
   display: flex;
   align-items: center;
   justify-content: center;
+  gap:4px;
 }
 a {
   text-decoration: none;
