@@ -152,7 +152,7 @@ export const users = [
     profileAvatar:
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686847461/tweetopia/Elon_Musk_Royal_Society__crop2_y3bp6k.jpg",
     backgroundImage:
-      "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686847528/tweetopia/download_uoh6ai.jpg",
+      "https://res.cloudinary.com/dt1leq0nd/image/upload/v1688560402/tweetopia/1500x500_rex4ij.jpg",
     createdAt: formatDate(),
     updatedAt: formatDate(),
     following: [],
@@ -179,8 +179,8 @@ export const users = [
   },
   {
     _id: "wyh1000557794tc",
-    firstName: "Taylor Alison",
-    lastName: "Swift",
+    firstName: "Taylor",
+    lastName: "Alison Swift",
     password: "AlisonTaylor",
     username: "SwiftTaylor",
     bio: "American singer-songwriter, I do genre-spanning discography, songwriting, and artistic reinventions",

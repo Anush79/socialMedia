@@ -11,7 +11,16 @@ export default function WhatsNew() {
 
   return (
     <div className="whatsNewSection">
-      <img src={currentUser?.profileAvatar} alt="" width="50px" />
+      <img
+            src={
+              currentUser?.profileAvatar?.length < 1
+                ? `https://ui-avatars.com/api/?name=${currentUser.firstName}+${currentUser.lastName}`
+                : currentUser?.profileAvatar
+            }
+            alt={`${currentUser?.username} profile picture`}
+            
+            width={"50px"}
+          />
 
       <input
         type="text"

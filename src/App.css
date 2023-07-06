@@ -33,6 +33,7 @@ button:hover {
 }
 .displayPages{
   overflow-y: scroll;
+  scroll-behavior: smooth;
   height: 90vh;
 }
 .headSection{
@@ -76,17 +77,26 @@ button:hover {
   line-height: 0.4rem;
   text-align: left;
 }
-.smallUserName {
-  font-size: 0.8rem;
-  color: var(--tertiary-color);
-}
+
 .searchContainer{
   display: flex;
   justify-content: center;
   margin:auto;
-  align-items: start;
+  align-items: stretch;
   flex-direction: column;
   width: 100%;
+  gap: 1rem;
+  width: 100%;
+}
+.searchContainer input{
+  border-radius: 5px;
+  font-family: 'Ysabeau Infant', sans-serif;
+ font-size: large;
+}
+.suggestionsInSearch{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .outer {
   position: fixed;
@@ -146,6 +156,8 @@ button {
   border: none;
   border-radius: 5px;
   font-size: 1rem;
+  font-family: 'Ysabeau Infant', sans-serif;
+
 
 }
 form input,.textArea, textarea{

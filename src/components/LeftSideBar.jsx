@@ -58,7 +58,7 @@ export default function LeftSideBaar() {
         <Modal
           status={modalOpen}
           setCloseModal={setModalOpen}
-          modalText={"New Tweet"}
+          modalText={"New Post"}
         >
          <TweetForm  setModalOpen={setModalOpen}status={modalOpen}/>
         </Modal>

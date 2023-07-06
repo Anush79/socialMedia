@@ -29,7 +29,7 @@ export const signupHandler = function (schema, request) {
       );
     }
     const _id = uuid();
-console.log(rest, "rrr")
+
     const newUser = {
       _id,
       createdAt: formatDate(),
@@ -41,9 +41,7 @@ console.log(rest, "rrr")
       bookmarks: [],
       ...rest,
     };
-    console.log(request.requestBody, newUser, "inside backend")
     const createdUser = schema.users.create(newUser);
-    console.log(createdUser,"lolo ye bhi meri galti")
     const encodedToken = sign(
       { _id, username },
       process.env.REACT_APP_JWT_SECRET

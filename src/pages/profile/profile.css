@@ -19,7 +19,9 @@
 }
 .nameandfollow{
   display: flex;
+  align-items: center;
   justify-content: space-between;
+margin-top: -2.5rem;
 }
 
 label{
@@ -35,10 +37,49 @@ label{
   gap:0.2rem;
   display: flex;
 }
-.logout{
-  border: 12px solid red;
+.logout svg:hover{
+  color: red;
+  cursor: pointer;
+}
+.bgpic{
+  height: 12rem;
+  object-fit: cover;
+}
+.profilePic{
+  height: 6.5rem;
+  width: 6.5rem;
+  object-fit: cover;
+  margin-top:-15%;
+  margin-left: 40%;
+  border-radius: 6px;
+  outline: 10px double var(--text-color-secondary) ;
+  border:5px solid var(--primary-color)
 }
 
+.userName h3{
+  margin: 0;
+}
+.smallUserName{
+  margin:0.1rem;
+  
+    font-size: 0.8rem;
+    color: var(--tertiary-color);
+  
+}
+.followCounts{
+  display: flex;
+  gap: 1rem;
+}
+.profileWebsite{
+  /* display: flex;
+  margin:0; */
+  gap:10px
+}
+.profileWebsite svg{
+transform: rotate(135deg);
+font-size: 0.8rem;
+margin-right: 5px;
+}
 @media (max-width:768px){
   .editProfileBox{
     display: flex;

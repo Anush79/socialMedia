@@ -3,6 +3,7 @@
 
 html {
   font-size: calc(12px + 0.390625vw);
+  scroll-behavior: smooth;
 }
 
 :root{
@@ -23,11 +24,11 @@ html {
   --text-color:#E6D1D8; */
 
   /* third choice */
-  /* --primary-color:#C2DEDC;
+  --primary-color:#C2DEDC;
   --secondary-color:#fff8d9;
   --tertiary-color:#ad9e9e;
   --text-color-secondary:#CDC2AE;
-  --text-color:#116A7B; */
+  --text-color:#116A7B;
 
 /*fourth Choice*/
  
@@ -37,12 +38,12 @@ html {
 --text-color-secondary:#ff9967;
 --text-color:#D5CEA3; */
 
---primary-color:#111;
+/* --primary-color:#111;
 --secondary-color:#52525276;
 --tertiary-color:#71767b;
 --text-color-secondary:#1d9bf0;
 --text-color:#fff;
-
+ */
 
 }
 ::selection{
