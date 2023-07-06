@@ -7,7 +7,7 @@ export const initialstate = {
   feedPost: [],
   bookMarks: [],
   allPostOfUser: [],
-  currentFilter:"SORT_LATEST_POSTS"
+  currentFilter: "SORT_LATEST_POSTS",
 };
 const {
   GET_EVERY_POSTS,
@@ -18,16 +18,27 @@ const {
   SORT_OLDEST_POSTS,
   TRENDING_POSTS,
 } = actionTypes;
+
 export const postReducerfunction = (state, action) => {
   const { type, payload } = action;
   switch (type) {
     case GET_EVERY_POSTS:
-      const latestArr = payload.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      const latestArr =
+        state.currentFilter === "TRENDING_POSTS"
+          ? payload.sort((a, b) => b?.likes?.likeCount - a?.likes?.likeCount)
+          : state.currentFilter === "SORT_OLDEST_POSTS"
+          ? payload?.sort(
+              (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+            )
+          : payload?.sort(
+              (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+            );
+
       return { ...state, allPostsInDB: latestArr };
-      // return {
-      //   ...state,
-      //   allPostsInDB: payload,
-      // };
+    // return {
+    //   ...state,
+    //   allPostsInDB: payload,
+    // };
     case GET_SINGLE_POST:
       return {
         ...state,
@@ -45,15 +56,11 @@ export const postReducerfunction = (state, action) => {
       };
 
     case SORT_LATEST_POSTS:
-      const latestArrss = state.allPostsInDB.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-      return { ...state, allPostOfUser: latestArrss };
+      return { ...state, currentFilter: SORT_LATEST_POSTS };
     case SORT_OLDEST_POSTS:
-      const oldestArr = state.allPostsInDB.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
-      return { ...state, allPostOfUser: oldestArr };
-    case TRENDING_POSTS:
-      console.log("posted")
-      const trendingPosts = state.allPostsInDB.sort((a, b)=> b?.likes?.likeCount -  a?.likes?.likeCount) 
-      return { ...state, allPostOfUser: [...trendingPosts] };
+      return { ...state, currentFilter: SORT_OLDEST_POSTS };
+    case TRENDING_POSTS:    
+      return { ...state, currentFilter:TRENDING_POSTS };
     default:
       break;
   }

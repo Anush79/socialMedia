@@ -79,7 +79,7 @@ export default function TweetForm({ setModalOpen, status, submitHandlerF, postTo
       name="selectedImage"
       onChange={handleImageUpload}
     />
-    <small>* Video files is not supported for now</small>
+    <small>* Video files are not supported for now</small>
     <button type="submit">Submit</button>
   </form>
 }

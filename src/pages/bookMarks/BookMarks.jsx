@@ -8,8 +8,13 @@ export default function BookMarks() {
 
   return (
     <div className="bookMarksContainer">
-      <h3>BookMarks</h3>
-      <h6>{currentUser?.username}</h6>
+      <h2 className="header">
+        <img src={
+              currentUser?.profileAvatar?.length < 1
+                ? `https://ui-avatars.com/api/?name=${currentUser.firstName}+${currentUser.lastName}`
+                : currentUser?.profileAvatar
+            } alt="" width="35px"/>
+        BookMarks</h2>
       <div className="tweetSection">
         {bookMarks && bookMarks.length > 0
           ? bookMarks.map((item) => {

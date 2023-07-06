@@ -12,14 +12,7 @@ export default function RightSideBar() {
   useEffect(() => { getSuggestedUsersArray(); }, [])
   return (
     <div className="rightSideBar">
-      <div className="filters">
-        <button onClick={() => {
-          postDispatch({ type: TRENDING_POSTS, payload: "" });
-        }}>Trending</button>
-        <button onClick={() => {
-          postDispatch({ type: SORT_LATEST_POSTS, payload: "" });
-        }}>Latest</button>
-      </div>
+      <h3>Who to Follow</h3>
 
       <div className="suggestions">
         {users?.suggestedUsers.length > 0

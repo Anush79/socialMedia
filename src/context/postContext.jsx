@@ -36,9 +36,6 @@ export function PostProvider({ children }) {
       console.log(error);
     }
   };
-  useEffect(() => {
-    getEveryPostinDb();
-  }, [token]);
 
   const getPostByIdFunction = async (id) => {
     try {
@@ -97,8 +94,8 @@ export function PostProvider({ children }) {
       const response = await createPostService(content, token);
       if (response.status === 201) {
         toast.success("New Post Created");
+        postDispatch({ type: SORT_LATEST_POSTS, payload: "" });
         postDispatch({ type: GET_EVERY_POSTS, payload: response.data.posts });
-        
       }
     } catch (error) {
       console.log(error);
@@ -118,12 +115,18 @@ export function PostProvider({ children }) {
       console.log(error);
     }
   };
+
+
+  useEffect(() => {
+    getEveryPostinDb();
+  }, [token, allPosts.currentFilter]);
+
   useEffect(() => {
     if (currentUser) getAllUserPostsHandlerFunction(currentUser.username);
   }, []);
-  useEffect(()=>{
-    if (token) postDispatch({ type: SORT_LATEST_POSTS, payload: "" });
-  },[allPosts?.allPostsInDB])
+  // useEffect(()=>{
+  //   if (token) 
+  // },[allPosts?.allPostsInDB])
   return (
     <PostContext.Provider
       value={{

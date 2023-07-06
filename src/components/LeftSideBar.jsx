@@ -6,9 +6,10 @@ import AccountBoxOutlinedIcon from '@mui/icons-material/AccountBoxOutlined';
 import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
 import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
 import PersonSearchOutlinedIcon from '@mui/icons-material/PersonSearchOutlined';
-import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
-import '../styles/leftSideBar.css'
+
+import { Settings } from "@mui/icons-material";
 import { useAuth, usePost, useUser } from "../";
+import '../styles/leftSideBar.css';
 import Modal from "../utils/Modal";
 import TweetForm from "./NewTweetHandler";
 
@@ -75,7 +76,7 @@ export default function LeftSideBaar() {
             <small>@{currentUser.username}</small>
           </p>
         </div>
-        <button onClick={(e)=>{e.stopPropagation();logOutFunction()}}>Logout</button>
+        <button onClick={(e)=>{e.stopPropagation();logOutFunction()}}><Settings/></button>
       </div>
 
       

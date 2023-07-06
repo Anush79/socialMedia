@@ -36,6 +36,9 @@ button:hover {
   scroll-behavior: smooth;
   height: 90vh;
 }
+svg{
+  color: var(--text-color);
+}
 .headSection{
   display: flex;
   justify-content: space-between;
@@ -43,7 +46,13 @@ button:hover {
    
 }
 .headSection img{display: none;}
-
+.header
+{
+  display: flex;
+  justify-content: center;
+  gap:0.5rem;
+  align-items:center;
+}
 .suggestedProfile {
   background-color: var(--secondary-color);
   margin: 2px;

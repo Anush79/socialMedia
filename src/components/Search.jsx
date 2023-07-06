@@ -3,7 +3,7 @@ import { useUser, useAuth } from "../";
 import UsersCard from "./UsersCard";
 export default function Search() {
   const { users } = useUser();
-  const { token } = useAuth();
+  const { currentUser } = useAuth();
 
   const [searchResult, setSearchResult] = useState(
     users?.allUsersInDB.slice(-4)
@@ -18,11 +18,17 @@ export default function Search() {
         item.firstName.toLowerCase().includes(value.toLowerCase().trim()) ||
         item.lastName.toLowerCase().includes(value.toLowerCase().trim())
     );
-    console.log(searchFinder);
     setSearchResult(() => [...searchFinder]);
   };
   return (
     <div className="searchContainer">
+      <h2 className="header">
+        <img src={
+              currentUser?.profileAvatar?.length < 1
+                ? `https://ui-avatars.com/api/?name=${currentUser.firstName}+${currentUser.lastName}`
+                : currentUser?.profileAvatar
+            } alt="" width="35px"/>
+        Search People</h2>
       <input
         type="text"
         name="search"
@@ -30,6 +36,8 @@ export default function Search() {
         onChange={searchHandler}
         placeholder="search by name or username "
       />
+      
+      
       <div className="suggestionsInSearch">
         {searchResult.length > 0 ? (
           searchResult.map((item) => {
