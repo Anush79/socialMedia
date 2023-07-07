@@ -1,70 +1,39 @@
 /* @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Quicksand:wght@700&family=Satisfy&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Satisfy&family=Ysabeau+Infant:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,1;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&family=Ysabeau+Infant:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,1;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 html {
   font-size: calc(12px + 0.390625vw);
   scroll-behavior: smooth;
 }
 
-:root{
+:root {
   /*first choice*/
-/*  
-  --primary-color:#391E22;
-  --secondary-color:#56373C;
-  --tertiary-color:#9F807D;
-  --text-color-secondary:#D0B0B1;
-  --text-color:#E6D1D8;
-*/
-/*second choice*/
-/* 
-  --primary-color:#2B2A4C;
-  --secondary-color:#5c469c8d;
-  --tertiary-color:#ad9e9e;
-  --text-color-secondary:#D4ADFC;
-  --text-color:#E6D1D8;
 
-  /* third choice */
-  --primary-color:#C2DEDC;
-  --secondary-color:#fff8d9;
-  --tertiary-color:#ad9e9e;
-  --text-color-secondary:#8BACAA;
-  --text-color:#116A7B;
-
-/*fourth Choice*/
- 
-/* --primary-color:#1A120B;
---secondary-color:#3C2A21;
---tertiary-color:#959595;
---text-color-secondary:#ff9967;
---text-color:#D5CEA3; */
-
-/* --primary-color:#111;
---secondary-color:#52525276;
---tertiary-color:#71767b;
---text-color-secondary:#1d9bf0;
---text-color:#fff;
- */
+  --primary-color: #ffecec;
+  --secondary-color: linear-gradient( #962fbf85, #d6297685, #fa7d1e85, #fed97585);
+  --tertiary-color: #86898d;
+  --text-color-secondary: linear-gradient(#feda75dd, #fa7e1edd, #d62976dd, #962fbfdd, #4f5bd5dd);
+  --text-color: #460a51;
 
 }
-::selection{
+::selection {
   background-color: var(--text-color);
-  color:var(--primary-color);
+  color: var(--primary-color);
 }
 body {
   margin: 0;
-  
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 0;
-  color:var(--text-color);
-  font-family: 'Quicksand', sans-serif;
-font-family: 'Satisfy', cursive;
-font-family: 'Courier New', Courier, monospace;
+  color: var(--text-color);
+  font-family: "Quicksand", sans-serif;
+  font-family: "Satisfy", cursive;
+  font-family: "Courier New", Courier, monospace;
   background-color: var(--primary-color);
   overflow-y: hidden;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

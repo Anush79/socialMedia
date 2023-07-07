@@ -280,7 +280,31 @@ export const users = [
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686850781/tweetopia/download_kbhgnj.jpg",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    following: [],
+    following: [{
+      _id: "09o10001862844l",
+      firstName: "Tom",
+      lastName: "Holland",
+      profileAvatar:
+        "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686847139/tweetopia/download_pzswom.jpg",
+      username: "TomHall44",
+    },
+    {
+      _id: "6v310012535541r",
+      firstName: "Ariana",
+      lastName: "Grande",
+      username: "grandeariana",
+      profileAvatar:
+        "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686852228/tweetopia/pjimage-1544144070_wpp7fc.jpg",
+
+    },
+    {
+      _id: "z6y10006633318h",
+      firstName: "Virat",
+      lastName: "Kohli",
+      username: "ViratKohli",
+      profileAvatar:
+        "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686848614/tweetopia/Virat_Kohli_during_the_India_vs_Aus_4th_Test_match_at_Narendra_Modi_Stadium_on_09_March_2023_fseb74.jpg",
+    },],
     followers: [],
     bookmarks: [],
   },

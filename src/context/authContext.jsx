@@ -13,7 +13,6 @@ export function AuthProvider({ children }) {
 
   const navigate = useNavigate();
   const location = useLocation()
-  console.log(location, "from auth")
   const loginFunction = async (username, password) => {
     try {
       const response = await loginService(username, password);

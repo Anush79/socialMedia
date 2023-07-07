@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import Popover from '@mui/material/Popover';
 import {
   AutoAwesome,
   Logout,
@@ -12,18 +13,19 @@ import {
 import { useAuth } from "../context/authContext";
 import Modal from "../utils/Modal";
 import EditProfile from "../pages/profile/EditProfile";
+import Themechanger from "./ThemeChanger";
 
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-
+  const [themeOpen, setThemOpen]=useState(false);
   const { logOutFunction, currentUser } = useAuth();
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(false);
-  };
+      };
 
   return (
     <>
@@ -47,7 +49,7 @@ export default function BasicMenu() {
             "aria-labelledby": "basic-button",
           }}
         >
-          <MenuItem onClick={handleClose}>
+          <MenuItem onClick={()=>{setThemOpen(!themeOpen);handleClose()}}>
             <AutoAwesome />
             Change Theme
           </MenuItem>
@@ -75,6 +77,20 @@ export default function BasicMenu() {
           setModalOpen={setModalOpen}
         />
       </Modal>}
+      {
+         <Popover
+         id={"PopOver for theme selector"}
+         open={themeOpen}
+         anchorEl={themeOpen}
+         onClose={()=>{setThemOpen(!themeOpen)}}
+         anchorOrigin={{
+           vertical: 'bottom',
+           horizontal: 'left',
+         }}
+       >
+        <Themechanger/>
+       </Popover>
+      }
     </>
   );
 }
