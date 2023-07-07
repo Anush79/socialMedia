@@ -17,6 +17,22 @@ export default function EditProfile({ user, setModalOpen }) {
     const { value, name } = e.target;
     setUserDetailsToUpdate((prev) => ({ ...prev, [name]: value }));
   };
+  const handleImageUpload = (event) => {
+    event.preventDefault();
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      const imageSrc = e.target.result;
+      setSelectedImage( imageSrc);
+      localStorage.setItem("selectedProfileImage", imageSrc);
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
+
   const handleEditSubmit = (e) => {
     e.preventDefault();
 
@@ -41,7 +57,7 @@ export default function EditProfile({ user, setModalOpen }) {
             </label>
           </div>
           Choose avatar :
-          <div className="row1 row">
+          <div className="row1 row clickableIcon">
             <img
               src="\assets\avataaar1.png"
               alt=""
@@ -61,7 +77,7 @@ export default function EditProfile({ user, setModalOpen }) {
               alt=""
             />
           </div>
-          <div className="row2 row">
+          <div className="row2 row clickableIcon">
             <img
               src="\assets\avataaar8.png"
               alt=""
@@ -81,7 +97,7 @@ export default function EditProfile({ user, setModalOpen }) {
               alt=""
             />
           </div>
-          <div className="row3 row">
+          <div className="row3 row clickableIcon">
             <img
               src="\assets\avataaar4.png"
               alt=""
@@ -101,6 +117,20 @@ export default function EditProfile({ user, setModalOpen }) {
               alt=""
             />
           </div>
+          <small className="clickableIcon">
+      <label htmlFor="contentImage">
+          Upload Image 📸
+      </label>
+    
+      <input
+        type="file"
+        accept="image/*"
+        id="contentImage"
+        name="selectedImage"
+        onChange={handleImageUpload}
+        className="inputImageSelect"
+      />
+     </small>
         </div>
         <div className="dataToChange">
           <form onSubmit={handleEditSubmit}>

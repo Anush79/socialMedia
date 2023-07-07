@@ -10,7 +10,10 @@ import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
 import EditNoteRoundedIcon from "@mui/icons-material/EditNoteRounded";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import ShareRoundedIcon from "@mui/icons-material/ShareRounded";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 import { useAuth, usePost, useUser } from "../";
 import Modal from "../utils/Modal";
@@ -19,6 +22,15 @@ import TweetForm from "./NewTweetHandler";
 
 export default function TweetCard({ item, onPostDetails }) {
   const [modalOpen, setModalOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    event.stopPropagation();
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   const {
     getPostByIdFunction,
     likePostHandlerfunction,
@@ -38,6 +50,12 @@ export default function TweetCard({ item, onPostDetails }) {
   const { token, currentUser } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+
+function goBack (){
+  if (location?.state?.from?.pathname)
+  navigate(location?.state?.from?.pathname);
+else navigate("/home/feed", { replace: true });
+}
   const {
     _id,
     content,
@@ -70,30 +88,82 @@ export default function TweetCard({ item, onPostDetails }) {
         }}
         className="heading"
       >
-        <h3
-          className="clickableIcon"
-          onClick={(e) => {
-            e.stopPropagation();
-            openUserProfile(postCreator);
-          }}
-        >
-          {" "}
-          <img
-            src={postCreator.profileAvatar}
-            className="dp"
-            alt="Random image"
-            loading="lazy"
-          />
-          <span className="nameOfUserInPost">
-            <span>
+        <div className="cardTop clickableIcon" >
+          <h3
+            className="clickableIcon"
+            onClick={(e) => {
+              e.stopPropagation();
+              openUserProfile(postCreator);
+            }}
+          >
+            {" "}
+            <img
+              src={postCreator.profileAvatar}
+              className="dp"
+              alt="Random image"
+              loading="lazy"
+            />
+            <span className="nameOfUserInPost">
+              <span>
+                {" "}
+                {postCreator.firstName} {postCreator.lastName}
+              </span>
+              <span>
+                <small>@{postCreator.username}</small>
+              </span>
+            </span>
+          </h3>
+          {username === currentUser.username && (
+            <MoreHorizIcon
+              aria-describedby={"Current User car Menu item"}
+              onClick={handleClick}
+            />
+          )}
+          <Menu
+            id="basic-menu"
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            MenuListProps={{
+              "aria-labelledby": "basic-button",
+            }}
+          >
+            <MenuItem onClick={handleClose} className="clickableIcon ">
+              <span
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setModalOpen(true);
+                }}
+                className="clickableIcon cardMenuItem"
+                role="button"
+                title="Edit this post"
+              >
+                <EditNoteRoundedIcon /> Edit
+              </span>
+            </MenuItem>
+            <MenuItem onClick={handleClose} className="clickableIcon ">
               {" "}
-              {postCreator.firstName} {postCreator.lastName}
-            </span>
-            <span>
-              <small>@{postCreator.username}</small>
-            </span>
-          </span>
-        </h3>
+              <span
+                className="clickableIcon cardMenuItem"
+                role="button"
+                title="Delete this Post"
+                onClick={(e) => {
+                  e.stopPropagation();
+
+                  deletePostFunction(_id, token);
+                  if (isBookMarked) {
+                    removeFromBookmarkFunction(_id);
+                    getUserByIdFunction(currentUser._id);
+                  }
+
+                  if (onPostDetails) goBack();
+                }}
+              >
+                <DeleteForeverRoundedIcon /> Delete
+              </span>
+            </MenuItem>
+          </Menu>
+        </div>
         <p className="timeOfPost">{formatDateAgo(createdAt)}...</p>
         {mediaURL?.length > 0 && (
           <img src={mediaURL} alt={mediaAlt} className="postImage" />
@@ -180,39 +250,7 @@ export default function TweetCard({ item, onPostDetails }) {
             </span>
           )}
 
-          {username === currentUser.username && (
-            <span
-              onClick={(e) => {
-                e.stopPropagation();
-                setModalOpen(true);
-              }}
-              className="clickableIcon"
-              role="button"
-              title="Edit this post"
-            >
-              <EditNoteRoundedIcon />
-            </span>
-          )}
-          {username === currentUser.username && (
-            <span
-              className="clickableIcon"
-              role="button"
-              title="Delete this Post"
-              onClick={(e) => {
-                e.stopPropagation();
-
-                deletePostFunction(_id, token);
-                if (isBookMarked) {
-                  removeFromBookmarkFunction(_id);
-                  getUserByIdFunction(currentUser._id);
-                }
-
-                if (onPostDetails) navigate("/home");
-              }}
-            >
-              <DeleteForeverRoundedIcon />
-            </span>
-          )}
+     
           {modalOpen && (
             <Modal
               status={modalOpen}

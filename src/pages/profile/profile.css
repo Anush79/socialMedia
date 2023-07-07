@@ -1,5 +1,6 @@
 
 .row{
+  gap: 0.4rem;
   display: flex;
 }
 .editProfileBox{
@@ -10,6 +11,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  gap: 0.4rem;
 }
 .profileHeader{
   text-align: left;
@@ -78,6 +80,11 @@ transform: rotate(135deg);
 font-size: 0.8rem;
 margin-right: 5px;
 }
+div.avatars  div.row0 label img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  }
 @media (max-width:768px){
   .editProfileBox{
     display: flex;
