@@ -8,12 +8,11 @@ html {
 
 :root {
   /*first choice*/
-
-  --primary-color: #ffecec;
-  --secondary-color: linear-gradient( #962fbf85, #d6297685, #fa7d1e85, #fed97585);
+  --primary-color: #fff;
+  --secondary-color: #ddd4ff;
   --tertiary-color: #86898d;
-  --text-color-secondary: linear-gradient(#feda75dd, #fa7e1edd, #d62976dd, #962fbfdd, #4f5bd5dd);
-  --text-color: #460a51;
+  --text-color-secondary: #a598fd;
+  --text-color: #650775;
 
 }
 ::selection {

@@ -61,6 +61,14 @@ export const colorSet = [
     "--text-color": "#116A7B",
   },
   {
+    "--primary-color":"#111",
+    "--secondary-color":"#61616122",
+    "--tertiary-color":"#86898d",
+    "--text-color-secondary":"#f91880",
+    "--text-color":"#fff",
+  
+  },
+  {
     "--primary-color": "#1A120B",
     "--secondary-color": "#3C2A21",
     "--tertiary-color": "#959595",

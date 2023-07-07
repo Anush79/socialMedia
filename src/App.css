@@ -184,12 +184,25 @@ button {
   background: var(--text-color-secondary);
   cursor: pointer;
   margin: 5px;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 .clickableIcon {
   cursor: pointer;
-}
 
+}
+.contentPicker{
+  display: flex;
+  justify-content: space-between;
+}
+.imagePreview img{
+  width: 100px;
+  height: 100px;
+  aspect-ratio: 1/1;
+}
+label:hover{
+  cursor: pointer;
+}
 ::-webkit-scrollbar {
   width: 5px;
   visibility: hidden;

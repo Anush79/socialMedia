@@ -92,10 +92,11 @@ export default function TweetForm({
         }}
         className="tweetArea"
         placeholder="What's New"
-        rows={10}
+        rows={5}
         value={newPost.content}
       ></textarea>
-      <span
+      <div className="contentPicker">
+         <span
         className="clickableIcon"
         onClick={() => {
           setOpenEmoji(!openEmoji);
@@ -103,6 +104,28 @@ export default function TweetForm({
       >
         <small> 😊 Pick Emoji</small>
       </span>
+     
+     <small className="clickableIcon">
+      <label htmlFor="contentImage">
+          Select Image 📸
+      </label>
+    
+      <input
+        type="file"
+        accept="image/*"
+        id="contentImage"
+        name="selectedImage"
+        onChange={handleImageUpload}
+        className="inputImageSelect"
+      />
+     </small>
+      </div>
+    {newPost?.mediaURL && <div className="imagePreview">
+      <img src={newPost?.mediaURL} alt="content selected by user" />
+     </div>}
+      
+      <small>* Video files are not supported for now</small>
+      <button type="submit">Submit</button>
       <Popover
         id={"Popover for emoji icons"}
         open={openEmoji}
@@ -115,16 +138,6 @@ export default function TweetForm({
       >
         <EmojiPicker onEmojiClick={onClickEmoji}></EmojiPicker>
       </Popover>
-
-      <input
-        type="file"
-        accept="image/*"
-        id="contentImage"
-        name="selectedImage"
-        onChange={handleImageUpload}
-      />
-      <small>* Video files are not supported for now</small>
-      <button type="submit">Submit</button>
     </form>
   );
 }

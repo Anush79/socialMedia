@@ -17,5 +17,11 @@ padding:0.2rem;
   display: flex;
   align-items: center;
 }
+.inputImageSelect{
+ display: none;
+}
+
+
 li.MuiButtonBase-root.MuiMenuItem-root.MuiMenuItem-gutters.MuiMenuItem-root.MuiMenuItem-gutters.activeFilter.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
   background: var(--text-color-secondary);}
+
