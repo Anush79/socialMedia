@@ -34,14 +34,14 @@ button:hover {
 .displayPages{
   overflow-y: scroll;
   scroll-behavior: smooth;
-  height: 90vh;
+  height: 100vh;
 }
 svg{
   color: var(--text-color);
 }
 .headSection{
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   width: 100%;
    
 }
@@ -52,6 +52,11 @@ svg{
   justify-content: center;
   gap:0.5rem;
   align-items:center;
+}
+.footer{
+  background: transparent;
+  /* width: 2rem; */
+  height: 1rem;
 }
 .suggestedProfile {
   background-color: var(--secondary-color);

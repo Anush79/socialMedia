@@ -15,7 +15,7 @@ export default function Header (){
   return <>
   <div className="headSection">
       <h2 className="logo">Tweetopia</h2>
-       <img src={currentUser?.profileAvatar} alt="" width="45px" className='clickableLink ' onClick={openUserProfile} />
+       {/* <img src={currentUser?.profileAvatar} alt="" width="45px" className='clickableLink ' onClick={openUserProfile} /> */}
   </div>
 
 

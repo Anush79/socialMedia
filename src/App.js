@@ -3,8 +3,7 @@ import "./App.css";
 
 import { useAuth } from "./";
 
-import Footer from "./components/Footer";
-import Header from "./components/Header";
+
 import Notification from "./components/Notification";
 import RequiresAuth from "./components/RequiresAuth";
 import Search from "./components/Search";
@@ -21,7 +20,7 @@ function App() {
   const { token } = useAuth();
   return (
     <div className="App">
-      <Header />
+    
       <div className="main">
         <Notification />
         <Routes>
@@ -45,7 +44,7 @@ function App() {
           <Route path='*' element={<ErrorPage/>}/>
         </Routes>
       </div>
-      <Footer />
+  
     </div>
   );
 }

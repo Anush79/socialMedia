@@ -10,7 +10,7 @@ export default function WhatsNew() {
   const { currentUser } = useAuth();
 
   return (
-    <div className="whatsNewSection">
+    <div className="whatsNewSection header">
       <img
             src={
               currentUser?.profileAvatar?.length < 1

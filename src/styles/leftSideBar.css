@@ -9,7 +9,7 @@
 }
 .leftSideBar {
   position: sticky;
-  height: 87vh;
+  height: 99vh;
 }
 .leftUpper div a{
   display: flex;
@@ -26,6 +26,10 @@ a {
 .leftSideBar .active {
   background-color: var(--secondary-color);
   border-radius: 5px;
+  transition: 0.5s;
+}
+.logout{
+  color:#ff0000;
 }
 
 @media (max-width:768px){
