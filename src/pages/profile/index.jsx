@@ -26,10 +26,10 @@ export default function Profile() {
   const navigate = useNavigate()
  
   
-  const isLoggedUser = paramUsername === currentUser.username;
+  const isLoggedUser = paramUsername === currentUser?.username;
   // const foundUserInDb = isLoggedUser ?  allUsersInDB.find((person) => person.username === paramUsername):userWithId;
-  const foundUserInDb = isLoggedUser ? currentUser : allUsersInDB.find((person) => person.username === paramUsername);
-  const [modalOpen, setModalOpen] = useState(isNewUser(foundUserInDb.createdAt));
+  const foundUserInDb = isLoggedUser ? currentUser : allUsersInDB.find((person) => person?.username === paramUsername)||userWithId;
+  const [modalOpen, setModalOpen] = useState(isNewUser(foundUserInDb?.createdAt));
   
   const checkFollow = isAlreadyFollowing(foundUserInDb?._id);
 
@@ -40,7 +40,7 @@ export default function Profile() {
   useEffect(() => {
     getUserByIdFunction(paramId);
   }, [allUsersInDB]);
-  if(foundUserInDb.username === undefined){
+  if(foundUserInDb?.username === undefined){
     toast("User not found in the DataBase")
     navigate('/home/error')
   }
@@ -62,7 +62,7 @@ export default function Profile() {
           <img
             src={
               foundUserInDb?.profileAvatar?.length < 1
-                ? `https://ui-avatars.com/api/?name=${foundUserInDb.firstName}+${foundUserInDb.lastName}`
+                ? `https://ui-avatars.com/api/?name=${foundUserInDb?.firstName}+${foundUserInDb?.lastName}`
                 : foundUserInDb?.profileAvatar
             }
             alt={`${foundUserInDb?.username} profile picture`}
