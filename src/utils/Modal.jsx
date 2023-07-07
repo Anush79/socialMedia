@@ -43,7 +43,7 @@ export default function Modal({ children, setCloseModal, status, modalText }) {
   } else
     return (
       <>
-        <button
+       {modalText && <button
           className="formButton"
           onClick={(e) => {
             e.stopPropagation();
@@ -51,7 +51,7 @@ export default function Modal({ children, setCloseModal, status, modalText }) {
           }}
         >
           {modalText}
-        </button>
+        </button>}
       </>
     );
 }

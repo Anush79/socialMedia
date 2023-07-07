@@ -4,6 +4,7 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { useAuth } from "../../";
 import { dummyLoginData, testSignUpData } from "../../utils/constants";
 import { toast } from "react-toastify";
+import './login.css'
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [signedUpAlready, setSignedUpalready] = useState(true);

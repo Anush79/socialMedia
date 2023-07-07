@@ -28,7 +28,7 @@ export default function Profile() {
   
   const isLoggedUser = paramUsername === currentUser.username;
   // const foundUserInDb = isLoggedUser ?  allUsersInDB.find((person) => person.username === paramUsername):userWithId;
-  const foundUserInDb = isLoggedUser ? currentUser : userWithId;
+  const foundUserInDb = isLoggedUser ? currentUser : allUsersInDB.find((person) => person.username === paramUsername);
   const [modalOpen, setModalOpen] = useState(isNewUser(foundUserInDb.createdAt));
   
   const checkFollow = isAlreadyFollowing(foundUserInDb?._id);
@@ -46,7 +46,7 @@ export default function Profile() {
   }
   else  return (
     <div className="ProfileContainer">
-      <h3>
+      <h3 className="header">
         {foundUserInDb?.firstName}
         {"'s"} Profile{" "}
       </h3>
@@ -149,7 +149,7 @@ export default function Profile() {
               modalText="Edit Profile"
             >
               <EditProfile
-                user={foundUserInDb}
+                user={currentUser}
                 modalOpen={modalOpen}
                 setModalOpen={setModalOpen}
               />
@@ -177,7 +177,7 @@ function isNewUser(date) {
   const currentDate = new Date();
   const targetDate = new Date(date);
   const diffMilliseconds = currentDate.getTime() - targetDate.getTime();
-  const diffMinutes = diffMilliseconds / (1000 * 60);
+  const diffMinutes = diffMilliseconds / (1000 * 30);
 
   return diffMinutes < 1;
 }
