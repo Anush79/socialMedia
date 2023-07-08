@@ -76,12 +76,14 @@ svg{
   background-color: var(--secondary-color);
   margin: 2px;
   padding: 5px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
   gap: 3px;
   justify-content: space-between;
   align-items: center;
   border-radius: 5px;
-  width: 250px;
+  width: 270px;
+  font-family: 'Ysabeau Infant', sans-serif;
   
 }
 

@@ -42,9 +42,13 @@ label{
 .logout svg:hover{
   color: red;
   cursor: pointer;
-}
-.bgpic{
+}.backImageContainer{
   height: 12rem;
+  width: 100%;
+}
+.bgpic {
+  height: 12rem;
+  width: 100%;
   object-fit: cover;
 }
 .profilePic{
@@ -84,6 +88,10 @@ div.avatars  div.row0 label img{
   width: 100px;
   height: 100px;
   object-fit: cover;
+  }
+  .suggestions{
+    font-family: 'Ysabeau Infant', sans-serif;
+
   }
 @media (max-width:768px){
   .editProfileBox{

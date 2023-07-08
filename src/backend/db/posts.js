@@ -288,7 +288,7 @@ export const posts = [
     _id: "VY14RsXC7G",
     content:
       "It's amazing how a simple act of kindness can brighten someone's day. Let's make kindness the norm. #BeKind",
-    mediaURL: "",
+    mediaURL: "https://res.cloudinary.com/dt1leq0nd/image/upload/v1688799320/bts-interview_aibze6.gif",
     likes: {
       likeCount: 7,
       likedBy: [],
@@ -303,7 +303,7 @@ export const posts = [
   {
     _id: "l9pedEMjZS",
     content: "If you don’t risk anything, you risk even more.",
-    mediaURL: "",
+    mediaURL: "https://media.tenor.com/Ja8tRthc-SgAAAAC/fantastic-goodday.gif",
     likes: {
       likeCount: 6,
       likedBy: [],
@@ -366,7 +366,7 @@ export const posts = [
     _id: "G5xd30tMCR",
     content:
       "Optimism is the faith that leads to achievement. Nothing can be done without hope and confidence.",
-    mediaURL: "",
+    mediaURL: "https://res.cloudinary.com/dt1leq0nd/image/upload/v1688798260/giphy_z1aca5.gif",
     likes: {
       likeCount: 8,
       likedBy: [],
