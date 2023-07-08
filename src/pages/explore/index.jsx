@@ -1,14 +1,14 @@
 
-import { useAuth, usePost, useUser } from '../../'
+import { useAuth, usePost } from '../../'
 import TweetCard from '../../components/TweetCard'
 export default function Explore(){
   const {allPosts}= usePost()
-  const {users} =useUser()
+
   const {currentUser} = useAuth()
   
-  const exploreData= allPosts?.allPostsInDB.filter(
-    (item)=>currentUser.following.every(person=> person.username!==item.username && currentUser.username!==item.username)
-  )
+  // const exploreData= allPosts?.allPostsInDB.filter(
+  //   (item)=>currentUser.following.every(person=> person.username!==item.username && currentUser.username!==item.username)
+  // )
 
 
   return <div className="explorePage">
@@ -22,8 +22,8 @@ export default function Explore(){
 <div className="tweetsSection">
    
     {
-     exploreData.length > 0 ?
-     exploreData.map(item => <TweetCard key={item.id} item={item} />) :
+     allPosts?.allPostsInDB.length > 0 ?
+     allPosts?.allPostsInDB.map(item => <TweetCard key={item.id} item={item} />) :
         "No post available"
 
     }

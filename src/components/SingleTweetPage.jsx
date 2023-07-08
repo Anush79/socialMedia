@@ -1,9 +1,6 @@
-import { useState } from "react";
-
 import { usePost ,useUser} from "..";
 import TweetCard from "./TweetCard";
 import UsersCard from "./UsersCard";
-import Modal from '../utils/Modal'
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 export default function SingleTweet() {
@@ -11,7 +8,7 @@ export default function SingleTweet() {
   const {id}= useParams()
   const { allPosts } = usePost();
   const {getUserByUsername}= useUser()
-  const foundPost = allPosts.allPostsInDB.find(item=>item._id===id)
+  const foundPost = allPosts?.allPostsInDB?.find(item=>item._id===id)
 const location= useLocation();
 const navigate = useNavigate()
 function goBack (){

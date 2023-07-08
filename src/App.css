@@ -11,6 +11,20 @@ font-family: 'Ysabeau Infant', sans-serif;
   align-items: center;
 
 }
+.logo{
+  font-family: 'Courier New', Courier, monospace;
+  border-radius: 3px;
+  border:5px double ;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding:2px;
+}
+.header {
+  position:sticky;
+  background-color: var(--primary-color);
+  top: 0;
+  padding: 10px;
+}
 .main {
   width: 100%;
 }
@@ -62,12 +76,14 @@ svg{
   background-color: var(--secondary-color);
   margin: 2px;
   padding: 5px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
   gap: 3px;
   justify-content: space-between;
   align-items: center;
   border-radius: 5px;
-  width: 250px;
+  width: 270px;
+  font-family: 'Ysabeau Infant', sans-serif;
   
 }
 
@@ -139,7 +155,8 @@ svg{
   border: 1px solid;
   min-width: 250px;
   padding: 20px;
-  background: rgba(39, 5, 5, 0.255);
+  background:var(--primary-color);
+  color: var(--text-color);
   border: 10px solid transparent;
   backdrop-filter: blur(20px);
 }
@@ -169,27 +186,43 @@ button {
   border-radius: 5px;
   font-size: 1rem;
   font-family: 'Ysabeau Infant', sans-serif;
-
-
 }
 form input,.textArea, textarea{
   background-color: rgba(0, 0, 0, 0.659);
   color:#ffffff
 }
+
 .header img{
   border-radius: 5px;
 }
+
 button {
   text-align: center;
   background: var(--text-color-secondary);
   cursor: pointer;
   margin: 5px;
-  font-size: 0.7rem;
+  border-radius: 2px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 .clickableIcon {
   cursor: pointer;
-}
 
+}
+.contentPicker{
+  display: flex;
+  justify-content: space-between;
+}
+.imagePreview img{
+  width: 100px;
+  height: 100px;
+  aspect-ratio: 1/1;
+}
+label:hover{
+  cursor: pointer;
+}
 ::-webkit-scrollbar {
   width: 5px;
   visibility: hidden;

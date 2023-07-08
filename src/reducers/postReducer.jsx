@@ -54,7 +54,7 @@ export const postReducerfunction = (state, action) => {
         ...state,
         allPostOfUser: payload,
       };
-
+      
     case SORT_LATEST_POSTS:
       return { ...state, currentFilter: SORT_LATEST_POSTS };
     case SORT_OLDEST_POSTS:

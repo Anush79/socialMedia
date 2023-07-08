@@ -19,8 +19,8 @@ export const posts = [
     },
     comments: [
       {
-        _id: "okzxcf",
-        username: "janedoe",
+        _id: "z6y10006633318h",
+        username: "ViratKohli",
         text: "I agree!! Feels like we should go for outing. What say?",
         votes: {
           upvotedBy: [],
@@ -58,9 +58,10 @@ export const posts = [
     },
     comments: [
       {
-        _id: "6nImWvImxo",
-        username: "johndoe",
-        text: "That's mouth watering! Could you make one for my Birthday as well?",
+        _id: "6v310012535541r",
+
+        username: "grandeariana",
+        text: "I wish I could join you, need that therapy soon",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -98,8 +99,8 @@ export const posts = [
     },
     comments: [
       {
-        _id: "EO7iOPN9n8",
-        username: "carlsmith",
+        _id: "z6y10006633318h",
+        username: "ViratKohli",
         text: "Happy Birthday! Enjoy your Day!!",
         votes: {
           upvotedBy: [],
@@ -107,8 +108,8 @@ export const posts = [
         },
       },
       {
-        _id: "QK52wf6HI1",
-        username: "janedoe",
+        _id: "6v310012535541r",
+        username: "grandeariana",
         text: "Wow! Looks Amazzing! Happy Birthday!",
         votes: {
           upvotedBy: [],
@@ -176,9 +177,9 @@ export const posts = [
     },
     comments: [
       {
-        _id: "6nIffvImxo",
-        username: "SwiftTaylor",
-        text: "Oh! That looks Delicious!",
+        _id: "nm01000290737yz",
+        username: "barackObama321",
+        text:" Moments like these make life magical. Magic is magic , no logic.",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -200,8 +201,8 @@ export const posts = [
     },
     comments: [
       {
-        _id: "6fgd534s",
-        username: "SwiftTaylor",
+        _id: "nm01000290737yz",
+        username: "barackObama321",
         text: "Yes! I am also learning from there!",
         votes: {
           upvotedBy: [],
@@ -223,10 +224,9 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [
-      {
-        _id: "unImWvIzbf",
-        username: "SwiftTaylor",
-        text: "So True!!",
+      { _id: "nm01000290737yz",
+      username: "barackObama321",
+        text: "So True!!Just by looking at it, I am feeling refreshed",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -241,7 +241,7 @@ export const posts = [
     _id: "CCmJpDnnQQ",
     content:
       "Life's too short to stress over the small stuff. Take a deep breath and enjoy the journey. #PositiveVibes",
-    mediaURL: "",
+    mediaURL: "https://res.cloudinary.com/dt1leq0nd/image/upload/v1688796951/giphy_e4zxkb.webp",
     likes: {
       likeCount: 5,
       likedBy: [],
@@ -288,7 +288,7 @@ export const posts = [
     _id: "VY14RsXC7G",
     content:
       "It's amazing how a simple act of kindness can brighten someone's day. Let's make kindness the norm. #BeKind",
-    mediaURL: "",
+    mediaURL: "https://res.cloudinary.com/dt1leq0nd/image/upload/v1688799320/bts-interview_aibze6.gif",
     likes: {
       likeCount: 7,
       likedBy: [],
@@ -303,7 +303,7 @@ export const posts = [
   {
     _id: "l9pedEMjZS",
     content: "If you don’t risk anything, you risk even more.",
-    mediaURL: "",
+    mediaURL: "https://media.tenor.com/Ja8tRthc-SgAAAAC/fantastic-goodday.gif",
     likes: {
       likeCount: 6,
       likedBy: [],
@@ -366,7 +366,7 @@ export const posts = [
     _id: "G5xd30tMCR",
     content:
       "Optimism is the faith that leads to achievement. Nothing can be done without hope and confidence.",
-    mediaURL: "",
+    mediaURL: "https://res.cloudinary.com/dt1leq0nd/image/upload/v1688798260/giphy_z1aca5.gif",
     likes: {
       likeCount: 8,
       likedBy: [],

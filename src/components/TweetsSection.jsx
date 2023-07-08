@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { usePost, useAuth } from '../'
 import TweetCard from './TweetCard'
 import WhatsNew from './WriteNewTweet'
@@ -7,6 +8,9 @@ export default function TweetsSection() {
   const feedPosts = allPosts?.allPostsInDB?.filter(
     (item)=>currentUser.following.some(person=> person.username===item.username || currentUser.username === item.username)
   )
+  useEffect(()=>{
+    window.scroll({ top: 0, behavior: "smooth" });
+  },[])
   return <div className="tweetsSection">
     <WhatsNew />
     {

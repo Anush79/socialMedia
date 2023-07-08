@@ -60,7 +60,7 @@ export const users = [
       },
       {
         _id: "wyh1000557794tc",
-        firstName: "Taylor Alison",
+        firstName: "Taylor",
         lastName: "Swift",
         password: "AlisonTaylor",
         username: "SwiftTaylor",
@@ -204,8 +204,8 @@ export const users = [
     bio: "Indian international cricketer and the former captain of the Indian national cricket team ",
     website: "viratKohliSharma.in",
     profileAvatar:
-      "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686848614/tweetopia/Virat_Kohli_during_the_India_vs_Aus_4th_Test_match_at_Narendra_Modi_Stadium_on_09_March_2023_fseb74.jpg",
-    backgroundImage: "",
+      "https://res.cloudinary.com/dt1leq0nd/image/upload/v1688805453/desktop-wallpaper-anushka-sharma-and-virat-kohli-wedding-virat-kohli_xsnc3m.jpg",
+    backgroundImage:"https://res.cloudinary.com/dt1leq0nd/image/upload/v1688805205/desktop-wallpaper-virat-kohli-rcb-ipl-virat-kohli-hair-style-virat-kohli-smile_znpyhh.jpg",
     createdAt: formatDate(),
     updatedAt: formatDate(),
     following: [],
@@ -280,7 +280,31 @@ export const users = [
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686850781/tweetopia/download_kbhgnj.jpg",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    following: [],
+    following: [{
+      _id: "09o10001862844l",
+      firstName: "Tom",
+      lastName: "Holland",
+      profileAvatar:
+        "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686847139/tweetopia/download_pzswom.jpg",
+      username: "TomHall44",
+    },
+    {
+      _id: "6v310012535541r",
+      firstName: "Ariana",
+      lastName: "Grande",
+      username: "grandeariana",
+      profileAvatar:
+        "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686852228/tweetopia/pjimage-1544144070_wpp7fc.jpg",
+
+    },
+    {
+      _id: "z6y10006633318h",
+      firstName: "Virat",
+      lastName: "Kohli",
+      username: "ViratKohli",
+      profileAvatar:
+        "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686848614/tweetopia/Virat_Kohli_during_the_India_vs_Aus_4th_Test_match_at_Narendra_Modi_Stadium_on_09_March_2023_fseb74.jpg",
+    },],
     followers: [],
     bookmarks: [],
   },
