@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import Popover from '@mui/material/Popover';
+import Popover from "@mui/material/Popover";
 import {
   AutoAwesome,
   Logout,
@@ -18,14 +18,14 @@ import Themechanger from "./ThemeChanger";
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const [themeOpen, setThemOpen]=useState(false);
+  const [themeOpen, setThemOpen] = useState(false);
   const { logOutFunction, currentUser } = useAuth();
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(false);
-      };
+  };
 
   return (
     <>
@@ -49,14 +49,6 @@ export default function BasicMenu() {
             "aria-labelledby": "basic-button",
           }}
         >
-          <MenuItem onClick={()=>{setThemOpen(!themeOpen);handleClose()}}>
-            <AutoAwesome />
-            Change Theme
-          </MenuItem>
-          <MenuItem onClick={()=>{setModalOpen(true); handleClose()}}>
-            <ManageAccountsRounded />
-            Edit Profile
-          </MenuItem>
           <MenuItem
             className="logout"
             title="Logout"
@@ -68,28 +60,51 @@ export default function BasicMenu() {
           >
             <Logout /> Logout
           </MenuItem>
+
+          <MenuItem
+            onClick={() => {
+              setModalOpen(true);
+              handleClose();
+            }}
+          >
+            <ManageAccountsRounded />
+            Edit Profile
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
+              setThemOpen(!themeOpen);
+              handleClose();
+            }}
+          >
+            <AutoAwesome />
+            Change Theme
+          </MenuItem>
         </Menu>
       </div>
-      {<Modal status={modalOpen} setCloseModal={setModalOpen}>
-        <EditProfile
-          user={currentUser}
-          modalOpen={modalOpen}
-          setModalOpen={setModalOpen}
-        />
-      </Modal>}
       {
-         <Popover
-         id={"PopOver for theme selector"}
-         open={themeOpen}
-         anchorEl={themeOpen}
-         onClose={()=>{setThemOpen(!themeOpen)}}
-         anchorOrigin={{
-           vertical: 'bottom',
-           horizontal: 'left',
-         }}
-       >
-        <Themechanger/>
-       </Popover>
+        <Modal status={modalOpen} setCloseModal={setModalOpen}>
+          <EditProfile
+            user={currentUser}
+            modalOpen={modalOpen}
+            setModalOpen={setModalOpen}
+          />
+        </Modal>
+      }
+      {
+        <Popover
+          id={"PopOver for theme selector"}
+          open={themeOpen}
+          anchorEl={themeOpen}
+          onClose={() => {
+            setThemOpen(!themeOpen);
+          }}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "left",
+          }}
+        >
+          <Themechanger />
+        </Popover>
       }
     </>
   );
