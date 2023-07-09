@@ -125,7 +125,7 @@ export default function TweetForm({
      </div>}
       
       <small>* Video files are not supported for now</small>
-      <button type="submit">Submit</button>
+      <button type="submit">Post</button>
       <Popover
         id={"Popover for emoji icons"}
         open={openEmoji}
@@ -141,3 +141,4 @@ export default function TweetForm({
     </form>
   );
 }
+//change submit to post

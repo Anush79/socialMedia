@@ -4,7 +4,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
 import { useEffect, useState } from "react";
-import { NavLink, useLocation, useNavigate, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { useAuth, usePost, useUser } from "../../";
@@ -67,16 +67,16 @@ export default function Profile() {
           {"'s"} Profile{" "}
         </h3>
         <div className="profileHeader">
-<div className="backImageContainer">
-    <img
-            src={foundUserInDb?.backgroundImage}
-            alt={foundUserInDb?.firstName+"'s background "}
-            width={"100%"}
-            height={"300px"}
-            className="bgpic"
-          />
-</div>
-        
+          <div className="backImageContainer">
+            <img
+              src={foundUserInDb?.backgroundImage}
+              alt={foundUserInDb?.firstName + "'s background "}
+              width={"100%"}
+              height={"300px"}
+              className="bgpic"
+            />
+          </div>
+
           <span className="profilePicContainer">
             <img
               src={
@@ -139,12 +139,12 @@ export default function Profile() {
           <div>
             <p>{foundUserInDb?.bio}</p>
             <span>
-              <NavLink to={foundUserInDb?.website} target="_blank">
+            {foundUserInDb?.website ?  <NavLink to={foundUserInDb?.website} target="_blank">
                 <small className="profileWebsite">
                   <LinkIcon />
-                  {foundUserInDb?.website}
+                  {foundUserInDb?.website }
                 </small>
-              </NavLink>
+              </NavLink> : "No website avaible"}
             </span>
 
             <p className="followCounts">

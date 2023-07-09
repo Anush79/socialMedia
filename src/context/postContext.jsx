@@ -106,7 +106,7 @@ export function PostProvider({ children }) {
     try {
       const response = await editPostService( postContent, token);
       if (response.status === 201) {
-        toast.success("New Post Created");
+        toast.success("your Post edited Successfully");
         postDispatch({ type: GET_EVERY_POSTS, payload: response.data.posts });
         getPostByIdFunction(postId)
         getAllUserPostsHandlerFunction(postContent.username)
@@ -124,9 +124,7 @@ export function PostProvider({ children }) {
   useEffect(() => {
     if (currentUser) getAllUserPostsHandlerFunction(currentUser.username);
   }, []);
-  // useEffect(()=>{
-  //   if (token) 
-  // },[allPosts?.allPostsInDB])
+
   return (
     <PostContext.Provider
       value={{

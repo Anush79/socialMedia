@@ -55,7 +55,8 @@ export default function Login() {
   if (signedUpAlready)
     return (
       <>
-      {/* <img src="\assets\loginbg.jpg" alt="" className="landingPageImage" /> */}
+      <div className="loginContainer">
+        {/* <img src="\assets\loginbg.jpg" alt="" className="landingPageImage" /> */}
         <div className="loginPage">
           <h3>Login Please</h3>
           <div className="loginForm">
@@ -112,6 +113,8 @@ export default function Login() {
             </form>
           </div>
         </div>
+      </div>
+      
       </>
     );
   else
