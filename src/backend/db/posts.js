@@ -257,7 +257,7 @@ export const posts = [
     _id: "Z_TZT_3EAw",
     content:
       "If you believe something needs to exist, if it's something you want to use yourself, don't let anyone ever stop you from doing it.",
-    mediaURL: "",
+    mediaURL: "https://res.cloudinary.com/dt1leq0nd/image/upload/v1688810649/1311173_n1bmt7.webp",
     likes: {
       likeCount: 5,
       likedBy: [],
