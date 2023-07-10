@@ -23,6 +23,8 @@ import TweetForm from "./NewTweetHandler";
 export default function TweetCard({ item, onPostDetails }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
+  const [openComment, setCommentOpen]=useState(false) 
+  const [comment, setComment] = useState(false)
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     event.stopPropagation();
@@ -31,6 +33,7 @@ export default function TweetCard({ item, onPostDetails }) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   const {
     getPostByIdFunction,
     likePostHandlerfunction,
@@ -38,6 +41,7 @@ export default function TweetCard({ item, onPostDetails }) {
     deletePostFunction,
     editPostFunction,
     getAllUserPostsHandlerFunction,
+    addCommentFunction,
   } = usePost();
   const {
     bookMarKPostFunction,
@@ -45,6 +49,7 @@ export default function TweetCard({ item, onPostDetails }) {
     isAlreadyBookMarked,
     getUserByIdFunction,
     getUserByUsername,
+   
   } = useUser();
 
   const { token, currentUser } = useAuth();
@@ -202,8 +207,8 @@ else navigate("/home/feed", { replace: true });
             title="comment"
             role="button"
             onClick={(e) => {
-              e.stopPropagation();
-              toast.info("Feature to be added soon");
+              navigate(`/home/post/${_id}`);
+              setCommentOpen(!openComment)
             }}
           >
             <CommentIcon />
@@ -266,6 +271,22 @@ else navigate("/home/feed", { replace: true });
             </Modal>
           )}
         </div>
+
+{
+  onPostDetails && <div className="NewCommentSection">
+    <img
+              src={
+                currentUser?.profileAvatar?.length < 1
+                  ? `https://ui-avatars.com/api/?name=${currentUser.firstName}+${currentUser.lastName}`
+                  : currentUser?.profileAvatar
+              }
+              alt="avatar"
+            />
+  <input type="text" placeholder=" write your comment here..." name="comment" id="" onClick={(e) => { e.stopPropagation() }} onChange={(e) => { setComment(e.target.value) }} />
+  <button onClick={(e) => { e.stopPropagation(); addCommentFunction(_id, comment) }} >Comment</button>
+</div>
+}
+
       </div>
     </div>
   );
