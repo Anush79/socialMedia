@@ -66,7 +66,7 @@ const commentWriter = getUserByUsername(username)
        
        <div className="right">
         {
-           currentUser.username === username && <DeleteForever onClick ={deleteCommentFunction}/> 
+           currentUser.username === username && <DeleteForever onClick ={deleteCommentFunction} className='clickableIcon delete'/> 
         }
        </div>
       </div>
