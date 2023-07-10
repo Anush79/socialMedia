@@ -24,7 +24,7 @@ export default function TweetCard({ item, onPostDetails }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const [openComment, setCommentOpen] = useState(false);
-  const [comment, setComment] = useState(false);
+  const [comment, setComment] = useState("");
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     event.stopPropagation();
