@@ -1,7 +1,33 @@
-.landingPageImage{
-  position: absolute;
-  width:100vw;
+.loginContainer{
+  height: 100vh;
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr  ;
+  justify-content: space-around;
+  gap: 4rem;
+  margin: auto;
+}
+.loginContainer .leftSide {
+  width: 100%;
+  height: 100%;
+object-fit: cover;
+}
+.loginContainer img{
+  max-width: 100%;
+  min-height: 100vh;
+  object-fit: cover;
 
+}
+
+.loginPage .signupPage{
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: flex-start;
+}
+
+.loginPage .headSection ,.signupPage .headSection{
+  justify-content: center;
 }
 .passwordInput{
 
@@ -9,12 +35,13 @@ width:100%;
 display: flex;
 justify-content: space-between;
 align-items: center;
- background: rgba(0, 0, 0, 0.659);
+background-color: var(--secondary-color);
+  color:var(--text-color);
  border-radius:5px;
 }
 .passwordInput svg{
   padding-right:10px;
-  color:#dfd
+  color:var(--text-color-secondary)
 }
 .passwordInput input{
   flex-grow:1;

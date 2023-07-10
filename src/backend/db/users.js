@@ -22,13 +22,13 @@ export const users = [
   },
   {
     _id: "11p1001362635su",
-    firstName: "Anu",
+    firstName: "Anushka",
     lastName: "Jaiswal",
     username: "anushka",
     password: "a1n2u3s4h5k6a7",
     bio: "Someone who knows the value of friendship and loves her peace of mind",
     website: "https://ajaisportfolio.netlify.app",
-    profileAvatar:"https://res.cloudinary.com/dt1leq0nd/image/upload/v1688291313/tweetopia/discord_ofxkjh.jpg",
+    profileAvatar: "https://res.cloudinary.com/dt1leq0nd/image/upload/v1688291313/tweetopia/discord_ofxkjh.jpg",
     backgroundImage:
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686847189/tweetopia/15618018448867-IM_Tom_Holland_Spiderman_im0mw0.jpg",
     createdAt: formatDate(),
@@ -205,7 +205,7 @@ export const users = [
     website: "viratKohliSharma.in",
     profileAvatar:
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1688805453/desktop-wallpaper-anushka-sharma-and-virat-kohli-wedding-virat-kohli_xsnc3m.jpg",
-    backgroundImage:"https://res.cloudinary.com/dt1leq0nd/image/upload/v1688805205/desktop-wallpaper-virat-kohli-rcb-ipl-virat-kohli-hair-style-virat-kohli-smile_znpyhh.jpg",
+    backgroundImage: "https://res.cloudinary.com/dt1leq0nd/image/upload/v1688805205/desktop-wallpaper-virat-kohli-rcb-ipl-virat-kohli-hair-style-virat-kohli-smile_znpyhh.jpg",
     createdAt: formatDate(),
     updatedAt: formatDate(),
     following: [],

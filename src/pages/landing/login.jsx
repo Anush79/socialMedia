@@ -2,6 +2,7 @@ import { useState } from "react";
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { useAuth } from "../../";
+import Header from "../../components/Header";
 import { dummyLoginData, testSignUpData } from "../../utils/constants";
 import { toast } from "react-toastify";
 import './login.css'
@@ -56,8 +57,12 @@ export default function Login() {
     return (
       <>
       <div className="loginContainer">
-        {/* <img src="\assets\loginbg.jpg" alt="" className="landingPageImage" /> */}
-        <div className="loginPage">
+      <div className="leftSide">
+        <img src="\assets\pexels-ketut-subiyanto-4132309.jpg" alt="" className="landingPageImage" />
+       
+      </div>
+      <div className="loginPage">
+       <Header/>
           <h3>Login Please</h3>
           <div className="loginForm">
             <form onSubmit={loginSubmitHandler}>
@@ -119,9 +124,13 @@ export default function Login() {
     );
   else
     return (
+      <div className="loginContainer">
+      <div className="leftSide">
+        <img src="\assets\pexels-ketut-subiyanto-4132309.jpg" alt="" className="landingPageImage" />
+       
+      </div>
       <div className="signupPage">
-      {/* <img src="\assets\loginbg.jpg" className="landingPageImage" alt="" /> */}
-
+      <Header/>
         <h3>Sign Up here</h3>
         <form onSubmit={signUpSubmitHandler} method="post">
           <input
@@ -211,6 +220,7 @@ export default function Login() {
             Login here
           </button>
         </form>
+      </div>
       </div>
     );
 }

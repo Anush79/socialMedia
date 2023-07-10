@@ -184,12 +184,13 @@ button {
   padding: 0.5rem;
   border: none;
   border-radius: 5px;
+
   font-size: 1rem;
   font-family: 'Ysabeau Infant', sans-serif;
 }
 form input,.textArea, textarea{
-  background-color: rgba(0, 0, 0, 0.659);
-  color:#ffffff
+  background-color: var(--secondary-color);
+  color:var(--text-color)
 }
 
 .header img{
@@ -206,6 +207,8 @@ button {
   font-weight: 600;
   border-top-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  min-width:70px;
+  min-height: 34px;
 }
 .clickableIcon {
   cursor: pointer;
@@ -246,4 +249,10 @@ label:hover{
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-color-secondary);
 
+}
+.likedislike{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

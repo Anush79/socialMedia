@@ -16,6 +16,7 @@ function goBack (){
   navigate(location?.state?.from?.pathname);
 else navigate("/home/feed", { replace: true });
 }
+console.log(foundPost)
 
   return (
     <div className="tweetsSection">
