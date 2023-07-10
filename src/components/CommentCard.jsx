@@ -5,7 +5,7 @@ import '../styles/comment.css'
 import {formatDateAgo} from '../utils/utilityFunctions'
 import UsersCard from "./UsersCard"
 import { DeleteForever } from '@mui/icons-material'
-export default function CommentCard({item}){
+export default function CommentCard({item, postId}){
 const {
 text,
 updatedAt,
@@ -66,7 +66,7 @@ const commentWriter = getUserByUsername(username)
        
        <div className="right">
         {
-           currentUser.username === username && <DeleteForever onClick ={deleteCommentFunction} className='clickableIcon delete'/> 
+           currentUser.username === username && <DeleteForever onClick ={(e)=>{ e.stopPropagation();deleteCommentFunction(postId, _id)}} className='clickableIcon delete'/> 
         }
        </div>
       </div>

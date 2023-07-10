@@ -26,7 +26,7 @@ export default function SingleTweet() {
     
       <h3>Comments</h3>
       {
-        foundPost?.comments.map(item => <CommentCard item={item}/>)
+        foundPost?.comments.map(item => <CommentCard item={item} postId={foundPost._id}/>)
       }
 
       {/* Liked by : 
