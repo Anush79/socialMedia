@@ -41,7 +41,9 @@ background-color: var(--secondary-color);
 }
 .passwordInput svg{
   padding-right:10px;
-  color:var(--text-color-secondary)
+  color:var(--text-color-secondary);
+  cursor :pointer;
+  
 }
 .passwordInput input{
   flex-grow:1;
