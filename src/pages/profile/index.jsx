@@ -144,7 +144,7 @@ export default function Profile() {
                   <LinkIcon />
                   {foundUserInDb?.website }
                 </small>
-              </NavLink> : "No website avaible"}
+              </NavLink> : "No website available"}
             </span>
 
             <p className="followCounts">

@@ -23,6 +23,8 @@ import TweetForm from "./NewTweetHandler";
 export default function TweetCard({ item, onPostDetails }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
+  const [openComment, setCommentOpen] = useState(false);
+  const [comment, setComment] = useState(false);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     event.stopPropagation();
@@ -31,6 +33,7 @@ export default function TweetCard({ item, onPostDetails }) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   const {
     getPostByIdFunction,
     likePostHandlerfunction,
@@ -38,6 +41,7 @@ export default function TweetCard({ item, onPostDetails }) {
     deletePostFunction,
     editPostFunction,
     getAllUserPostsHandlerFunction,
+    addCommentFunction,
   } = usePost();
   const {
     bookMarKPostFunction,
@@ -51,11 +55,11 @@ export default function TweetCard({ item, onPostDetails }) {
   const navigate = useNavigate();
   const location = useLocation();
 
-function goBack (){
-  if (location?.state?.from?.pathname)
-  navigate(location?.state?.from?.pathname);
-else navigate("/home/feed", { replace: true });
-}
+  function goBack() {
+    if (location?.state?.from?.pathname)
+      navigate(location?.state?.from?.pathname);
+    else navigate("/home/feed", { replace: true });
+  }
   const {
     _id,
     content,
@@ -88,7 +92,7 @@ else navigate("/home/feed", { replace: true });
         }}
         className="heading"
       >
-        <div className="cardTop clickableIcon" >
+        <div className="cardTop clickableIcon">
           <h3
             className="clickableIcon"
             onClick={(e) => {
@@ -202,8 +206,8 @@ else navigate("/home/feed", { replace: true });
             title="comment"
             role="button"
             onClick={(e) => {
-              e.stopPropagation();
-              toast.info("Feature to be added soon");
+              navigate(`/home/post/${_id}`);
+              setCommentOpen(!openComment);
             }}
           >
             <CommentIcon />
@@ -250,7 +254,6 @@ else navigate("/home/feed", { replace: true });
             </span>
           )}
 
-     
           {modalOpen && (
             <Modal
               status={modalOpen}
@@ -266,6 +269,44 @@ else navigate("/home/feed", { replace: true });
             </Modal>
           )}
         </div>
+
+        {onPostDetails && (
+          <div className="NewCommentSection">
+            <img
+              src={
+                currentUser?.profileAvatar?.length < 1
+                  ? `https://ui-avatars.com/api/?name=${currentUser.firstName}+${currentUser.lastName}`
+                  : currentUser?.profileAvatar
+              }
+              alt="avatar"
+            />
+            <input
+              type="text"
+              placeholder=" write your comment here..."
+              name="comment"
+              id="comment"
+              value={comment}
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
+              onChange={(e) => {
+                setComment(e.target.value);
+              }}
+            />
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                comment.trim().length > 0
+                  ? addCommentFunction(_id, comment)
+                  : toast.warn("Please write something");
+
+                  setComment("")
+              }}
+            >
+              Comment
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

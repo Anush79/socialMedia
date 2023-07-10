@@ -14,6 +14,13 @@ import {
   likePostHandlerService,
 } from "../services/postService";
 
+import {
+  getAllCommentsOfPostService,
+  addCommentService,
+  editCommentService,
+  deleteCommentService,
+} from "../services/commentService";
+
 import { actionTypes } from "../utils/constants";
 
 const PostContext = createContext();
@@ -24,14 +31,20 @@ export function PostProvider({ children }) {
     initialstate
   );
   const { token, currentUser } = useAuth();
-  const { GET_EVERY_POSTS, GET_SINGLE_POST,SORT_LATEST_POSTS, GET_ALL_POSTS_OF_USER } =
-    actionTypes;
+  const {
+    GET_EVERY_POSTS,
+    GET_SINGLE_POST,
+    SORT_LATEST_POSTS,
+    GET_ALL_POSTS_OF_USER,
+    ADD_NEW_COMMENT,
+    DELETE_COMMENT,
+    EDIT_COMMENT,
+  } = actionTypes;
 
   const getEveryPostinDb = async () => {
     try {
       const response = await getEveryPostService();
       postDispatch({ type: GET_EVERY_POSTS, payload: response.data.posts });
-
     } catch (error) {
       console.log(error);
     }
@@ -62,7 +75,7 @@ export function PostProvider({ children }) {
       const response = await likePostHandlerService(postId, token);
       postDispatch({ type: GET_EVERY_POSTS, payload: response.data.posts });
       getPostByIdFunction(postId);
-      toast.success("Liked the post",{autoClose: 800})
+      toast.success("Liked the post", { autoClose: 800 });
     } catch (error) {
       console.error(error);
       toast.error(error);
@@ -73,7 +86,7 @@ export function PostProvider({ children }) {
       const response = await dislikePostService(postId, token);
       postDispatch({ type: GET_EVERY_POSTS, payload: response.data.posts });
       getPostByIdFunction(postId);
-      toast.warn("Disliked the post",{autoClose: 800})
+      toast.warn("Disliked the post", { autoClose: 800 });
     } catch (error) {
       toast.error(error.response.data.errors[0]);
     }
@@ -104,22 +117,49 @@ export function PostProvider({ children }) {
 
   const editPostFunction = async (postId, postContent) => {
     try {
-      const response = await editPostService( postContent, token);
+      const response = await editPostService(postContent, token);
       if (response.status === 201) {
         toast.success("your Post edited Successfully");
         postDispatch({ type: GET_EVERY_POSTS, payload: response.data.posts });
-        getPostByIdFunction(postId)
-        getAllUserPostsHandlerFunction(postContent.username)
+        getPostByIdFunction(postId);
+        getAllUserPostsHandlerFunction(postContent.username);
       }
     } catch (error) {
       console.log(error);
+    }
+  };
+  
+  const addCommentFunction = async (postId, commentData)=>{
+    try{
+       const response  = await addCommentService(postId, commentData, token)
+       console.log(response)
+   
+       if (response?.status === 201) {
+        postDispatch({ type: GET_EVERY_POSTS, payload: response.data.posts });
+        toast.success("Comment added")
+      }
+    }catch(error){
+      toast.error("Something went wrong, try again")
+       console.error(error)
+    }
+  }
+  const deleteCommentFunction = async (postId, commentId) => {
+    try {
+      const response= await deleteCommentService(postId, commentId, token);
+      if (response.status === 201) {
+        postDispatch({ type: GET_EVERY_POSTS, payload: response.data.posts });
+        toast.success("Comment deleted.");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Something went wrong. Try again");
     }
   };
 
 
   useEffect(() => {
     getEveryPostinDb();
-  }, [token, allPosts.currentFilter]);
+  }, [token, allPosts?.currentFilter]);
 
   useEffect(() => {
     if (currentUser) getAllUserPostsHandlerFunction(currentUser.username);
@@ -137,6 +177,8 @@ export function PostProvider({ children }) {
         createPostFunction,
         postDispatch,
         editPostFunction,
+        addCommentFunction,
+        deleteCommentFunction,
       }}
     >
       {children}

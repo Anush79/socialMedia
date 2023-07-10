@@ -71,3 +71,23 @@ cursor:pointer;
 .filledIcon{
   color:var(--text-color-secondary)
 }
+.NewCommentSection{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.NewCommentSection input{
+  flex-grow: 1;
+  background-color: var(--primary-color);
+  border:none;
+  height: 33px;
+  padding-left:0.5rem;
+}
+.NewCommentSection img{
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  
+}
