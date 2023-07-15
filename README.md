@@ -2,7 +2,7 @@
 # Tweetopia
 
 Tweetopia is a Social Media App where you can create, like and share posts. 
-
+[Live link ](https://tweetopiaa.netlify.app/)
 
 ## How to run the app locally?
 
