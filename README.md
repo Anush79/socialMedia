@@ -1,7 +1,17 @@
-# Welcome to My Social Media application
+
+# Tweetopia
+
+Tweetopia is a Social Media App where you can create, like and share posts. 
 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## How to run the app locally?
+
+```js
+$ git clone https://github.com/Anush79/socialMedia.git
+$ cd socialMedia
+$ npm install
+$ npm start
+```
 
 ## Available Scripts
 
