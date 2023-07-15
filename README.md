@@ -12,7 +12,16 @@ $ cd socialMedia
 $ npm install
 $ npm start
 ```
+## Screens in this project
 
+- Authentication (Login, Signup) Pages
+- Profile Page
+- Feed Page
+- Explore Page
+- Bookmarks Page
+- User Search Page
+- Single Post Page
+- Error Page
 ## Available Scripts
 
 In the project directory, you can run:
