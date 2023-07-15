@@ -22,6 +22,12 @@ $ npm start
 - User Search Page
 - Single Post Page
 - Error Page
+
+## Screenshots
+<img width="960" alt="image" src="https://github.com/Anush79/socialMedia/assets/66175237/a341b832-dd0e-4e20-a661-04cac36bbd8f">
+<img width="960" alt="image" src="https://github.com/Anush79/socialMedia/assets/66175237/a7451a80-d254-4aab-857e-3a98495192ca">
+
+
 ## Available Scripts
 
 In the project directory, you can run:
