@@ -14,6 +14,7 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import ShareRoundedIcon from "@mui/icons-material/ShareRounded";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import Badge from '@mui/material/Badge';
 
 import { useAuth, usePost, useUser } from "../";
 import Modal from "../utils/Modal";
@@ -68,6 +69,7 @@ export default function TweetCard({ item, onPostDetails }) {
     createdAt,
     likes: { likeCount, likedBy },
     username,
+    comments,
   } = item;
   const openUserProfile = (item) => {
     getUserByIdFunction(item._id);
@@ -186,7 +188,9 @@ export default function TweetCard({ item, onPostDetails }) {
               }}
             >
               {" "}
+              <Badge badgeContent={likeCount} >
               <FavoriteOutlinedIcon />
+              </Badge>
             </span>
           ) : (
             <span
@@ -198,7 +202,9 @@ export default function TweetCard({ item, onPostDetails }) {
                 likePostHandlerfunction(_id, token);
               }}
             >
+               <Badge badgeContent={likeCount}>
               <FavoriteBorderOutlinedIcon />
+              </Badge>
             </span>
           )}
           <span
@@ -209,8 +215,9 @@ export default function TweetCard({ item, onPostDetails }) {
               navigate(`/home/post/${_id}`);
               setCommentOpen(!openComment);
             }}
-          >
+          > <Badge badgeContent={comments?.length}>
             <CommentIcon />
+            </Badge>
           </span>
           <span
             className="clickableIcon"

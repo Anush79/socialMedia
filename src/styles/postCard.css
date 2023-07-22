@@ -92,3 +92,12 @@ cursor:pointer;
   object-fit: cover;
   
 }
+
+
+.iconsOnPostCard > span.clickableIcon.filledIcon > span > span,
+ .iconsOnPostCard > span:nth-child(1) > span > span,
+.tweetCard > div > div.iconsOnPostCard > span:nth-child(2) > span > span{
+  background-color:var(--text-color-secondary);
+  color:black;
+  font-family: "Quicksand", sans-serif;
+}

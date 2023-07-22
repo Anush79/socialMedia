@@ -5,6 +5,7 @@ padding: 0.5rem;
 border-radius: 0.4rem;
 display: flex;
 flex-direction: column;
+padding-left: 1rem;
 }
 .commentContainer .userPP img{
   width:35px;
@@ -29,6 +30,9 @@ font-family: satisfy;
 .commenterProfile .right .delete:hover{
  color:#ff0000;
 }
+.right .delete{
+  font-size: 1rem;
+}
 .nameofCommenter{
   font-size: 0.9rem;
   display: flex;
@@ -45,5 +49,5 @@ font-family: satisfy;
   justify-content: flex-start;
 }
 .commentPart .timeOfPost{
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
