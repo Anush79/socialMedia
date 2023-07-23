@@ -13,7 +13,7 @@ html {
   --tertiary-color: #86898d;
   --text-color-secondary: #a598fd;
   --text-color: #650775;
-
+/*  */
 }
 ::selection {
   background-color: var(--text-color);

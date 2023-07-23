@@ -306,7 +306,6 @@ export default function TweetCard({ item, onPostDetails }) {
                 comment.trim().length > 0
                   ? addCommentFunction(_id, comment)
                   : toast.warn("Please write something");
-
                   setComment("")
               }}
             >

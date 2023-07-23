@@ -251,7 +251,7 @@ export const users = [
   {
     _id: "oss1000942607yq",
     firstName: "Rajiv",
-    lastName: "Hari Om Bhatia",
+    lastName: "Bhatia",
     password: "Khiladi123",
     username: "AkshayKumar",
     bio: "Padm shri awardee with 30 years of acting in over 100 films",

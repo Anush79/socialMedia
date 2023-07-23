@@ -92,5 +92,12 @@ export const colorSet = [
     "--text-color-secondary": "#f287ae",
     "--text-color": "#650775",
   },
+  {
+    "--primary-color": "#efefef",
+    "--secondary-color": "#c3dff8ee",
+    "--tertiary-color": "#959595",
+    "--text-color-secondary": "#4dafff",
+    "--text-color": "#004da4",
+  },
 
 ];
