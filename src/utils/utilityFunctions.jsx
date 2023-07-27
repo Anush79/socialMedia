@@ -38,7 +38,7 @@ export const formatDateAgo=(dateString) =>{
    }else if (minutesAgo > 0) {
       result = `${minutesAgo} minute${minutesAgo > 1 ? 's' : ''} ago`;
     } 
-    else if (secondsAgo > 0) {
+    else if (secondsAgo >= 0) {
       result = `${secondsAgo} second${secondsAgo > 1 ? 's' : ''} ago`;
     } 
    else {
