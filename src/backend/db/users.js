@@ -11,6 +11,7 @@ export const users = [
     lastName: "Balika",
     username: "adarshbalika",
     password: "adarshBalika123",
+    website:"https://adarshbalika.netlify.app",
     profileAvatar:
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686991791/tweetopia/_94b128e0-7598-45b2-850b-51e3be41973b_npzhwx.jpg",
     backgroundImage: "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686818124/sample.jpg",
@@ -65,7 +66,7 @@ export const users = [
         password: "AlisonTaylor",
         username: "SwiftTaylor",
         bio: "American singer-songwriter, I do genre-spanning discography, songwriting, and artistic reinventions",
-        website: "taylorswift.com",
+        website: "https://taylorswift.com",
         profileAvatar:
           "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686848190/tweetopia/191125_Taylor_Swift_at_the_2019_American_Music_Awards__cropped_rlydsg.png",
         backgroundImage:
@@ -112,7 +113,7 @@ export const users = [
     password: "TomHall123",
     username: "TomHall44",
     bio: "An amazing Spider Man, no Really :)",
-    website: "https://tomHolland.com",
+    website: "https://www.tomHolland.com",
     profileAvatar:
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686847139/tweetopia/download_pzswom.jpg",
     backgroundImage:
@@ -130,7 +131,7 @@ export const users = [
     password: "barackObama",
     username: "barackObama321",
     bio: "44th President of United States",
-    website: "https://barack_obama.com",
+    website: "https://www.barack_obama.com",
     profileAvatar:
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686846962/tweetopia/330px-Barack_Obama_tweeting_on_May_24__2012_in_response_to_hashtagged_questions_rviwx6.jpg",
     backgroundImage:
@@ -148,7 +149,7 @@ export const users = [
     password: "elonMusk001",
     username: "ElonMusk",
     bio: "Business Magnet and Owner of Twitter",
-    website: "https://elonmusk.com",
+    website: "https://www.elonmusk.com",
     profileAvatar:
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686847461/tweetopia/Elon_Musk_Royal_Society__crop2_y3bp6k.jpg",
     backgroundImage:
@@ -166,7 +167,7 @@ export const users = [
     password: "Ronaldo123",
     username: "RonaldoCristiano",
     bio: "Portuguese Professional Football Player",
-    website: "cristiano.ronaldo.com",
+    website: "https://www.cristiano.ronaldo.com",
     profileAvatar:
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686847955/tweetopia/Cristiano_Ronaldo_2018_ptlddm.jpg",
     backgroundImage:
@@ -184,7 +185,7 @@ export const users = [
     password: "AlisonTaylor",
     username: "SwiftTaylor",
     bio: "American singer-songwriter, I do genre-spanning discography, songwriting, and artistic reinventions",
-    website: "taylorswift.com",
+    website: "https://www.taylorswift.com",
     profileAvatar:
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686848190/tweetopia/191125_Taylor_Swift_at_the_2019_American_Music_Awards__cropped_rlydsg.png",
     backgroundImage:
@@ -202,7 +203,7 @@ export const users = [
     password: "KohliVirat123",
     username: "ViratKohli",
     bio: "Indian international cricketer and the former captain of the Indian national cricket team ",
-    website: "viratKohliSharma.in",
+    website: "https://www.viratKohliSharma.in",
     profileAvatar:
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1688805453/desktop-wallpaper-anushka-sharma-and-virat-kohli-wedding-virat-kohli_xsnc3m.jpg",
     backgroundImage: "https://res.cloudinary.com/dt1leq0nd/image/upload/v1688805205/desktop-wallpaper-virat-kohli-rcb-ipl-virat-kohli-hair-style-virat-kohli-smile_znpyhh.jpg",
@@ -219,7 +220,7 @@ export const users = [
     password: "GatesBill123",
     username: "Billgates_99",
     bio: "BusinessMan and Philanthropist",
-    website: "billandmelindagates.com",
+    website: "https://www.billandmelindagates.com",
     profileAvatar:
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686849538/tweetopia/download_u5bm2a.jpg",
     backgroundImage:
@@ -255,7 +256,7 @@ export const users = [
     password: "Khiladi123",
     username: "AkshayKumar",
     bio: "Padm shri awardee with 30 years of acting in over 100 films",
-    website: "",
+    website: "https://www.akshaykumar.com",
     profileAvatar:
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686850525/tweetopia/download_bhrtek.jpg",
     backgroundImage:
@@ -273,7 +274,7 @@ export const users = [
     password: "LovatoDemi1321",
     username: "DemiLovato",
     bio: " American singer, songwriter, and actress.",
-    website: "demi_lovato.com",
+    website: "https://demi_lovato.com",
     profileAvatar:
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686850825/tweetopia/Demi_Lovato_Interview_Feb_2020_cmiqay.png",
     backgroundImage:
@@ -315,7 +316,7 @@ export const users = [
     password: "DeepikaRanveer121",
     username: "deepikaRanveer",
     bio: "Indian actress who works predominantly in Hindi films,one of the highest-paid actresses in India",
-    website: "",
+    website: "https://www.deepikapadukone.com",
     profileAvatar:
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686851862/tweetopia/download_eqdrxf.jpg",
     backgroundImage:
@@ -333,7 +334,7 @@ export const users = [
     password: "ariana232Grande",
     username: "grandeariana",
     bio: "Singer, actor, model, BusinessWomen. currently somewhere over the rainbow",
-    website: "",
+    website: "https://www.arianagrande.com/",
     profileAvatar:
       "https://res.cloudinary.com/dt1leq0nd/image/upload/v1686852228/tweetopia/pjimage-1544144070_wpp7fc.jpg",
     backgroundImage:
