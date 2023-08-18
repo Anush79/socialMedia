@@ -1,19 +1,16 @@
 import { colorSet } from "../utils/constants";
-export default function Themechanger() {
-  const changeTheme = (index) => {
-    const root = document.documentElement;
-    Object.keys(colorSet[index]).forEach((colorKey) => {
-      root.style.setProperty(colorKey, colorSet[index][colorKey]);
-    });
-  };
+import { useUser } from "../context/userContext";
+import { useEffect } from "react";
 
+export default function Themechanger() {
+  const {themeHandler} = useUser()
   return (
     <><div>
       {colorSet?.map((item, index) => (
         <button
           key={index}
           style={{ background: item["--primary-color"], color:item["--text-color"]}}
-          onClick={() => changeTheme(index)}
+          onClick={() =>{themeHandler(index)} }
         >
           Color Set {index}
         </button>

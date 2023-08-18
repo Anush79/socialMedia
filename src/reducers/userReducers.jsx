@@ -4,9 +4,10 @@ export const userInitialState = {
   allUsersInDB: [],
   userWithId: {},
   booksMarks: [],
-  suggestedUsers: []
+  suggestedUsers: [],
+  theme: localStorage.getItem("selectedTheme") || 0
 }
-const { GET_ALL_USERS, GET_USER, GET_BOOKMARKS, GET_SUGGESTED_USER } = actionTypes;
+const { GET_ALL_USERS, GET_USER, GET_BOOKMARKS, GET_SUGGESTED_USER, REGISTER_THEME } = actionTypes;
 
 export const userReducerFunction = (state, action) => {
   const { type, payload } = action;
@@ -19,7 +20,9 @@ export const userReducerFunction = (state, action) => {
     case GET_BOOKMARKS:
       return { ...state, booksMarks: payload }
     case GET_SUGGESTED_USER:
-      return { ...state, suggestedUsers: payload }
+      return { ...state, suggestedUsers: payload };
+    case REGISTER_THEME:
+      return {...state, theme:payload }
     default:
       break;
   }
