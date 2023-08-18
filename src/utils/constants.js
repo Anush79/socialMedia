@@ -32,6 +32,7 @@ export const actionTypes = {
   ADD_NEW_COMMENT:"ADD_NEW_COMMENT",
   DELETE_COMMENT:"DELETE_COMMENT",
   EDIT_COMMENT:"EDIT_COMMENT",
+  REGISTER_THEME:"REGISTER_THEME",
 };
 
 export const colorSet = [
