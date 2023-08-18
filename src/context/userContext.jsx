@@ -166,7 +166,7 @@ useEffect(()=>{
   getSuggestedUsersArray();
 },[users?.allUsersInDB])
 useEffect(()=>{
-  changeTheme(localStorage.getItem("selectedTheme"))
+  changeTheme(localStorage.getItem("selectedTheme")?? 0)
 },[users.theme])
   return (
     <UserContext.Provider
