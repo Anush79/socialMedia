@@ -25,8 +25,8 @@ export default function SingleTweet() {
       {foundPost && <TweetCard item={foundPost} onPostDetails={true} />}
     
       <h3>Comments</h3>
-      {
-        foundPost?.comments.map(item => <CommentCard item={item} postId={foundPost._id}/>)
+      { foundPost?.comments.length >0?
+        foundPost?.comments.map(item => <CommentCard item={item} postId={foundPost._id}/>):<p>Be the first one to comment</p>
       }
 
       {/* Liked by : 

@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { toast } from "react-toastify";
 import { useAuth } from "../";
+import { colorSet } from "../utils/constants";
 import {
   userInitialState,
   userReducerFunction,
@@ -65,23 +66,6 @@ export function UserProvider({ children }) {
       toast.error(error.response.data.errors[0]);
     }
   };
-
-  // const getBookMarksFunction = async (encodedToken) => {
-  //   try {
-  //     console.log(encodedToken);
-
-  //     const response = await getAllBookmarksService(encodedToken);
-  //     console.log(response);
-  //     // usersDispatch({ type: GET_BOOKMARKS, payload: response.data.bookmarks });
-  //   } catch (error) {
-  //     if (error?.response?.status === 500) {
-  //       toast.error(error.response.data.error);
-  //     } else {
-  //       console.log(error);
-  //       // toast.error(error?.response?.data?.errors[0]);
-  //     }
-  //   }
-  // };
 
   const removeFromBookmarkFunction = async (postId) => {
     try {
@@ -161,6 +145,17 @@ export function UserProvider({ children }) {
       console.error(error);
     }
   };
+  const changeTheme = (index) => {
+    const root = document.documentElement;
+    Object.keys(colorSet[index]).forEach((colorKey) => {
+      root.style.setProperty(colorKey, colorSet[index][colorKey]);
+    });
+  };
+  const themeHandler=(index)=>{
+    usersDispatch({type:actionTypes.REGISTER_THEME, payload:index});
+    localStorage.setItem("selectedTheme", JSON.stringify(index))
+    changeTheme(users.theme)
+  }
 
   useEffect(() => {
     getAllUsersFunction();
@@ -170,10 +165,14 @@ useEffect(()=>{
   if(token)
   getSuggestedUsersArray();
 },[users?.allUsersInDB])
+useEffect(()=>{
+  changeTheme(localStorage.getItem("selectedTheme"))
+},[users.theme])
   return (
     <UserContext.Provider
       value={{
         users,
+
         getAllUsersFunction,
         bookMarKPostFunction,
         getUserByIdFunction,
@@ -185,6 +184,7 @@ useEffect(()=>{
         getSuggestedUsersArray,
         editUserProfileFunction,
         getUserByUsername,
+        themeHandler,
       }}
     >
       {children}

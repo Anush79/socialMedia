@@ -13,8 +13,8 @@ export default function Header (){
     navigate(`/home/profile/${item.username}/${item._id}`); 
   };
   return <>
-  <div className="headSection">
-      <h2 className="logo">Tweetopia</h2>
+  <div className="headSection hideInMobile">
+      <h2 className="logo ">Tweetopia</h2>
        {/* <img src={currentUser?.profileAvatar} alt="" width="45px" className='clickableLink ' onClick={openUserProfile} /> */}
   </div>
 
