@@ -13,7 +13,7 @@
     "axios": "^1.4.0",
     "dayjs": "^1.11.8",
     "emoji-picker-element": "^1.18.3",
-    "emoji-picker-react": "^4.4.9",
+    "emoji-picker-react": "^4.5.2",
     "jwt-decode": "^3.1.2",
     "jwt-encode": "^1.0.1",
     "miragejs": "^0.1.47",

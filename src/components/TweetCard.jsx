@@ -189,7 +189,7 @@ export default function TweetCard({ item, onPostDetails }) {
             >
               {" "}
               {/* <Badge badgeContent={likeCount} > */}
-              <FavoriteOutlinedIcon />{likeCount?? null}
+              <FavoriteOutlinedIcon /><small>{likeCount!==0 ? likeCount:null}</small>
               {/* </Badge> */}
             </span>
           ) : (
@@ -203,7 +203,7 @@ export default function TweetCard({ item, onPostDetails }) {
               }}
             >
                {/* <Badge badgeContent={likeCount}> */}
-              <FavoriteBorderOutlinedIcon /><small>{likeCount ?? null}</small>
+              <FavoriteBorderOutlinedIcon /><small>{likeCount !==0?likeCount: null}</small>
               {/* </Badge> */}
             </span>
 
@@ -219,7 +219,7 @@ export default function TweetCard({ item, onPostDetails }) {
             }}
           > 
           {/* <Badge badgeContent={comments?.length}> */}
-            <CommentIcon /><small>{comments?.length ?? null}</small>
+            <CommentIcon /><small>{comments?.length===0 ? null:comments?.length}</small>
             {/* </Badge> */}
           </span>
           <span

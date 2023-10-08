@@ -133,7 +133,6 @@ export function PostProvider({ children }) {
     try{
        const response  = await addCommentService(postId, commentData, token)
        console.log(response)
-   
        if (response?.status === 201) {
         postDispatch({ type: GET_EVERY_POSTS, payload: response.data.posts });
         toast.success("Comment added")
