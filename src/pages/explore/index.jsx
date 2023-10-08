@@ -5,11 +5,6 @@ export default function Explore(){
   const {allPosts}= usePost()
 
   const {currentUser} = useAuth()
-  
-  // const exploreData= allPosts?.allPostsInDB.filter(
-  //   (item)=>currentUser.following.every(person=> person.username!==item.username && currentUser.username!==item.username)
-  // )
-
 
   return <div className="explorePage">
 <h2 className="header">
@@ -25,7 +20,6 @@ export default function Explore(){
      allPosts?.allPostsInDB.length > 0 ?
      allPosts?.allPostsInDB.map(item => <TweetCard key={item.id} item={item} />) :
         "No post available"
-
     }
   </div>
   </div>

@@ -1,11 +1,10 @@
-import { useState } from "react";
 import Popover from "@mui/material/Popover";
-import { v4 as uuid } from "uuid";
 import EmojiPicker from "emoji-picker-react";
+import { useState } from "react";
+import { v4 as uuid } from "uuid";
 
 import { useAuth, usePost } from "../";
 import { formatDate } from "../backend/utils/authUtils";
-import { EmojiEmotions, EmojiEmotionsOutlined } from "@mui/icons-material";
 
 export default function TweetForm({
   setModalOpen,
@@ -126,6 +125,7 @@ export default function TweetForm({
       
       <small>* Video files are not supported for now</small>
       <button type="submit">Post</button>
+   
       <Popover
         id={"Popover for emoji icons"}
         open={openEmoji}
@@ -133,10 +133,10 @@ export default function TweetForm({
         onClose={handleCloseEmoji}
         anchorOrigin={{
           vertical: "bottom",
-          horizontal: "left",
+          horizontal: "center",
         }}
       >
-        <EmojiPicker onEmojiClick={onClickEmoji}></EmojiPicker>
+        <EmojiPicker onEmojiClick={onClickEmoji} searchPlaceholder={"cat face"}  height={400} width={300} />
       </Popover>
     </form>
   );

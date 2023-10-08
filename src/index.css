@@ -14,6 +14,11 @@ html {
   --text-color-secondary: #a598fd;
   --text-color: #650775;
 /*  */
+/* --primary-color: #f8ebdd;
+--secondary-color: #fbdb82;
+--tertiary-color: #6c6c6c;
+--text-color-secondary: #FF8811;
+--text-color: #745900; */
 }
 ::selection {
   background-color: var(--text-color);

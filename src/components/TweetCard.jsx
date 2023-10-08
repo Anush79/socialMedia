@@ -175,7 +175,7 @@ export default function TweetCard({ item, onPostDetails }) {
           <img src={mediaURL} alt={mediaAlt} className="postImage" />
         )}
         <p>{content}</p>
-        <p className="likesCount">likes:{likeCount}</p>
+        {/* <p className="likesCount">likes:{likeCount}</p> */}
         <div className="iconsOnPostCard">
           {isLikedByUser ? (
             <span
@@ -188,9 +188,9 @@ export default function TweetCard({ item, onPostDetails }) {
               }}
             >
               {" "}
-              <Badge badgeContent={likeCount} >
-              <FavoriteOutlinedIcon />
-              </Badge>
+              {/* <Badge badgeContent={likeCount} > */}
+              <FavoriteOutlinedIcon /><small>{likeCount!==0 ? likeCount:null}</small>
+              {/* </Badge> */}
             </span>
           ) : (
             <span
@@ -202,11 +202,13 @@ export default function TweetCard({ item, onPostDetails }) {
                 likePostHandlerfunction(_id, token);
               }}
             >
-               <Badge badgeContent={likeCount}>
-              <FavoriteBorderOutlinedIcon />
-              </Badge>
+               {/* <Badge badgeContent={likeCount}> */}
+              <FavoriteBorderOutlinedIcon /><small>{likeCount !==0?likeCount: null}</small>
+              {/* </Badge> */}
             </span>
+
           )}
+          
           <span
             className="clickableIcon"
             title="comment"
@@ -215,9 +217,10 @@ export default function TweetCard({ item, onPostDetails }) {
               navigate(`/home/post/${_id}`);
               setCommentOpen(!openComment);
             }}
-          > <Badge badgeContent={comments?.length}>
-            <CommentIcon />
-            </Badge>
+          > 
+          {/* <Badge badgeContent={comments?.length}> */}
+            <CommentIcon /><small>{comments?.length===0 ? null:comments?.length}</small>
+            {/* </Badge> */}
           </span>
           <span
             className="clickableIcon"

@@ -99,6 +99,8 @@ div.avatars  div.row0 label img{
     flex-direction: column;
   }
 .outer{
-  position:relative;
+  position: absolute;
+  top:-98%;
+  height: 100vh;
 }
 }

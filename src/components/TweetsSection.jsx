@@ -8,9 +8,7 @@ export default function TweetsSection() {
   const feedPosts = allPosts?.allPostsInDB?.filter(
     (item)=>currentUser.following.some(person=> person.username===item.username || currentUser.username === item.username)
   )
-  // useEffect(()=>{
-  //   window.scroll({ top: 0, behavior: "smooth" });
-  // },[])
+
   return <div className="tweetsSection">
     <WhatsNew />
     {

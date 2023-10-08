@@ -2,7 +2,7 @@ import LinkIcon from "@mui/icons-material/Link";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-
+import Modal from '@mui/material/Modal';
 import { useEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -10,12 +10,13 @@ import { toast } from "react-toastify";
 import { useAuth, usePost, useUser } from "../../";
 import TweetCard from "../../components/TweetCard";
 import UsersCard from "../../components/UsersCard";
-import Modal from "../../utils/Modal";
+// import Modal from "../../utils/Modal";
 import EditProfile from "./EditProfile";
 import "./profile.css";
 
 export default function Profile() {
   const [anchorEl, setAnchorEl] = useState(null);
+  const [editModalOpen , setEditModalOpen] = useState(false)
   const [toggleFollowList, setToggleFollowList] = useState("followers");
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -39,7 +40,6 @@ export default function Profile() {
   const navigate = useNavigate();
 
   const isLoggedUser = paramUsername === currentUser?.username;
-  // const foundUserInDb = isLoggedUser ?  allUsersInDB.find((person) => person.username === paramUsername):userWithId;
   const foundUserInDb = isLoggedUser
     ? currentUser
     : allUsersInDB.find((person) => person?.username === paramUsername) ||
@@ -230,14 +230,16 @@ export default function Profile() {
 
             {isLoggedUser && (
               <Modal
-                status={modalOpen}
-                setCloseModal={setModalOpen}
-                modalText="Edit Profile"
+              open={editModalOpen}
+        onClose={setEditModalOpen}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+               
               >
                 <EditProfile
                   user={currentUser}
-                  modalOpen={modalOpen}
-                  setModalOpen={setModalOpen}
+                  modalOpen={editModalOpen}
+                  setModalOpen={setEditModalOpen}
                 />
               </Modal>
             )}
@@ -255,6 +257,7 @@ export default function Profile() {
               : "No post available"}
           </div>
         </div>
+        
       </div>
     );
 }
