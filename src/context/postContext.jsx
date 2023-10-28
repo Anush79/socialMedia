@@ -75,7 +75,6 @@ export function PostProvider({ children }) {
       const response = await likePostHandlerService(postId, token);
       postDispatch({ type: GET_EVERY_POSTS, payload: response.data.posts });
       getPostByIdFunction(postId);
-      toast.success("Liked the post", { autoClose: 800 });
     } catch (error) {
       console.error(error);
       toast.error(error);
@@ -86,7 +85,6 @@ export function PostProvider({ children }) {
       const response = await dislikePostService(postId, token);
       postDispatch({ type: GET_EVERY_POSTS, payload: response.data.posts });
       getPostByIdFunction(postId);
-      toast.warn("Disliked the post", { autoClose: 800 });
     } catch (error) {
       toast.error(error.response.data.errors[0]);
     }
